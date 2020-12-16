@@ -17,7 +17,8 @@
 * Array: Collection of similar data elements.
 * Pointer: stores address of data! not data itself
 ---
-#### Physical data structures: Arrays, Metrices, Linked List -> They define how the data is organized in the memory 
+#### Physical data structures: Arrays, Metrices, Linked List
+> They define how the data is organized in the memory 
   - Array
     - Has fixed (static) size
     - Can be allocated in heap or in stack.
@@ -25,7 +26,8 @@
      - Has dynamic size
      - Always created in the **heap!** (head pointer can be in stack)
      
-#### Logical data structures: Stack, Queues, Trees, Graph, Hash Tables -> They define how the data can be utilized, how the arrangment is and how it should be utilized.
+#### Logical data structures: Stack, Queues, Trees, Graph, Hash Tables 
+>They define how the data can be utilized, how the arrangment is and how it should be utilized.
 - Stack (Linear) --> LIFO
    - Last in first out
 - Queue (Linear)
@@ -37,11 +39,8 @@
 * Pass/call by address: Any changes is done inside a function will modify actual parameters.
 *Arrays cannot be passed by value. They always passsed by address. 
 
-
-
-
-
-** STACK VS HEAP MEMORY: 
+---
+### STACK VS HEAP MEMORY: 
 
 * Static memory allocation: means, that the memory for your variables is allocated **when the (actuallly before the) program starts.** The size is **fixed** when the program is created. It applies to global variables, file scope variables, and variables qualified with static defined inside functions.
 * Dynamic memory allocation: You now control the exact size and the lifetime of these memory locations. If you don't free it, you'll run into **memory leaks**, which may cause your application to crash, since at some point of time, system cannot allocate more memory.
@@ -59,7 +58,6 @@
   - Data that pointer points to will be allocated in the heap. ```p = new int[5]```)//takes 10 or 20 bytes (depends on the compiler)
   - ```p = NULL;``` --> this doesn't clear the heap!!
   - ```delete []p;``` --> will clear the heap.
-
 
 
  - A static object gets its memory pre-allocated before runtime, so if you define a static object to have an array 
