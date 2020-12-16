@@ -10,7 +10,7 @@
 * Pointer: stores address of data! not data itself
 
 * Physical data structures: Arrays, Metrices, Linked List -> They define how the data is organized in the memory 
-	** Array
+  - Array
 		Has fixed (static) size
 		Can be allocated in heap or in stack.
 	** Linked list
