@@ -10,7 +10,7 @@
 
 * C doesn't have built-in data structures. C is a subset of C++. 
 
-Program doesn't directly access to heap memory, but we can access to heap memory using pointers 
+Programs doesn't directly access to heap memory, but we can access to heap memory using pointers 
 Whenever you declare something, that definitely allocates memory in stack and then we can access to heap memory using pointers.
 Size of pointer takes 8 bytes in latest compilers (64 bit machines), but it used to take 4 bytes
 
