@@ -13,7 +13,7 @@
   - Array
 		Has fixed (static) size
 		Can be allocated in heap or in stack.
-	** Linked list
+  - Linked list
 		Has dynamic size
 		ALWAYS CREATED IN HEAP! (head pointer can be in stack)
 * Logical data structures: Stack, Queues, Trees, Graph, Hash Tables -> They define how the data can be utilized, how the arrangment is and how it should be utilized.
