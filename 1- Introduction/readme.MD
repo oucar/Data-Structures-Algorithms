@@ -35,7 +35,7 @@
 >They define how the data can be utilized, how the arrangment is and how it should be utilized.
 >They are implemented **using physical data structures!** 
 - Stack (Linear) --> LIFO
-- Queue (Linear) ---> FIFO
+- Queue (Linear) --> FIFO
 - Tree (Non-linear) 
 - Graph (Non-linear)
 - Hash Table (Tabular)
