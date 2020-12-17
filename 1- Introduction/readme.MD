@@ -10,8 +10,8 @@
 *  Modular programming / Procedural: Using functions
 * Monolithic Programming: Everything inside the main function, not easy to develop
 ---
-* Members of STRUCT: Public by default!
-* Members of Class: Private by default!
+* Members of STRUCT: Public by default
+* Members of Class: Private by default
 ---
 * Pass/call by value: Any changes are done to formal parameters will not reflect in actual parameters.
 * Pass/call by address: Any changes is done inside a function will modify actual parameters.
