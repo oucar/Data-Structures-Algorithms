@@ -105,8 +105,8 @@ https://i.imgur.com/sh9wysY.jpg)
 
 > Reminders
 
-:star: [Array](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/array.cpp)
-:star: [Structure](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/structure.cpp)
+:star: [Array](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/array.cpp)<br>
+:star: [Structure](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/structure.cpp)<br>
 :star: [Pointer](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/pointer.cpp)
 :star: [Reference](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/reference.cpp)
 :star: [Pointer to Structure](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/pointerToStructure.cpp)
