@@ -1,4 +1,5 @@
 
+
 * Data structures: The way you organize the data during execution time in your program.
 * Database: Arranging the data in some relational model in a permanent storage.
 * Big Data: Storing and analyzing huge amount of data.
@@ -11,6 +12,10 @@
 ---
 * Members of STRUCT: Public by default!
 * Members of Class: Private by default!
+---
+* Pass/call by value: Any changes are done to formal parameters will not reflect in actual parameters.
+* Pass/call by address: Any changes is done inside a function will modify actual parameters.
+* Arrays cannot be passed by value. They always passsed by address. 
 ---
 * Program: Set of instructions which performs operations on data.
 * Structure: Collection of related (similar) data members under one name.
@@ -28,19 +33,15 @@
      
 #### Logical data structures: Stack, Queues, Trees, Graph, Hash Tables 
 >They define how the data can be utilized, how the arrangment is and how it should be utilized.
+>They are implemented **using physical data structures!** 
 - Stack (Linear) --> LIFO
-   - Last in first out
-- Queue (Linear)
-- Tree (Non-linear)
+- Queue (Linear) ---> FIFO
+- Tree (Non-linear) 
 - Graph (Non-linear)
 - Hash Table (Tabular)
----
-* Pass/call by value: Any changes are done to formal parameters will not reflect in actual parameters.
-* Pass/call by address: Any changes is done inside a function will modify actual parameters.
-*Arrays cannot be passed by value. They always passsed by address. 
 
 ---
-### STACK VS HEAP MEMORY: 
+## STACK VS HEAP MEMORY: 
 
 * Static memory allocation: means, that the memory for your variables is allocated **when the (actuallly before the) program starts.** The size is **fixed** when the program is created. It applies to global variables, file scope variables, and variables qualified with static defined inside functions.
 * Dynamic memory allocation: You now control the exact size and the lifetime of these memory locations. If you don't free it, you'll run into **memory leaks**, which may cause your application to crash, since at some point of time, system cannot allocate more memory.
@@ -59,16 +60,63 @@
   - ```p = NULL;``` --> this doesn't clear the heap!!
   - ```delete []p;``` --> will clear the heap.
 
-
  - A static object gets its memory pre-allocated before runtime, so if you define a static object to have an array 
 of length 5, its length cannot be changed at runtime. A dynamic object gets it memory allocated at runtime, thus you need to use a pointer to 
 address it as it was not is.
-
 - Main memory divided into segments and we usually assume that they are 64 kb each.
-
 - Programs doesn't directly access to heap memory, but we can access to heap memory using pointers 
 - Whenever you declare something, that definitely allocates memory in stack and then we can access to heap memory using pointers.
 -  Destructors are used when dynamic memory is used. (Array, pointer etc)
 - Size of pointer takes 8 bytes in latest compilers (64 bit machines), but it used to take 4 bytes
 
+---
+## ADT - Abstract Data Type
+
+* Data Type: Representation of data, operations on data
+  * Allowed operations on integer: +,-,/,//,%,++,--
+* Abstract: Hiding internal details **(You don't need to know how above operations are performed) **
+* Abstract Data Type:  type (or class) for objects whose behaviour is defined by a set of value and a set of operations.
+* Primitive Data Types: boolean, char, int, long, float...
+* Non-Primitive Data Types: string, array... 
+
+
+### Example: List ADT
+
+List -> 8,3,9,4,6,10,12
+
+  Things you need to have above list in your program:
+* Data: 
+	* Space for storing elements
+	* Capacity: Maximum allowed size
+	* Size: Current size of the list
+* Operations: 
+	* Adding ```add(x)```
+	* Removing ```remove(x)```
+	* Search ```find(x)```
+		...
+---
+## Time and Space Complexity
+
+
+![Time and Space Complexity Cheat Sheet](
+https://i.imgur.com/sh9wysY.jpg)
+
+---
+
+> Reminders
+
+:star: [Array](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/array.cpp)
+:star: [Structure](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/structure.cpp)
+:star: [Pointer](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/pointer.cpp)
+:star: [Reference](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/reference.cpp)
+:star: [Pointer to Structure](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/pointerToStructure.cpp)
+:star: [Functions](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/functions.cpp)
+:star: [Parameter Passing Methods](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/parameterPassingMethods.cpp)
+:star: [Array as Parameter](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/arrayAsParameter.cpp)
+:star: [Structure as Parameter](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/structureAsParameter.cpp)
+:star: [Structures and Functions](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/structuresAndFunctions.cpp)
+:star: [Object Oriented Programming - 1](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/OOP.cpp)
+:star: [Object Oriented Programming - 2](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/OOP_more.cpp)
+:star: [C-LANG to C++](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/cToCpp.cpp)
+:star: [Templates](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/templates.cpp)
 
