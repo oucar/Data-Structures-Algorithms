@@ -107,16 +107,16 @@ https://i.imgur.com/sh9wysY.jpg)
 
 :star: [Array](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/array.cpp)<br>
 :star: [Structure](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/structure.cpp)<br>
-:star: [Pointer](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/pointer.cpp)
-:star: [Reference](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/reference.cpp)
-:star: [Pointer to Structure](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/pointerToStructure.cpp)
-:star: [Functions](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/functions.cpp)
-:star: [Parameter Passing Methods](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/parameterPassingMethods.cpp)
-:star: [Array as Parameter](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/arrayAsParameter.cpp)
-:star: [Structure as Parameter](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/structureAsParameter.cpp)
-:star: [Structures and Functions](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/structuresAndFunctions.cpp)
-:star: [Object Oriented Programming - 1](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/OOP.cpp)
-:star: [Object Oriented Programming - 2](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/OOP_more.cpp)
-:star: [C-LANG to C++](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/cToCpp.cpp)
-:star: [Templates](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/templates.cpp)
+:star: [Pointer](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/pointer.cpp)<br>
+:star: [Reference](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/reference.cpp)<br>
+:star: [Pointer to Structure](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/pointerToStructure.cpp)<br>
+:star: [Functions](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/functions.cpp)<br>
+:star: [Parameter Passing Methods](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/parameterPassingMethods.cpp)<br>
+:star: [Array as Parameter](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/arrayAsParameter.cpp)<br>
+:star: [Structure as Parameter](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/structureAsParameter.cpp)<br>
+:star: [Structures and Functions](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/structuresAndFunctions.cpp)<br>
+:star: [Object Oriented Programming - 1](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/OOP.cpp)<br>
+:star: [Object Oriented Programming - 2](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/OOP_more.cpp)<br>
+:star: [C-LANG to C++](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/cToCpp.cpp)<br>
+:star: [Templates](https://github.com/oucar/Data-Structures-Algorithms/blob/master/1-%20Introduction/templates.cpp)<br>
 
