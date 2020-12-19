@@ -7,35 +7,6 @@
 * Loops have only calling (ascending) phase.
 
 
-```
-//Prints and then calls
-
-void fun(int n){
-	if(n>0){
-		std::cout << n;
-		fun(n-1);
-	}	
-}
-
-//Output: 321
-```
-
-
-```
-//Calls the prints
-
-void fun(int n){
-	if(n>0){
-		fun(n-1);
-		std::cout << n;
-	}	
-}
-
-//Output: 1 2 3
-```
-
-
-
 > Codes
 
 :star: [Tracing]()<br>
