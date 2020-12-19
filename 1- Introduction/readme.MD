@@ -47,9 +47,10 @@
 * Dynamic memory allocation: You now control the exact size and the lifetime of these memory locations. If you don't free it, you'll run into **memory leaks**, which may cause your application to crash, since at some point of time, system cannot allocate more memory.
 
 * Stack Memory:  
-  - When you declare a variable, their memory will be allocated in the stack. (AKA Activasion record) --> Static memory allocation
-  - Actision record for function's variables will be removed from the stack when you no longer call those functions.
-  - Data (Activasion Record) you allocated first will be on the bottom, most recently created on the top. Starts deleting from top to bottom. --> This is why it's called stack.
+  - When you declare a variable, their memory will be allocated in the stack. (AKA Activation record) --> Static memory allocation
+  - Activasion record will be created whenever you declare a variable or call a function.
+ Actision record for function's variables will be removed from the stack when you no longer call those functions.
+  - Data (Activation Record) you allocated first will be on the bottom, most recently created on the top. Starts deleting from top to bottom. --> This is why it's called stack.
   - Computer scientists don't deal with memory allocation.
 * Heap Memory: 
   - Stack memory is organized, heap memory is unorganized.
