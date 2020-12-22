@@ -1,6 +1,6 @@
 
 
-### Recursion 
+## Recursion 
 
 * Recursive functions call themselves. 
 * Tracing: Graphing recursion using tree structure. (AKA: **Tracing tree of a recursive function**)
@@ -44,8 +44,35 @@ void func(int n) {		 // i(n)
 * If you use ```return func(n-1) + n;```, a new integer ```n``` will be created everytime you call ```func(n-1)```. So, use ```static int``` and increment or decrement it. Check "Static and Global Variables in Recursion"
 	*  Static variables declared in functions, global variables declared outside of the function but they both function same. They will be created in code section.
 
+---
+### Types of Recursion
+* **Tail**: Recursive function that calls itself, but that call is the **last statement of the function.** There MUST be nothing after the recursive function call.
 
-
+	* Everything will be called in **calling time**. 
+	* Nothing will be called in ~~returning time~~.
+	* Can easily be converted to loop.
+		* But for ```n = 3```, recursion will create 4 activasion records (Space complexity: Order of n) in the stack. Altough a loop only creates 1 activasion record (Space complexity: Order of 1). 
+		* So, a loop is more efficient than a tail recursion.
+```cpp
+   //...
+	 func(n-1);     // tail recursion 
+	 func(n-1) + n; //not a tail recursion
+   //...
+```
+	
+	
+* **Head**: Recursive function that calls itself, but that call is the **first statement of the function.** There MUST be nothing before the recursive function call.
+	* Everything will be called in **returning time.**
+	* Nothing will be called in ~~calling time.~~
+	* It **cannot be easily** converted to a loop.	
+* **Tree**: [Check this](https://i.imgur.com/UI2haOK.png)<br> 
+	* Linear Recursion: Recursive function that calls itself one time.
+	* Tree Recursion: Recursive function that calls itself **more than one time.**
+	* **Time: O(2^n)**
+	* Space: O(n)
+* **Indirect**: More than one section calling **each other (circularly).**
+* **Nested**: Will **pass the parameter as recursive call.**
+	*  Recursion inside a recursion.
 
 ---
 
@@ -53,3 +80,13 @@ void func(int n) {		 // i(n)
 
 :star: [Tracing]()<br>
 :star: [Static and Global Variables in Recursion!!]()<br>
+:star: [Tree Recursion]()<br>
+:star: [Indirect Recursion]()<br>
+:star: [Nested Recursion]()<br>
+
+---
+> Challenges
+
+:star: [Sum of Natural Numbers]()<br>
+:star: [Factorial of a Given Number]()<br>
+:star: [Power: n^m]()<br>
