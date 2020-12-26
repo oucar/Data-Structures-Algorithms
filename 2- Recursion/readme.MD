@@ -75,7 +75,9 @@ void func(int n) {		 // i(n)
 	*  Recursion inside a recursion.
 
 ---
-
+**Excessive Recursion** : If a function calls itself for same values, this function called excessive recursion. **FIBONACCI**
+**Reference and Recursion** : https://ibb.co/DWr4P7t
+---
 > Codes
 
 :star: [Tracing]()<br>
@@ -90,3 +92,8 @@ void func(int n) {		 // i(n)
 :star: [Sum of Natural Numbers]()<br>
 :star: [Factorial of a Given Number]()<br>
 :star: [Power: n^m]()<br>
+:star: [Taylor Series]()<br>
+:star: [Fibonacci]()<br>
+:star: [nCr]()<br>
+:star: [Tower of Hanoi]()<br>
+
