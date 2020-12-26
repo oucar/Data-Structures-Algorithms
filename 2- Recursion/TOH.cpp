@@ -4,7 +4,7 @@
 */
 
 /*
-	n : number of discs
+	n : number of disks
 	A : Source Tower
 	B : Helper Tower
 	C : Destination Tower
