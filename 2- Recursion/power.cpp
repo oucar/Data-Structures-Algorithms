@@ -1,7 +1,7 @@
 /* Challenge: Power of Given Number 
 	multiplying m, n times
 
-	2^5 = 2*2*2*2*2 
+	2^5 = 2*2*2*2*2 --> 2^4*2
 	power(m,n) = m*m*m*m.....*(n-1)*m
 	power(m,n) = power(m,n-1)*m
 */
