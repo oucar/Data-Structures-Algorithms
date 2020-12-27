@@ -1,6 +1,6 @@
 
 
-* Data structures: The way you organize the data during execution time in your program.
+* Data structures: Data organization, management, and storage format that enables efficient access and modification. More precisely, a data structure is a collection of data values, the relationships among them, and the functions or operations that can be applied to the data.
 * Database: Arranging the data in some relational model in a permanent storage.
 * Big Data: Storing and analyzing huge amount of data.
 
