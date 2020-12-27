@@ -30,9 +30,9 @@ int A[n];
 ---
 > Codes
 
-:star: [Declaration - Static, Dynamic]()<br>
-:star: [Increasing the size of an array (Copying its elements)]()<br>
-:star: [2 Dimensional Array )]()<br>
+:star: [Declaration - Static, Dynamic](https://github.com/oucar/Data-Structures-Algorithms/blob/master/3-%20Array%20Representations/declaration.cpp)<br>
+:star: [Increasing the size of an array (Copying its elements)](https://github.com/oucar/Data-Structures-Algorithms/blob/master/3-%20Array%20Representations/increasing.cpp)<br>
+:star: [2 Dimensional Array )](https://github.com/oucar/Data-Structures-Algorithms/blob/master/3-%20Array%20Representations/2d.cpp)<br>
 
 
 ---

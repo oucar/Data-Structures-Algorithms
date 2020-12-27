@@ -1,5 +1,6 @@
 
 
+
 ## Recursion 
 
 * Recursive functions call themselves. 
@@ -75,25 +76,25 @@ void func(int n) {		 // i(n)
 	*  Recursion inside a recursion.
 
 ---
-**Excessive Recursion** : If a function calls itself for same values, this function called excessive recursion. **FIBONACCI**
+* **Excessive Recursion** : If a function calls itself for same values, this function called excessive recursion. **FIBONACCI**
 **Reference and Recursion** : https://ibb.co/DWr4P7t
 ---
 > Codes
 
-:star: [Tracing]()<br>
-:star: [Static and Global Variables in Recursion!!]()<br>
-:star: [Tree Recursion]()<br>
-:star: [Indirect Recursion]()<br>
-:star: [Nested Recursion]()<br>
+:star: [Tracing](https://github.com/oucar/Data-Structures-Algorithms/blob/master/2-%20Recursion/tracing.cpp)<br>
+:star: [Static and Global Variables in Recursion!!](https://github.com/oucar/Data-Structures-Algorithms/blob/master/2-%20Recursion/staticAndGlobal.cpp)<br>
+:star: [Tree Recursion](https://github.com/oucar/Data-Structures-Algorithms/blob/master/2-%20Recursion/treeRecursion.cpp)<br>
+:star: [Indirect Recursion](https://github.com/oucar/Data-Structures-Algorithms/blob/master/2-%20Recursion/nestedRecursion.cpp)<br>
+:star: [Nested Recursion](https://github.com/oucar/Data-Structures-Algorithms/blob/master/2-%20Recursion/indirectRecursion.cpp)<br>
 
 ---
 > Challenges
 
-:star: [Sum of Natural Numbers]()<br>
-:star: [Factorial of a Given Number]()<br>
-:star: [Power: n^m]()<br>
-:star: [Taylor Series]()<br>
-:star: [Fibonacci]()<br>
-:star: [nCr]()<br>
-:star: [Tower of Hanoi]()<br>
+:star: [Sum of Natural Numbers](https://github.com/oucar/Data-Structures-Algorithms/blob/master/2-%20Recursion/sumNatural.cpp)<br>
+:star: [Factorial of a Given Number](https://github.com/oucar/Data-Structures-Algorithms/blob/master/2-%20Recursion/factorial.cpp)<br>
+:star: [Power: n^m](https://github.com/oucar/Data-Structures-Algorithms/blob/master/2-%20Recursion/power.cpp)<br>
+:star: [Taylor Series](https://github.com/oucar/Data-Structures-Algorithms/blob/master/2-%20Recursion/taylorSeries.cpp)<br>
+:star: [Fibonacci](https://github.com/oucar/Data-Structures-Algorithms/blob/master/2-%20Recursion/fibonacci.cpp)<br>
+:star: [nCr](https://github.com/oucar/Data-Structures-Algorithms/blob/master/2-%20Recursion/nCr.cpp)<br>
+:star: [Tower of Hanoi](https://github.com/oucar/Data-Structures-Algorithms/blob/master/2-%20Recursion/TOH.cpp)<br>
 
