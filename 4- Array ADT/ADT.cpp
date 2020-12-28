@@ -70,7 +70,7 @@ int main() {
 	std::cout << "Array size: ";
 	std::cin >> arr.size;
 
-	arr.A = new int[arr.size+1];			// Declaring the array
+	arr.A = new int[arr.size+1];				// Declaring the array
 	arr.length = 0;
 
 	append(&arr,5);						// Append						-> O(1)
@@ -78,7 +78,7 @@ int main() {
 	append(&arr, 14);					// Append 
 	append(&arr, 15);					// Append 
 	append(&arr, 16);					// Append 
-	insert(&arr, 41, 4);				// insert						-> O(n) 
+	insert(&arr, 41, 4);					// insert						-> O(n) 
 	remove(&arr, 4);					// Deleting						-> O(n)
 
 
