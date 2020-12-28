@@ -1,32 +1,43 @@
-/* It's impossible to incerase an array's size, but we can use below trick. */
+/* Linear Search */
 #include <iostream>
 
-int main() {
+struct Array{
 
-	int* p = new int[5];
-	p[0] = 1;
-	p[1] = 2;
-	p[2] = 3;
-	p[3] = 4;
-	p[4] = 5;
+	int A[10];
+	int size;
+	int length;
 
+};
 
-	int* q = new int[10];						//New array with increased size.
-
-
-	for (int i = 0; i < 5; i++)
-		q[i] = p[i];							//Copying its values to the new array.
-
-
-	delete[]p;									//Deleting the old array from the heap
-	p = q;										//p points to the new array with increased size.
-	q = NULL;									//q points to nothing.
-
-
-	for (int j = 0; j < 10; j++)
-		std::cout << p[j] << " ";			    //Notice the garbage values!
-
-	return 0;
+void Display(struct Array arr)
+{
+	for (int i = 0; i < arr.length; i++)	// Printing elements
+		std::cout << "\nA[" << i << "] = " << arr.A[i] << std::endl;
 }
 
 
+void swap(int* x, int* y){
+	int temp = *x;
+	*x = *y;
+	*y = temp;
+}
+
+
+int LinearSearch(struct Array* arr, int key){	//For transposition
+
+	for (int i = 0; i < arr->length; i++){
+		if (key == arr->A[i]){
+			swap(&arr->A[i], &arr->A[i-1]);
+			return i;
+		}
+	}
+	return -1;
+}
+
+int main(){
+
+	struct Array arr1 = { {2, 23, 14, 5, 6, 9, 8, 12}, 10, 8 };
+	std::cout << LinearSearch(&arr1, 23);
+	Display(arr1);
+	return 0;
+}
