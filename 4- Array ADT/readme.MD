@@ -81,6 +81,21 @@ B = new int[size]
 		total = total + A[i]
 	return total/n;
 	```
+---
+* Merging can only be done in sorted list!
+*
+	```cpp
+	//Returning a struct:
+	struct Array* merge(){
+	
+		struct Array* arrMerged;
+		arrMerged = new Array;
+		arrMerged->length = (arr1->length + arr2->length);
+		arrMerged->size = 10;
+		return arrMerged;
+	}
+	```
+---
 > Challenges
 
 :star: [Array ADT - **CLANG**]()<br>
@@ -89,6 +104,6 @@ B = new int[size]
 :star: [Get(), Set(), Avg(), Max(), Min(), Sum()]()<br>
 :star: [Reversing and Shifting **TODO:** Shifting]()<br>
 :star: [Check If an Array is Sorted and MORE!]()<br>
-:star: [Merging an Array]()<br>
+:star: [Merging an Array (returning a struct!)]()<br>
 
 
