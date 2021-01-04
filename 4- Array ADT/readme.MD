@@ -1,6 +1,7 @@
 
 
 
+
 ## Array ADT 
 * ADT = Representation of data + Operations
   *  Append - at the end of the list. 
@@ -105,5 +106,13 @@ B = new int[size]
 :star: [Reversing and Shifting **TODO:** Shifting]()<br>
 :star: [Check If an Array is Sorted and MORE!]()<br>
 :star: [Merging an Array (returning a struct!)]()<br>
+:star: [Finding a Single Missing Element]()<br>
+:star: [Finding Multiple Missing Elements]()<br>
+:star: [Finding Duplicates in a Sorted Array]()<br>
+:star: [Finding Duplicates in a Sorted Array using **HASHING**]()<br>
+:star: [Finding Duplicates in an Unorted Array]()<br>
+:star: [Finding a Pair of Elements with Sum of K in a Sorted Array]()<br>
+:star: [Finding Max and Min in a Single Scan]()<br>
+
 
 
