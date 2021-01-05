@@ -65,11 +65,11 @@ void Array::insert(int index, int x) {                                          
 
 }
 
-void Array::remove(int index){                                                          // Remove
+void Array::remove(int index) {                                                          // Remove
 
-    if(index >= 0 && index <= length){
-        for(int i = index; i<length; i++)                                               // will be shifted backwards
-            A[i] = A[i+1];
+    if (index >= 0 && index <= length) {
+        for (int i = index; i < length; i++)                                               // will be shifted backwards
+            A[i] = A[i + 1];
 
         length--;
     }
@@ -125,46 +125,66 @@ int Array::recursiveBinarySearch(int key, int low, int high) {                  
         else if (key < A[mid])
             return recursiveBinarySearch(key, low, mid - 1);
 
-        else return recursiveBinarySearch(key, mid + 1,  high);
+        else return recursiveBinarySearch(key, mid + 1, high);
     }//end if
 };
 
-//                               MAX, MIN, SUM, AVG                               //
+//                               MAX, MIN, SUM, AVG                                 //
 
-
-int Array::max(){
+int Array::max() {                                                                   // Max
 
     int max = A[0];
-    for(int i = 0; i < length; i++)
-        if(A[i] > max) {
+    for (int i = 0; i < length; i++)
+        if (A[i] > max) {
             max = A[i];
         }
     return max;
 };
 
-int Array::min(){
+int Array::min() {                                                                   // Min
 
     int min = A[0];
-    for(int i = 0; i< length; i++)
-        if(A[i] < min ) {
+    for (int i = 0; i < length; i++)
+        if (A[i] < min) {
             min = A[i];
         }
-    return  min;
+    return min;
 
 };
 
-int Array::sum(){
+int Array::sum() {                                                                   // Sum
 
     int sum = 0;
 
-    for(int i = 0; i<length; i++)
+    for (int i = 0; i < length; i++)
         sum += A[i];
 
     return sum;
 };
 
-float Array::average(){
+float Array::average() {                                                             // Average
 
-    return sum()/length;
+    return sum() / length;
 };
 
+//                                      REVERSE                                     //
+
+void Array::reverse() {                                                             // Reverse 1
+
+    int reversedArray[length];
+
+    for (int i = 0, j = length - 1; j >= 0; i++, j--)
+        reversedArray[j] = A[i];
+
+    std::cout << "Reversed array: ";
+    for (int i = 0; i < length; i++)
+        std::cout << reversedArray[i] << " ";
+
+};
+
+void Array::reverse2() {                                                            // Reverse - using swap()
+                                                                                    // A[0] <-> A[length-1], A[1] <-> A[length-2]
+    for (int i = 0, j = length - 1; i <= j; i++, j--)
+        swap(&A[i], &A[j]);
+
+}
