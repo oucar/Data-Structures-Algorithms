@@ -253,7 +253,7 @@ Array *Array::mergeOperation(Array arrGiven) {                                  
 //            k++; j++;
     }// end while
 
-    for (; i < length; i++)
+    for (; i < length; i++)                     // Whichever has more value
         arrMerged->A[k++] = A[i];
 
     for (; j < arrGiven.length; j++)
@@ -265,7 +265,7 @@ Array *Array::mergeOperation(Array arrGiven) {                                  
 }
 
 // Similar to merge, but you don't copy if it's already in arrMerged.
-Array *Array::unionOperation(Array arrGiven) {                                      // Union
+Array *Array::unionOperation(Array arrGiven) {                                      // Union - Must be sorted
 
     int i, j, k;
     i = j = k = 0;
@@ -277,7 +277,7 @@ Array *Array::unionOperation(Array arrGiven) {                                  
         if (A[i] < arrGiven.A[j])               // first array has the smallest
             arrUnion->A[k++] = A[i++];
 
-        else if(A[i] > arrGiven.A[j])           // second array has the smallest
+        else if (A[i] > arrGiven.A[j])           // second array has the smallest
             arrUnion->A[k++] = arrGiven.A[j++];
 
         else {                                  // they are equal
@@ -285,15 +285,72 @@ Array *Array::unionOperation(Array arrGiven) {                                  
             j++;
         }
     }
-    for(; i< length; i++)
+    for (; i < length; i++)
         arrUnion->A[k++] = A[i];
 
-    for(; j < arrGiven.length; j++)
+    for (; j < arrGiven.length; j++)
         arrUnion->A[k++] = arrGiven.A[j];
 
     arrUnion->length = k;
-
+    arrUnion->size = k;
+    
     return arrUnion;
-
 }
 
+Array *Array::intersectionOperation(
+        Array arrGiven) {                                   // Intersection - Must be sorted as well
+
+    int i, j, k;
+    i = j = k = 0;
+
+    Array *arrInter = new Array(length + arrGiven.length);
+
+    while (i < length && j < arrGiven.length) {
+
+        if (A[i] < arrGiven.A[j])
+            i++;
+
+        else if (A[i] > arrGiven.A[j])
+            j++;
+
+        else if (A[i] == arrGiven.A[j]) {
+            arrInter->A[k++] = A[i++];
+            j++;
+        }// end else if
+    }//end while
+
+    arrInter->length = k;
+    arrIntern->size = k;
+
+    return arrInter;
+}
+
+Array *
+Array::differenceOperation(Array arrGiven) {                                         // Difference - Must be sorted
+
+    int i, j, k;
+    i = j = k = 0;
+
+    Array *arrDiff = new Array(length + arrGiven.length);
+
+    while (i < length && j < arrGiven.length) {
+
+        if (A[i] < arrGiven.A[j])
+            arrDiff->A[k++] = A[i++];
+
+        else if (A[i] > arrGiven.A[j])
+            j++;
+
+        else{
+            i++;
+            j++;
+        }
+    }//end while
+
+    for(; i < length; i++)
+        arrDiff->A[k++] = A[i];
+
+    arrDiff->length = k;
+    arrDiff->size = k;
+    return arrDiff;
+}
