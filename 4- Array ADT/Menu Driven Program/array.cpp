@@ -236,8 +236,8 @@ void Array::rearrangeNegatives() {                                              
 }
 
 /*                      MERGE, UNION INTERSECTION and DIFFERENCE                 */
-Array *Array::mergeOperation(Array arrGiven) {      // dynamically allocated object will be returned --> If you're gonna return an object, follow this!
-
+// dynamically allocated object will be returned --> If you're gonna return an object, follow this!
+Array *Array::mergeOperation(Array arrGiven) {                                    // Merge
     int i, j, k;                                    // i -> iter of arr, j -> iter of arrGiven, k -> iter of arrMerged
     i = j = k = 0;
 
@@ -263,3 +263,37 @@ Array *Array::mergeOperation(Array arrGiven) {      // dynamically allocated obj
 
     return arrMerged;
 }
+
+// Similar to merge, but you don't copy if it's already in arrMerged.
+Array *Array::unionOperation(Array arrGiven) {                                      // Union
+
+    int i, j, k;
+    i = j = k = 0;
+
+    Array *arrUnion = new Array(length + arrGiven.length);
+
+    while (i < length && j < arrGiven.length) {
+
+        if (A[i] < arrGiven.A[j])               // first array has the smallest
+            arrUnion->A[k++] = A[i++];
+
+        else if(A[i] > arrGiven.A[j])           // second array has the smallest
+            arrUnion->A[k++] = arrGiven.A[j++];
+
+        else {                                  // they are equal
+            arrUnion->A[k++] = A[i++];          // either one would work
+            j++;
+        }
+    }
+    for(; i< length; i++)
+        arrUnion->A[k++] = A[i];
+
+    for(; j < arrGiven.length; j++)
+        arrUnion->A[k++] = arrGiven.A[j];
+
+    arrUnion->length = k;
+
+    return arrUnion;
+
+}
+
