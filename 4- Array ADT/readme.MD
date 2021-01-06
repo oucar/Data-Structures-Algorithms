@@ -97,6 +97,24 @@ B = new int[size]
 	}
 	```
 ---
+* For returning an object: 
+
+```cpp
+Array *Array::mergeOperation(Array arrGiven){ 
+	
+
+	Array *arrMerged = new Array (10);
+	return arrMerged;
+}
+```
+
+in main.cpp:
+
+```cpp
+	Array *arrMerged;
+	arrMerged = arr.mergeOperation(arr2); // merges arr and arr3 in arrMerged.
+
+```
 > Challenges
 
 :star: [Array ADT - **CLANG**]()<br>

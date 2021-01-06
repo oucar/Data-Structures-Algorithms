@@ -63,12 +63,13 @@ public:
     void reverse2();									// Another way to reverse an array
 
     void insertSorted(int x);							// Insert an element to a sorted array
-    void sortAndInsert(int x);							// Sort the array and insert the given array
+    bool isSorted();                                    // Check if the array is sorted
+    void rearrangeNegatives();                          // Sort negatives to the left and positives to the right
 
-    Array* mergeOperation(Array* arrGiven);				// Merges two array and returns it as an array
-    Array* unionOperation(Array* arrGiven);				// Finds the union of two array and returns it as an array
-    Array* intersectionOperation(Array* arrGiven);		// Finds the intersection of two array and returns it as an array
-    Array* differenceOperation(Array* arrGiven);		// Finds the difference of two array and returns it as an array
+    Array* mergeOperation(Array arrGiven);				// Merges two array and returns it as an array
+    Array* unionOperation(Array arrGiven);				// Finds the union of two array and returns it as an array
+    Array* intersectionOperation(Array arrGiven);		// Finds the intersection of two array and returns it as an array
+    Array* differenceOperation(Array arrGiven);		// Finds the difference of two array and returns it as an array
 
 
     //TODO 1 Create as many instances as you want and make them accessible through the menu.
