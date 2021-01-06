@@ -183,8 +183,83 @@ void Array::reverse() {                                                         
 };
 
 void Array::reverse2() {                                                            // Reverse - using swap()
-                                                                                    // A[0] <-> A[length-1], A[1] <-> A[length-2]
+    // A[0] <-> A[length-1], A[1] <-> A[length-2]
     for (int i = 0, j = length - 1; i <= j; i++, j--)
         swap(&A[i], &A[j]);
 
+}
+
+/*                              INSERT SORTED and SORT AND INSERT                   */
+
+void Array::insertSorted(int numGiven) {                                            // Insert Sorted
+
+    if (length == size)
+        return;
+
+    int i = length - 1;
+    while (i >= 0 && A[i] > numGiven) {
+        A[i + 1] = A[i];
+        i--;
+    }
+
+    A[i + 1] = numGiven;
+    length++;
+
+}
+
+bool Array::isSorted() {                                                            // Check if sorted
+
+    for (int i = 0;
+         i < length - 1; i++) {                                              // length = 10, A[10] --> 9th element
+        if (A[i] > A[i + 1])
+            return false;
+    }
+    return true;
+}
+
+void Array::rearrangeNegatives() {                                                  // Rearrange Negatives
+
+    int i = 0;              // represents positive
+    int j = length - 1;     // represents negative
+
+    while (i < j) {
+
+        while (A[i] < 0) i++;   // until you find the positive
+
+        while (A[j] >= 0) j--;
+
+        if (i < j)
+            swap(&A[i], &A[j]);
+
+    } // end while
+
+}
+
+/*                      MERGE, UNION INTERSECTION and DIFFERENCE                 */
+Array *Array::mergeOperation(Array arrGiven) {      // dynamically allocated object will be returned --> If you're gonna return an object, follow this!
+
+    int i, j, k;                                    // i -> iter of arr, j -> iter of arrGiven, k -> iter of arrMerged
+    i = j = k = 0;
+
+    Array *arrMerged = new Array(length + arrGiven.length);
+
+    while (i < length && j < arrGiven.length) {
+
+        if (A[i] < arrGiven.A[j])
+            arrMerged->A[k++] = A[i++];
+//            k++; i++;
+        else
+            arrMerged->A[k++] = arrGiven.A[j++];
+//            k++; j++;
+    }// end while
+
+    for (; i < length; i++)
+        arrMerged->A[k++] = A[i];
+
+    for (; j < arrGiven.length; j++)
+        arrMerged->A[k++] = A[j];
+
+    arrMerged->length = length + arrGiven.length;
+
+    return arrMerged;
 }

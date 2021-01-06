@@ -13,27 +13,27 @@ int main(){
 //
 //    arr = new Array(sz);
 
-    Array arr(10);
+    Array arr(5);
 
-    arr.append(1);
-    arr.append(2);
-    arr.append(3);
-    arr.append(4);
-    arr.append(5);
-    arr.append(6);
-    arr.append(7);
-    arr.append(8);
-    arr.append(9);
-    arr.insert(9,10);
+    arr.append(10);
+    arr.append(20);
+    arr.append(34);
+    arr.append(46);
+    arr.append(57);
 
 
+    Array arr2(3);
+    arr2.append(35);
+    arr2.append(64);
+    arr2.append(73);
 
+    //std::cout << arr.getSize() <<  " " << arr.getLength() << " " << arr.max() << std::endl ;
+    //arr.insertSorted(6);
 
-    arr.display();
+    Array *arrMerged;
+    arrMerged = arr.mergeOperation(arr2);
 
-    //arr.display();
-
-    std::cout << arr.getSize() <<  " " << arr.getLength() << " " << arr.max() ;
+    arrMerged->display();
 
 
 
