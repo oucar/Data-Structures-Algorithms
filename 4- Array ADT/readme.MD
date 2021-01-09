@@ -132,8 +132,8 @@ in main.cpp:
 :star: [Finding a Single Missing Element]()<br>
 :star: [Finding Multiple Missing Elements]()<br>
 :star: [Finding Duplicates in a Sorted Array]()<br>
-:star: [Finding Duplicates in a Sorted Array using **HASHING**]()<br>
-:star: [Finding Duplicates in an Unorted Array]()<br>
+:star: [Finding Duplicates in a Sorted Array using **HASHING -- NOT COMPLETED!**]()<br>
+:star: [Finding Duplicates in an Unsorted Array]()<br>
 :star: [Finding a Pair of Elements with Sum of K in a Sorted Array]()<br>
 :star: [Finding Max and Min in a Single Scan]()<br>
 
