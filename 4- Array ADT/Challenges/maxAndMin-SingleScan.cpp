@@ -16,31 +16,28 @@ void display(struct Array arrGiven) {
 
 }//end display()
 
-// 1    3   4   5   6   8   9   10  12  14
-// a + b = 10
+// 5    8   3   9   6   2   10  7   -1  4
+void maxMin(Array arr){                                                     // O(n)
 
-void findPair(Array arr, int sum){
+    int min = arr.A[0];
+    int max = arr.A[0];
 
-    int i = 0;
-    int j = arr.length-1;
+    for(int i = 1; i < arr.length; i++){
 
-    while(i < j){
+        if (arr.A[i] < min)
+            min = arr.A[i];
 
-        if( arr.A[i] + arr.A[j] == sum ){
+        else if( arr.A[i] > max )
+            max = arr.A[i];
 
-            std::cout << arr.A[i] << " and " << arr.A[j] << std::endl;
-            i++;
-            j--;
+    } // end for
 
-        } else if( arr.A[i] + arr.A[j] < sum){
-            i++;
-        } else if ( arr.A[i] + arr.A[j] > sum) {
-            j--;
-        } // end conditional
+    std::cout << "Max : " << max << "\nMin: " << min;
 
-    } // end while loop
+} // end maxMin()
 
-} // end findPair()
+
+
 
 
 int main() {
@@ -59,6 +56,6 @@ int main() {
     arr.A[8] = 12;
     arr.A[9] = 14;
 
-    findPair(arr, 10);
+    maxMin(arr);
     return 0;
 }
