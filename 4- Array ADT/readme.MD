@@ -1,12 +1,8 @@
-
-
-
-
-
 ## Array ADT 
 * ADT = Representation of data + Operations
   *  Append - at the end of the list. 
   *  Insert - to a given index.
+  *  In traditional arrays : length =   int arrSize = sizeof(arr)/sizeof(arr[0]);
 ```cpp
 /*      1      */
 int A[10]; //Size = 10, Length = 10
