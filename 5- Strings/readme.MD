@@ -39,7 +39,7 @@
 :star: [Counting Words and Vowelis in a String]()<br>
 :star: [Validating a String]()<br>
 :star: [Reversing a String]()<br>
-:star: [Comparing String and Checking Palindrome]()<br>
+:star: [Comparing String and Checking **Palindrome (not completed!)** ]()<br>
 :star: [Finding Duplicates in a String]()<br>
 :star: [Finding Duplicates in a String using Bitwise Operations]()<br>
 :star: [Checking if 2 Strings are Anagram (Distinct Letters)]()<br>
