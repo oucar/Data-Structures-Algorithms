@@ -1,5 +1,6 @@
 /* Comparing Two Strings, Checking iif Palindrome */
 #include <iostream>
+#include <string.H>
 
 void swap(char *x, char *y) {                              // Swapping characters
     char temp = *x;
@@ -18,7 +19,7 @@ bool checkTwo(std::string word1, std::string word2) {
 
 } // end checkTwo()
 
-void checkPalindrome(std::string word1, std::string word2) {
+void checkGreatest(std::string word1, std::string word2) {
 
     int i, j;
     for (i = 0, j = 0; (word1[i] != '\0' && word2[j] != '\0'); i++, j++) {
@@ -36,7 +37,9 @@ void checkPalindrome(std::string word1, std::string word2) {
         std::cout << word1 << " is GREATER than " << word2;
     }//end conditionals
 
-} // end checkPalindrome()
+} // end checkGreatest()
+
+// GET PALINDROME DONE!
 
 int main() {
 
@@ -44,7 +47,10 @@ int main() {
     std::string word2 = "OnurZ";
 
     std::cout << checkTwo(word1, word2) << std::endl;
-    checkPalindrome(word1, word2);
+    checkGreatest(word1, word2);
+
+
+
 
 
 }
