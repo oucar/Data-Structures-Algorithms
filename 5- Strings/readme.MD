@@ -1,3 +1,9 @@
+
+
+
+
+
+
 ## String
 
 * **ASCII Code:** is a character [encoding standard](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/ASCII-Table-wide.svg/875px-ASCII-Table-wide.svg.png) for electronic communication.  
@@ -61,9 +67,8 @@ std::sort(sortedWord.begin(), sortedWord.end());
 :star: [Reversing a String]()<br>
 :star: [Comparing String and Checking Palindrome]()<br>
 :star: [**Finding Duplicates in a String!!**]()<br>
-:star: [Finding Duplicates in a String using Bitwise Operations]()<br>
 :star: [Checking if 2 Strings are Anagram (Distinct Letters)]()<br>
-:star: [Permutation of a String]()<br>
+:star: [**Permutation of a String!! (not completed)**]()<br>
 
 
 ![Difference Between ASCII and Unicode - Pediaa.Com](https://pediaa.com/wp-content/uploads/2018/07/Difference-Between-ASCII-and-Unicode-Comparison-Summary.jpg)
