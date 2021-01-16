@@ -1,22 +1,35 @@
-/* Validating a String  -- Special characters are not allowed */
+/* USE char[] as strings if you're dealing with data structures and algorithms!
+ *
+ * Permutation of a string
+ * Given string: ABC, There are 6 possible permutations (n!).
+ * Recursion, Brute Force, Backtracking
+ *
+ * for loop -> stack = brute force, backtracking
+ * recursion --> logic = brute force, backtracking
+ * */
 #include <iostream>
 
-bool checkIfValid(std::string str) {
+void perm(char strGiven[], int k){           // k is for result!
+    static int usedCharacters[10] = {0};
+    static char result[10];
+    int i;
 
-    for (int i = 0; str[i] != '\0'; i++) {
-        if (!(str[i] >= 65 && str[i] <= 90) && !(str[i] >= 97 && str[i] <= 122) && !(str[i] >= 48 && str[i] <= 57))
-            return false;
-    }   //end for
-    return true;
-}//end checkIfValid()
+    if(strGiven[k] == '\0') {
+        result[k] ='\0';
+        std::cout << result << ", ";
+    } else {
+        for (i = 0; strGiven[i] != '\0'; i++) {
+            if (usedCharacters[i] == 0) {                 // alphabet is available
+                result[k] = strGiven[i];
+                usedCharacters[i] = 1;
+                perm(strGiven, k + 1);
+                usedCharacters[i] = 0;
+            } // end if
+        } // end for
+    }   // end conditionals
+}
 
 int main() {
-
-    std::string valid = "Onur123";
-    std::string invalid = "Onur123*";
-
-    std::cout << "Onur123: " << checkIfValid(valid) << std::endl;
-    std::cout << "Onur123*: " << checkIfValid(invalid) << std::endl;
-
-
+    char strGiven[] = "ABC";
+    perm(strGiven, 0);
 }
