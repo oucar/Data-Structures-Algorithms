@@ -11,7 +11,7 @@ struct Poly
 	int n;
 	structTerm * terms;
 };
-void create(structPoly *p)
+void create(struct Poly *p)
 {
 	int i;
 	printf("Number of terms?");
@@ -20,17 +20,17 @@ void create(structPoly *p)
 	printf("Enter terms\n");
 	for (i = 0; i < p->n; i++) scanf("%d%d", &p->terms[i].coeff, &p->terms[i].exp);
 }
-void display(structPoly p)
+void display(struct Poly p)
 {
 	int i;
 	for (i = 0; i < p.n; i++) printf("%dx%d+", p.terms[i].coeff, p.terms[i].exp);
 	printf("\n");
 }
-structPoly* add(structPoly *p1, structPoly *p2)
+struct Poly* add(struct Poly *p1, struct Poly *p2)
 {
 	int i, j, k;
 	structPoly * sum;
-	sum = (structPoly*) malloc(sizeof(structPoly));
+	sum = (struct Poly*) malloc(sizeof(struct Poly));
 	sum->terms = (structTerm*) malloc((p1->n + p2->n) *sizeof(structTerm));
 	i = j = k = 0;
 	while (i < p1->n && j < p2->n)
@@ -50,7 +50,7 @@ structPoly* add(structPoly *p1, structPoly *p2)
 }
 int main()
 {
-	structPoly p1, p2, *p3;
+	struct Poly p1, p2, *p3;
 	create(&p1);
 	create(&p2);
 	p3 = add(&p1, &p2);
