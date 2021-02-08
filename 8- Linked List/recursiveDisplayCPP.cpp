@@ -1,5 +1,4 @@
 #include <iostream>
-
 class Node{
 
 private:
@@ -15,32 +14,31 @@ public:
 
 void Node::create(int *A, int n){
 
+    Node *last;
     Node *t;
-    Node *last;                      // will help to add a new element at the end of the linked list
 
     first = new Node;
     first->data = A[0];
-    first->next=NULL;
+    first->next = NULL;
     last = first;
 
-    for(int i = 1; i < n; i++){
+    for (int i = 1; i < n; i++) {
 
         t = new Node;
         t->data = A[i];
         t->next = NULL;
 
-        last->next = t;                     // new node becomes the last node's next node.
-        last = t;                           // last element becomes the new node
-
-    } // end for
+        last->next = t;
+        last = t;
+    }
 
 } // end create();
 
 void Node::display(Node *p){               // We use *p parameter and *first will be passed here!
 
-    while(p != NULL){
-        printf("%d ", p->data);
-        p = p->next;
+    if(p!=NULL){
+        std::cout << p-> data << " ";
+        display(p->next);
     } // end while
 
 } // end display
