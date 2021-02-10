@@ -8,10 +8,11 @@ private:
 public:
     void create(int *A, int n);
     void display(Node *p);
-    int count(Node *p);
-    int countRecursive(Node *p);
-    int add(Node *p);
-    int addRecursive(Node*p);
+    Node *search(Node *p, int key);
+    Node *searchImproved(Node *p, int key);
+    Node *searchRecursive(Node *p, int key);
+    int getData(Node *p){ return p->data; };
+
 
 }*first = NULL;                              // global pointer, accessible from everywhere.
 
@@ -47,46 +48,52 @@ void Node::display(Node *p){               // We use *p parameter and *first wil
 
 } // end display
 
-int Node::count(Node *p) {
+Node * Node::search(Node *p, int key) {
 
-    int counter = 0;
-
-    while(p!=NULL){
-        counter++;
+    while (p!=NULL){
+        if(key == p->data)
+            return p;
         p = p->next;
     } // end while
-
-    return counter;
-} // end count()
-
-int Node::countRecursive(Node *p) {
-
-    if(p==NULL) return 0;
-    else {
-        return (countRecursive(p->next)+1);
-    } // end else
-
-} // end countRecursive()
+    return NULL;
+} // end search()
 
 
-int Node::add(Node *p) {
+Node * Node::searchRecursive(Node *p, int key) {
 
-    int sum = 0;
+    if(p == NULL)
+        return NULL;
 
+    if (p->data == key)
+        return p;
+
+    else searchRecursive(p->next, key);
+
+} // end searchRecursive
+
+
+Node * Node::searchImproved(Node *p, int key) {
+
+    Node *q; // tail
     while(p!=NULL){
-        sum = sum + p->data;
-        p = p->next;
-    } // end while
-    return sum;
 
-} // end add()
+        if(key==p->data) {
+            q->next = p->next;
+            p->next = first;
+            first = p;
+            return p;
+        } else {
+            q = p;
+            p = p->next;
+        } // end conditionals
+    } //end while
 
-int Node::addRecursive(Node *p) {
+    return NULL;
 
-    if(p==NULL) return 0;
-    else return (addRecursive(p->next) + p->data);
 
-} // end addRecursive()
+} // end searchImproved()
+
+
 
 int main() {
 
@@ -97,19 +104,19 @@ int main() {
     node.create(A,5);                        // linked list created!
     node.display(first);
 
-    // COUNT
-    int countIter = node.count(first);
-    int countRec = node.countRecursive(first);
+    Node *temp = node.search(first, 10);        // IMPORTANT! This is how you use things you passed
+    if(temp) std::cout << "\nKey is Found! -->" << node.getData(temp);
+    else std::cout << "\nKey is not Found! :( ";
 
-    std::cout << "\nTotal node count (iterative): " << countIter << std::endl;
-    std::cout << "Total node count (recursive): " << countRec << std::endl;
+    Node *tempRec = node.searchRecursive(first, 103);
+    if(tempRec) std::cout << "\nKey is Found using Recursion! ---> " << node.getData(tempRec);
+    else std::cout << "\nKey is not Found, even though I used Recursion :( ";
 
-    // ADD
-    int addIter = node.add(first);
-    int addRec = node.addRecursive(first);
-
-    std::cout << "Sum (iterative): " << addIter << std::endl;
-    std::cout << "Sum (recursive): " << addRec << std::endl;
+    Node *tempImproved = node.searchImproved(first,10);
+    if(tempImproved) std::cout << "\nKey is Found and moved to the head! --->"  << node.getData(tempImproved);
+    else std::cout << "\n Key is not Found!";
+    std::cout << std::endl;
+    node.display(first);
 
 
     return 0;
