@@ -8,10 +8,7 @@ private:
 public:
     void create(int *A, int n);
     void display(Node *p);
-    Node *search(Node *p, int key);
-    Node *searchImproved(Node *p, int key);
-    Node *searchRecursive(Node *p, int key);
-    int getData(Node *p){ return p->data; };
+    int deleteNode(Node *p, int index);
 
 
 }*first = NULL;                              // global pointer, accessible from everywhere.
@@ -44,54 +41,36 @@ void Node::display(Node *p){               // We use *p parameter and *first wil
     if(p!=NULL){
         std::cout << p-> data << " ";
         display(p->next);
-    } // end while
+    } // end if
 
 } // end display
 
-Node * Node::search(Node *p, int key) {
+int Node::deleteNode(Node *p, int index) {
 
-    while (p!=NULL){
-        if(key == p->data)
-            return p;
-        p = p->next;
-    } // end while
-    return NULL;
-} // end search()
+    int data = -1;
 
+    if(index == 1){                         // first node is being deleted
+        Node *p = first;
+        first = first->next;
+        data = p->data;
+        delete p;
+        return data;
+    } else{                                 // any other node is being deleted
+        Node *q = NULL;
+        Node *p = first;
 
-Node * Node::searchRecursive(Node *p, int key) {
-
-    if(p == NULL)
-        return NULL;
-
-    if (p->data == key)
-        return p;
-
-    else searchRecursive(p->next, key);
-
-} // end searchRecursive
-
-
-Node * Node::searchImproved(Node *p, int key) {
-
-    Node *q; // tail
-    while(p!=NULL){
-
-        if(key==p->data) {
-            q->next = p->next;
-            p->next = first;
-            first = p;
-            return p;
-        } else {
+        for(int i = 0; i<(index-1); i++){
             q = p;
             p = p->next;
-        } // end conditionals
-    } //end while
+        } // end for
+        q->next = p->next;
+        data = p->data;
+        delete p;
+        return data;
 
-    return NULL;
+    } // end conditionals
+} // end deleteNode()
 
-
-} // end searchImproved()
 
 
 
@@ -100,24 +79,12 @@ int main() {
     Node node;
 
     int A[] = {3,5,7,10,15};                // create a linked list using these elements
-
-    node.create(A,5);                        // linked list created!
+    node.create(A, 5);
     node.display(first);
-
-    Node *temp = node.search(first, 10);        // IMPORTANT! This is how you use things you passed
-    if(temp) std::cout << "\nKey is Found! -->" << node.getData(temp);
-    else std::cout << "\nKey is not Found! :( ";
-
-    Node *tempRec = node.searchRecursive(first, 103);
-    if(tempRec) std::cout << "\nKey is Found using Recursion! ---> " << node.getData(tempRec);
-    else std::cout << "\nKey is not Found, even though I used Recursion :( ";
-
-    Node *tempImproved = node.searchImproved(first,10);
-    if(tempImproved) std::cout << "\nKey is Found and moved to the head! --->"  << node.getData(tempImproved);
-    else std::cout << "\n Key is not Found!";
     std::cout << std::endl;
+    std::cout << node.deleteNode(first,1) << " is deleted\n";
+    std::cout << node.deleteNode(first,3) << " is deleted\n";
     node.display(first);
-
 
     return 0;
 }
