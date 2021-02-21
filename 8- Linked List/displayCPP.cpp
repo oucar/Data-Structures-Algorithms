@@ -5,7 +5,7 @@ class Node{
 private:
     int data;
     struct Node *next;
-
+     
 public:
     void create(int *A, int n);
     void display(Node *p);
