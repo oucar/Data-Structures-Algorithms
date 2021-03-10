@@ -1,3 +1,5 @@
+// (*sprite).x = sprite->x
+
 #include <iostream>
 class Node {
 public:
@@ -67,7 +69,7 @@ void CircularLinkedList::Display() {
 	Node* p = head;
 
 	do {
-		std::cout << p->data << " -> ";
+		std::cout << p->data << " ";
 		p = p->next;
 	} while (p != head);
 
@@ -82,7 +84,8 @@ int CircularLinkedList::findLength() {
 	do {
 		length++;
 		p = p->next;
-	} while (p->next != NULL);
+	} while (p != head);
+	return length;
 
 } // end findLength()
 
@@ -91,15 +94,15 @@ void CircularLinkedList::Insert(int index, int x) {
 	Node* p = head;
 	Node* t = NULL;
 
+	if (index < 0 || index > findLength()){ // check whether given index is valid or not
+		std::cout << "Invalid index for: " << x << "!" << std::endl;
+		return;
+	} // end if 
+
 	t = new Node;
 	t->data = x;
 
-	if (index < 0 || index > findLength()){ // check whether given index is valid or not
-		std::cout << "Invalid length!";
-		return;
-	} // end if 
 	
-
 	if (index == 0) {
 
 		if (head == NULL) {					// insert as the first node
@@ -108,8 +111,8 @@ void CircularLinkedList::Insert(int index, int x) {
 		} else {							// insert before the head!
 			while (p->next != head)
 				p = p->next;
-			t->next = head;					// t points to the head
 			p->next = t;					// last node points to the t (which makes it circular)
+			t->next = head;					// t points to the head
 			head = t;						// t becomes the new head
 		} // end inner conditionals
 
@@ -131,7 +134,10 @@ int main() {
 	int A[] = { 1, 3, 5, 7, 9 };
 
 	CircularLinkedList cl(A, sizeof(A) / sizeof(A[0]));
-
+	cl.Insert(9, 30);
+	cl.Insert(0, 3);
+	cl.Insert(6, 31);					// inserting at the end
 	cl.Display();
+
 	return 0;
 }
