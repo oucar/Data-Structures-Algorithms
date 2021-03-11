@@ -103,21 +103,25 @@ int CircularLinkedList::Delete(int index){
 		int x = head->data;
 		if (head == p) {							// if head is the only node
 			delete head;
+			x = head->data;
 			head = NULL;
+			return x;
 		} else {
 			p->next = head->next;
+			x = head->data;
 			delete head;
 			head = p->next;
+			return x;
 		} // end conditionals
 
 	} else {
 		
-		for (int i = 0; i < index - 2; i++) p = p->next;
+		for (int i = 0; i < index - 1; i++) p = p->next;
 
 		q = p->next;
 		p->next = q->next;
 		x = q->data;
-		delete head;
+		delete q;
 	}
 
 	return x;
@@ -130,7 +134,7 @@ int main() {
 	CircularLinkedList cl(A, sizeof(A) / sizeof(A[0]));
 	cl.Display();
 	
-	int deleted = cl.Delete(0);
+	int deleted = cl.Delete(2);
 	std::cout << "Element " << deleted << " has been deleted!\n";
 	cl.Display();
 
