@@ -1,142 +1,152 @@
-// (*sprite).x = sprite->x
-
 #include <iostream>
 class Node {
 public:
 	int data;
 	Node* next;
-
-public:
-	void create(int* Arr, int size);
-	void display(Node* p);
+	Node* prev;
 };
 
-class CircularLinkedList {
+class DoublyLinkedList {
 private:
 	Node* head;
 
 public:
-
 	void Display();
+	int getLength();							// helper function for Insert()
+	void Insert(int index, int x);
 	int Delete(int index);
-	int findLength();
-	Node* getHead() { return head; }			// in case we need it
-	CircularLinkedList(int* A, int n);
-	~CircularLinkedList();
+	DoublyLinkedList(int* A, int n);
+	~DoublyLinkedList();
 };
 
-CircularLinkedList::CircularLinkedList(int* A, int n) {
+DoublyLinkedList::DoublyLinkedList(int* A, int n) {
 	Node* t;
 	Node* tail;
 
 	head = new Node;
-
 	head->data = A[0];
-	head->next = head;
+	head->next = NULL;
+	head->prev = NULL;
 	tail = head;
 
 	for (int i = 1; i < n; i++) {
 		t = new Node;
 		t->data = A[i];
-
-		t->next = tail->next;					// tail = head for the first call!
+		
+		t->prev = tail;
+		t->next = NULL;
+	
 		tail->next = t;
 		tail = t;
-	}
+	} // end for
 } // end constructor
 
-CircularLinkedList::~CircularLinkedList() {
+DoublyLinkedList::~DoublyLinkedList() {
 	Node* p = head;
 
-	while (p->next != head) {					// empty cl
+	while (p != NULL) {
 		p = p->next;
-	}
-
-	while (p != head) {							// regular cl
-		p->next = head->next;
+		std::cout << head->data << " has been deleted ~\n";
 		delete head;
-		head = p->next;
-	}
-
-	if (p == head) {							// head is the only node
-		delete head;
-		head = nullptr;
-	}
-
+		head = p;	
+	} // end while
 } // end destructor
 
-void CircularLinkedList::Display() {
+void DoublyLinkedList::Display() {
 	Node* p = head;
-
-	do {
-		std::cout << p->data << " ";
+	
+	while (p != NULL) {
+		std::cout << p->data;
 		p = p->next;
-	} while (p != head);
+		if (p != NULL)
+			std::cout << " <--> ";
+	} // end while
 
 	std::cout << std::endl;
-} // end display()
+} // end Display()
 
-int CircularLinkedList::findLength() {
-
+int DoublyLinkedList::getLength() {
 	int length = 0;
 	Node* p = head;
-
-	do {
+	while (p != NULL) {
 		length++;
 		p = p->next;
-	} while (p != head);
+	} // end while
 	return length;
+} // end getLength()
 
-} // end findLength()
+void DoublyLinkedList::Insert(int index, int x) {
 
-int CircularLinkedList::Delete(int index){
+	if (index<0 || index > getLength())
+		return;
 
-	Node* q;
 	Node* p = head;
-	int x = -1;
+	Node* t = new Node;
+	t->data = x;
 
-	if (index < 0 || index > findLength()) return -1;
-	
-	if (index == 0) {								// delete the head node
-
-		while (p->next != head) p = p->next;
-		int x = head->data;
-		if (head == p) {							// if head is the only node
-			delete head;
-			x = head->data;
-			head = NULL;
-			return x;
-		} else {
-			p->next = head->next;
-			x = head->data;
-			delete head;
-			head = p->next;
-			return x;
-		} // end conditionals
-
-	} else {
+	if (index == 0) {							//insert as the first element (before head)
 		
-		for (int i = 0; i < index - 1; i++) p = p->next;
+		t->prev = NULL;
+		t->next = head;
+		head->prev = t;
+		head = t;
+	} else {									// insert in a given index
+		for (int i = 0; i < index - 1; i++)
+			p = p->next;
+		
+		t->next = p->next;
+		t->prev = p;
+		if (p->next != NULL)					// if t has another node after node
+			p->next->prev = t;
+		p->next = t;
 
-		q = p->next;
-		p->next = q->next;
-		x = q->data;
-		delete q;
-	}
+	} // end conditionals
+} // end Insert()
 
+int DoublyLinkedList::Delete(int index) {
+	
+	int x = -1;
+	Node* p = head;								// reference to head
+
+	if (index < 0 || (index > getLength()-1)) return x;
+
+	
+	if (index == 0) {							// delete the first node
+		p = head;
+		x = p->data;
+		head = head->next;
+		if (head != NULL) head->prev = NULL;	// what if there is only one node and I want to delete that node?
+		delete p;
+	} else {									// delete from the given index
+		p = head;
+		for (int i = 0; i < index; i++) p = p->next;
+		x = p->data;
+		p->prev->next = p->next;				// # P # ==> # --> # 
+		if (p->next != NULL)					// what if it is the last node
+			p->next->prev = p->prev;			// # P # ==> # <--> #
+		delete p;
+	} // end conditionals
 	return x;
+} // end Delete();
 
-} // end delete();
 
 int main() {
 	int A[] = { 1, 3, 5, 7, 9 };
 
-	CircularLinkedList cl(A, sizeof(A) / sizeof(A[0]));
-	cl.Display();
-	
-	int deleted = cl.Delete(2);
-	std::cout << "Element " << deleted << " has been deleted!\n";
-	cl.Display();
+	DoublyLinkedList dl(A, sizeof(A) / sizeof(A[0]));
+	dl.Display();
+
+	dl.Insert(0, 30);
+	dl.Insert(6, 99);
+	dl.Insert(3, 100);
+	dl.Display();
+
+	std::cout << " -----------------------\n";
+	std::cout << "Deleted by the function: "<< dl.Delete(0) << std::endl;
+	dl.Display();
+	std::cout << "Deleted by the function: " << dl.Delete(7) << std::endl;
+	dl.Display();
+	std::cout << "\nDestructors: \n";
 
 	return 0;
 }
