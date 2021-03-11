@@ -5,6 +5,10 @@ class Node {
 public:
 	int data;
 	Node* next;
+
+public:
+	void create(int* Arr, int size);
+	void display(Node* p);
 };
 
 class CircularLinkedList {
@@ -14,7 +18,7 @@ private:
 public:
 
 	void Display();
-	void Insert(int index, int x);
+	int Delete(int index);
 	int findLength();
 	Node* getHead() { return head; }			// in case we need it
 	CircularLinkedList(int* A, int n);
@@ -85,54 +89,53 @@ int CircularLinkedList::findLength() {
 
 } // end findLength()
 
-void CircularLinkedList::Insert(int index, int x) {
+int CircularLinkedList::Delete(int index){
 
+	Node* q;
 	Node* p = head;
-	Node* t = NULL;
+	int x = -1;
 
-	if (index < 0 || index > findLength()){ // check whether given index is valid or not
-		std::cout << "Invalid index for: " << x << "!" << std::endl;
-		return;
-	} // end if 
-
-	t = new Node;
-	t->data = x;
-
+	if (index < 0 || index > findLength()) return -1;
 	
-	if (index == 0) {
+	if (index == 0) {								// delete the head node
 
-		if (head == NULL) {					// insert as the first node
-			head = t;
-			t->next = t;
-		} else {							// insert before the head!
-			while (p->next != head)
-				p = p->next;
-			p->next = t;					// last node points to the t (which makes it circular)
-			t->next = head;					// t points to the head
-			head = t;						// t becomes the new head
-		} // end inner conditionals
+		while (p->next != head) p = p->next;
+		int x = head->data;
+		if (head == p) {							// if head is the only node
+			delete head;
+			x = head->data;
+			head = NULL;
+			return x;
+		} else {
+			p->next = head->next;
+			x = head->data;
+			delete head;
+			head = p->next;
+			return x;
+		} // end conditionals
 
 	} else {
+		
+		for (int i = 0; i < index - 1; i++) p = p->next;
 
-		for (int i = 0; i < index - 1; i++)
-			p = p->next;
-		t->next = p->next;			
-		p->next = t;
-	
-	} // end outer conditionals
+		q = p->next;
+		p->next = q->next;
+		x = q->data;
+		delete q;
+	}
 
+	return x;
 
-
-} // end insert();
-
+} // end delete();
 
 int main() {
 	int A[] = { 1, 3, 5, 7, 9 };
 
 	CircularLinkedList cl(A, sizeof(A) / sizeof(A[0]));
-	cl.Insert(9, 30);
-	cl.Insert(0, 3);
-	cl.Insert(6, 31);					// inserting at the end
+	cl.Display();
+	
+	int deleted = cl.Delete(2);
+	std::cout << "Element " << deleted << " has been deleted!\n";
 	cl.Display();
 
 	return 0;
