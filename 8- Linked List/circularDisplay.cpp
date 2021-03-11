@@ -4,9 +4,6 @@ public:
 	int data;
 	Node* next;
 
-public:
-	void create(int* Arr, int size);
-	void display(Node* p);
 };
 
 class CircularLinkedList {
