@@ -8,7 +8,7 @@
 :star: [Insert](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/insert.cpp)<br>
 :star: [Inserting in a Sorted LL](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/insertSorted.cpp)<br>
 :star: [Deleting](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/delete.cpp)<br>
-:star: [Check If a LL sorted](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/isSorted.cpp)<br>
+:star: [Check If a LL is sorted](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/isSorted.cpp)<br>
 :star: [Remove Duplicates From a Sorted LL](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/isSorted-removeDuplicates.cpp)<br>
 :star: [Reverse](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/reverse.cpp)<br>
 :star: [Concat](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/concat.cpp)<br>
