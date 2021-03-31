@@ -23,7 +23,7 @@
 
 ---
 
-:star: [Doubly](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/doubly.cpp)<br><br>
+:star: [Doubly](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/doubly.cpp)<br>
 :star: [Doubly Display ~~]()<br>
 :star: [Doubly Insert](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/doublyInsert.cpp)<br>
 :star: [Doubly Delete](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/doublyDelete.cpp)<br>
