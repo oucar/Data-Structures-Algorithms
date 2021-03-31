@@ -1,5 +1,5 @@
 
-:star: [Display C](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/displayC.c)
+:star: [Display C](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/displayC.c)<br>
 :star: [Display CPP](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/displayCPP.cpp)
 :star: [Recursive Display](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/recursiveDisplayCPP.cpp)
 :star: [Sum, Add and Count](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/sumCountCPP.cpp)
