@@ -1,0 +1,1 @@
+:star: [Accepts two arrays, Function should return true if every value in the array has it's corresponding value squared in the second array. The frequency of values must be the same.](https://github.com/oucar/Data-Structures-Algorithms/blob/master/)<br>
