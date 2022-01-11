@@ -39,8 +39,8 @@ void Node::create(int *A, int n){
 } // end create();
 
 
-
-void Node::display(Node *p){               // We use *p parameter and *first will be passed here!
+// We use *p parameter and *first will be passed here!
+void Node::display(Node *p){               
 
     if(p!=NULL){
         std::cout << p-> data << " ";
@@ -78,6 +78,7 @@ void Node::insert(Node *p, int index, int value) {
     } else {
 
         for(int i = 0; i < index-1; i++ )
+            // p is the first node!
             p = p->next;
 
         t->next = p->next;

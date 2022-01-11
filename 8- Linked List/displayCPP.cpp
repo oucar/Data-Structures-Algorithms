@@ -1,58 +1,60 @@
 #include <iostream>
 
-class Node{
+class Node
+{
 
 private:
     int data;
     struct Node *next;
-     
+
 public:
     void create(int *A, int n);
     void display(Node *p);
 
-}*first = NULL;                              // global pointer, accessible from everywhere.
+    // global pointer, accessible from everywhere
+} *first = NULL;
 
+// create a linked list from given Array, with n elements
+void Node::create(int *A, int n)
+{
 
-void Node::create(int *A, int n){
-
+    // t: node we're newly adding
+    // last: will help us to add a new element at the end of a linked list
     Node *t;
-    Node *last;                      // will help to add a new element at the end of the linked list
+    Node *last;
 
     first = new Node;
     first->data = A[0];
-    first->next=NULL;
+    first->next = NULL;
     last = first;
 
-    for(int i = 1; i < n; i++){
-
+    for (int i = 1; i < n; i++)
+    {
         t = new Node;
         t->data = A[i];
         t->next = NULL;
 
-        last->next = t;                     // new node becomes the last node's next node.
-        last = t;                           // last element becomes the new node
-
-    } // end for
-
+        last->next = t;
+        last = t;
+    }
 } // end create();
 
-void Node::display(Node *p){               // We use *p parameter and *first will be passed here!
-
+// display the linked list
+void Node::display(Node *p){
+    
     while(p != NULL){
-        printf("%d ", p->data);
+        std::cout << p->data << " ";
         p = p->next;
-    } // end while
+    }
+} // end display();
 
-} // end display
 
-
-int main() {
-
+int main()
+{
     Node node;
 
-    int A[] = {3,5,7,10,15};                // create a linked list using these elements
-
-    node.create(A,5);                        // linked list created!
+    int A[] = {3,5,7,10,15};
+    node.create(A, 5);
     node.display(first);
 
     return 0;
