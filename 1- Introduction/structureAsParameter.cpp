@@ -15,8 +15,10 @@ struct Rectangle {
 //Calling by value
 int areaByValue(struct Rectangle rectVariable) { //You can send structure itself (will be passed as single variable)
 	
-	rectVariable.width++; //NOTE THAT ACTUAL PARAMETER WILL NOT CHANGE!
-	return (rectVariable.width * rectVariable.height); //prints 50
+	// NOTE THAT ACTUAL PARAMETER WILL NOT CHANGE!
+	rectVariable.width++; 
+	// prints 50
+	return (rectVariable.width * rectVariable.height); 
 }//end areaByValue
 
 int areaByReference(struct Rectangle &rectReference) {
