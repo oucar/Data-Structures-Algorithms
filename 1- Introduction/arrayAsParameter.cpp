@@ -46,6 +46,7 @@ int main()
 	}//end for
 	*/
 
+	// ! IMPORTANT!
 	int* ptr; // pointer to int
 	int size = 10;
 	ptr = fullArray(size);

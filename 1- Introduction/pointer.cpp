@@ -12,10 +12,12 @@
 int main()
 {
 
-	int a = 10; //Data variable 
-	int* pointer; //Address variable  -- STAR SETS THE ADDRESS
-	pointer = &a; //Assignment or initialization -- & GET THE ADDRESS -> pointer points to a's address
-		      //holds the value of a
+	//Data variable 
+	int a = 10; 
+	//Address variable  -- STAR SETS THE ADDRESS
+	int* pointer; 
+	 //Assignment or initialization -- & GET THE ADDRESS -> pointer points to a's address holds the value of a
+	pointer = &a;
 
 		//std::cout << "a: " << a << std::endl; //10
 		//std::cout << "*pointer: " << *pointer << std::endl; //10
@@ -26,7 +28,7 @@ int main()
 
 	int arr[5] = { 2,4,6,8,10 };
 	int* p;
-	p = arr; //or p = &arr[0];
+	p = arr; 
 	//p = (int *)malloc(5*sizeof(int)); //Allocate 5 pointer variable for integers //C
 	//p = new int[5]; //C++
 

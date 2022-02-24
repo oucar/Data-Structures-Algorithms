@@ -11,7 +11,8 @@ int main()
 
     //Basically you're having two different names for the same variable in the memory
     int a = 10;
-    int& r = a; //declaring reference (ampersend before variable = reference)
+    //declaring reference (ampersend before variable = reference)
+    int& r = a; 
     // (star before variable = pointer)
 
     //They're the same value and they share the same address!

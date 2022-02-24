@@ -5,7 +5,7 @@
 
 struct Rectangle {
 	int length, width;
-};//end Rectangle
+};
 
 int main()
 {
@@ -22,8 +22,9 @@ int main()
 	//END BASIC
 
 
-	struct Rectangle* pointer; //Declared in stack
-	pointer = new Rectangle; //Now declared in the heap!
+	// ! important part
+	struct Rectangle* pointer; 	//Declared in stack
+	pointer = new Rectangle; 	//Now declared in the heap!
 	//pointer = (struct Rectangle *)malloc(sizeof(struct Rectangle));
 	pointer->width = 3; 
 

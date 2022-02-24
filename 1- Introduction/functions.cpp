@@ -22,7 +22,7 @@ int main()
 	x = 10;
 	y = 5;
 	sum = add(x, y);
-											//x and y are actual parameters that function takes
+	//x and y are actual parameters that function takes
 	std::cout << x << " + " << y << " = " << sum; //FUNCTION CALL
 									
 	
