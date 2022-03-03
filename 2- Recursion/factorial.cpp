@@ -1,28 +1,22 @@
 /* Challenge: Factorial */
 #include <iostream>
 
-//Function declarations
-int factorial(int nGiven);
-int factorialLoop(int nGiven);
+int factorial(int n){
+	if(n == 0) return 1;
 
-int factorial(int nGiven) {
-
-	if (nGiven == 0) return 1;
-
-	else if (nGiven > 0) return (factorial(nGiven - 1) * nGiven);
+	else if(n > 0) return factorial(n - 1) * n;
 
 	return 0;
-}//end int factorial()
+}
 
-int factorialLoop(int nGiven) {
+int factorialLoop(int n){
+	int result = 1;
 
-	int fact = 1;
-
-	for (int i = 1; i <= nGiven; i++) 
-		fact = fact * i;
+	for(int i = 1; i <= n; i++)
+		result = result * i;
 	
-	return fact;
-}//end int factorialLoop()
+	return result;
+}
 
 
 int main() {
