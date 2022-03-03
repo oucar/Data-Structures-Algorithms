@@ -1,4 +1,5 @@
 /* It's impossible to incerase an array's size, but we can use below trick. */
+// Or you can use vectors or linked lists
 #include <iostream>
 
 int main() {

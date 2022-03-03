@@ -10,11 +10,6 @@ int main() {
 
 	std::cout << A[1][2] << std::endl;
 
-
-
-
-
-
 	/*                      2                                 */
 	/*            ARRAY OF INTEGER POINTERS                   */
 

@@ -32,16 +32,19 @@ int main() {
 
 	/*                    DYNAMIC SIZED ARRAY                      */
 
-	int* p;												  //Memory of the pointer will be in the stack, even though it points to the heap.
-	p = new int[5];										          //C++
-	//p = (int *)malloc(5 * sizeof(int));				  				  //CLANG
+	//Memory of the pointer will be in the stack, even though it points to the heap.
+	int* p;				
+	//C++								  
+	p = new int[5];		
+	//CLANG								          
+	//p = (int *)malloc(5 * sizeof(int));				  				  
 
 
 	p[0] = 5;
 	std::cout << p[0];
 
-													  //C++                 -> Do not forget to delete them.
-	delete []p;											   //CLANG
+	//C++ -> Do not forget to delete them.
+	delete []p;											
 	//free(p);
 	
 	
