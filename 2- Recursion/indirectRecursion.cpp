@@ -1,10 +1,6 @@
 /* Indirect Recursion */
 #include <iostream>
 
-//Function declarations
-void func1(int n);
-void func2(int n);
-
 void func1(int n) {
 
 	if (n > 0) {

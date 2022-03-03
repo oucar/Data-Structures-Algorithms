@@ -4,7 +4,8 @@
 void func1(int numGiven) {
 
 	if (numGiven > 0) {
-		std::cout << numGiven; // Output: 5 4 3 2 1 (Print and Call) 
+		// Output: 5 4 3 2 1 (Print and Call) 
+		std::cout << numGiven; 
 		func1(numGiven - 1);
 	}//end if
 
@@ -14,7 +15,8 @@ void func2(int numGiven) {
 	
 	if (numGiven > 0) {
 		func2(numGiven - 1);
-		std::cout << numGiven; // Output: 1 2 3 4 5 (Call and Print) 
+		// Output: 1 2 3 4 5 (Call and Print) 
+		std::cout << numGiven; 
 	}//end if
 
 }//end func2()
@@ -22,12 +24,14 @@ void func2(int numGiven) {
 void generalisingRecursion(int n) {
 
 	if (n > 0) {
-		
-		std::cout << n;// in calling time (5 4 3 2 1) --> Ascending
-		generalisingRecursion(n - 1); // in returning time ------> RECURSIVE FUNCTION
+		// in calling time (5 4 3 2 1) --> Ascending
+		std::cout << n;
+		// in returning time ------> RECURSIVE FUNCTION
+		generalisingRecursion(n - 1); 
 
 		std::cout << std::endl;
-		std::cout << 10; // in returning time  (10 10 10 10 10 ) --> Descending 
+		// in returning time  (10 10 10 10 10 ) --> Descending 
+		std::cout << 10; 
 		
 	}//end if
 
