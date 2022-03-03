@@ -11,7 +11,7 @@ int fact(int n) {
 
 }
 
-int c (int n, int r ) { // O(n)
+int c(int n, int r ) { // O(n)
 
 	int t1, t2, t3;
 

@@ -7,9 +7,6 @@
 */
 #include <iostream>
 
-//Function declarations
-int power(int mGiven, int nGiven);
-
 int power(int mGiven, int nGiven) {
 
 	if (nGiven == 0) return 1;

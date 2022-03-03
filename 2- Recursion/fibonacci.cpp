@@ -21,8 +21,8 @@ int fib(int n) {
 	
 }//end int fib()
 
-
-int fibIterative(int n) { // 0 1 1 2 3 5 8 13
+// 0 1 1 2 3 5 8 13
+int fibIterative(int n) { 
 
 	int firstTerm = 0, secondTerm = 1, sum = 0;
 
@@ -41,8 +41,8 @@ int fibIterative(int n) { // 0 1 1 2 3 5 8 13
 }//end int fibIterative()
 
 
-/*MEMOIZATION -- Storing the results*/
-/*in fib(), you're calculating same values over and over again. So, declare and array and hold the values you calculated.*/
+/* MEMOIZATION -- Storing the results */
+/* in fib(), you're calculating same values over and over again. So, declare and array and hold the values you calculated.*/
 int betterFib(int n) {
 
 	static int F[10]; //Or use a vector instead
@@ -65,7 +65,8 @@ int betterFib(int n) {
 
 int main() {
 
-	std::cout << fib(7) << std::endl; /// O(2^n) :( 
+	/// O(2^n) :( 
+	std::cout << fib(7) << std::endl; 
 	std::cout << fibIterative(7) << std::endl; // -> O(n) :)) 
 	std::cout << betterFib(7) << std::endl; // -> O(n)!!  :) --> Memoization
 	return 0;
