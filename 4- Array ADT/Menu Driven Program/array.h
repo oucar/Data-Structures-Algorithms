@@ -69,7 +69,7 @@ public:
     Array* mergeOperation(Array arrGiven);				// Merges two array and returns it as an array
     Array* unionOperation(Array arrGiven);				// Finds the union of two array and returns it as an array
     Array* intersectionOperation(Array arrGiven);		// Finds the intersection of two array and returns it as an array
-    Array* differenceOperation(Array arrGiven);		// Finds the difference of two array and returns it as an array
+    Array* differenceOperation(Array arrGiven);		    // Finds the difference of two array and returns it as an array
 
 
     //TODO 1 Create as many instances as you want and make them accessible through the menu.
