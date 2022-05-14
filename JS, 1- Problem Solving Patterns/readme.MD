@@ -1,3 +1,5 @@
+#### Strings: [Link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+#### Arrays: [Link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 
 ## Frequency Counter Pattern
 #### Explanation: [Link](https://www.freecodecamp.org/news/solve-technical-interview-questions-using-frequency-counter/)
@@ -25,6 +27,10 @@
 
 :star: Write a function called sumZero which accepts a SORTED array of integers. The function should find the first pair where the sum is 0. Return an array that includes both values tham sum to zero or undefined if a pair does not exists. [Link](https://github.com/oucar/Data-Structures-Algorithms/blob/master/JS%2C%201-%20Problem%20Solving%20Patterns/sumZero.js)<br>
 
+:star: (?) Write a function called isSubsequence which takes in two strings and checks whether the characters in the first string form a subsequence of the characters in the second string. In other words, the function should check whether the characters in the first string appear somewhere in the second string, without their order changing. [Link](https://github.com/oucar/Data-Structures-Algorithms/blob/master/JS%2C%201-%20Problem%20Solving%20Patterns/isSubsequence.js)<br>
+
+:star: Write a function called averagePair. Given a sorted array of integers and a target average, determine if there is a pair of values in the array where the average of the pair equals the target average. There may be more than one pair that matches the average target. [Link](https://github.com/oucar/Data-Structures-Algorithms/blob/master/JS%2C%201-%20Problem%20Solving%20Patterns/averagePair.js)<br>
+
 
 
 
@@ -41,6 +47,4 @@
 > This pattern involves diving a data set into smaller chunks and then repeating a process with a subset of data. This pattern can tremendously decrease time complexity. --> Quick and Merge Sorts
 > Examples:
 
-:star: Write a function called averagePair. Given a sorted array of integers and a target average, determine if there is a pair of values in the array where the average of the pair equals the target average. There may be more than one pair that matches the average target. [Link](https://github.com/oucar/Data-Structures-Algorithms/blob/master/JS%2C%201-%20Problem%20Solving%20Patterns/averagePair.js)<br>
 
-:star: Write a function called isSubsequence which takes in two strings and checks whether the characters in the first string form a subsequence of the characters in the second string. In other words, the function should check whether the characters in the first string appear somewhere in the second string, without their order changing. [Link](https://github.com/oucar/Data-Structures-Algorithms/blob/master/JS%2C%201-%20Problem%20Solving%20Patterns/isSubsequence.js)<br>
