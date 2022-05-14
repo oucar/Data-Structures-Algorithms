@@ -1,28 +1,29 @@
 function sameFrequency(num1, num2){
 
-    // turn numbers into array objects
-    let arr1 = Array.from(String(num1), Number);
-    let arr2 = Array.from(String(num2), Number);
+    // turn digits into strings
+    let str1 = num1.toString();
+    let str2 = num2.toString();
 
-    if(arr1.length !== arr2.length) return false;
+    // not the same length
+    if (str1.length !== str2.length) return false; 
 
-    let objTracker1 = {};
-    let objTracker2 = {};
+    // frequency counters
+    let objCounter1 = {};
+    let objCounter2 = {};
 
-    // fill in the objects using arrays created above
-    for(let val of arr1)
-        objTracker1[val] ? objTracker1[val]++ : objTracker1[val] = 1;
+    // initialize it to 0 or increase it by 1
+    for(let val of str1) objCounter1[val] = (objCounter1[val] || 0) + 1;
+    for(let val of str2) objCounter2[val] = (objCounter2[val] || 0) + 1;
 
-    for(let val of arr2)
-        objTracker2[val] ? objTracker2[val]++ : objTracker2[val] = 1;
+    for(let key in objCounter1){
+        // key is in object2, and frequencies are the same
+        if(key in objCounter2 && objCounter1[key] === objCounter2[key]) return true;
+        // key does not exist in object 2
+        else if(!(key in objCounter2)) return false;
+    }
 
-    // console.log(objTracker1);
-    // console.log(objTracker2);
-
-    for(let key in objTracker1){
-        if(objTracker1[key] !== objTracker2[key]) return false;
-    } // end for
-    return true;
+    // for the edge cases we can't think of right now
+    return false;
 }
 
 

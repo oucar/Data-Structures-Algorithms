@@ -17,12 +17,15 @@
 :star: Write a function called areThereDuplicates, which accepts a variable number of arguments, and checkes whether there are any duplicates among the arguments passed in. [Link](https://github.com/oucar/Data-Structures-Algorithms/blob/master/JS%2C%201-%20Problem%20Solving%20Patterns/areThereDuplicates.js)<br>
 
 
+
 ## Multiple Pointers Pattern
 #### Explanation: [Link](https://medium.com/@kasiarosenb/algorithms-multiple-pointers-9843e1b5f1e1)
 
 > Examples:
 
 :star: Write a function called sumZero which accepts a SORTED array of integers. The function should find the first pair where the sum is 0. Return an array that includes both values tham sum to zero or undefined if a pair does not exists. [Link](https://github.com/oucar/Data-Structures-Algorithms/blob/master/JS%2C%201-%20Problem%20Solving%20Patterns/sumZero.js)<br>
+
+
 
 
 ## Sliding Window Pattern

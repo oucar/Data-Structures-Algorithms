@@ -1,21 +1,20 @@
 function averagePair(arr, average){
-    
-    let i = 0;
-    let j = arr.length -1;
+    let left = 0;
+    let right = arr.length - 1;
     let temp = 0;
 
-    while (i < j){
 
-        temp = (arr[i] + arr[j])/2;
+    while(left < right){
+        temp = (arr[left] + arr[right])/2;
 
-        if (temp === average) return true;
-        else if (temp < average) i++;
-        else j--;
-
-    } // end while 
+        if(temp === average) return true;
+        
+        if(temp  < average) left++;
+        else right--;
+    }
 
     return false;
-
+    
 }
 
 console.log(averagePair([1,2,3], 2.5));                             // true
