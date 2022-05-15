@@ -6,17 +6,17 @@ function minSubArrayLen(nums, sum) {
    
     while (start < nums.length) {
       // if current window doesn't add up to the given sum then 
-          // move the window to right
+        // move the window to right
       if(total < sum && end < nums.length){
         total += nums[end];
-              end++;
+        end++;
       }
       // if current window adds up to at least the sum given then
-          // we can shrink the window 
+      // we can shrink the window 
       else if(total >= sum){
         minLen = Math.min(minLen, end-start);
-              total -= nums[start];
-              start++;
+          total -= nums[start];
+          start++;
       } 
       // current total less than required total but we reach the end, need this or else we'll be in an infinite loop 
       else {

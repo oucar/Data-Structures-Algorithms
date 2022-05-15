@@ -24,16 +24,17 @@ function maxSubarraySum(arr, num){
 
     if (arr.length < num) return null;
 
-    for (let i = 0; i < num; i++) {
-      maxSum += arr[i];
-    }
+    for(let i = 0; i < arr.length; i++){
+      tempSum += arr[i];
 
-    tempSum = maxSum;
-    
-    for (let i = num; i < arr.length; i++) {
-      tempSum = tempSum - arr[i - num] + arr[i];
-      maxSum = Math.max(maxSum, tempSum);
+      if(i >= num - 1){
+        maxSum = Math.max(maxSum, tempSum);
+        // slide the window
+        tempSum -= arr[i - (num-1)];
+        console.log(tempSum);
+      }
     }
+    
     return maxSum;
   }
 

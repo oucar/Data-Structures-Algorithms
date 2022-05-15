@@ -50,6 +50,10 @@
 
 :star: Find the smallest subarray with given sum. This time the window size is dynamic. We will try to find the smallest subarray for smallest sum >= 8. [Link](https://github.com/oucar/Data-Structures-Algorithms/blob/master/JS%2C%201-%20Problem%20Solving%20Patterns/smallestSum.js)
 
+:star: Find the smallest subarray with given sum. This time the window size is dynamic. We will try to find the smallest subarray for smallest sum >= 8. Same question as the previous one. [Link](https://github.com/oucar/Data-Structures-Algorithms/blob/master/JS%2C%201-%20Problem%20Solving%20Patterns/minSubArrayLen.js)
+
+:star: Write a function called findLongestSubstring, which accepts a string and returns the length of the longest substring with all distinct characters. [Link](https://github.com/oucar/Data-Structures-Algorithms/blob/master/JS%2C%201-%20Problem%20Solving%20Patterns/findLongestSubstring.js)
+
   
 ## Divide and Conquer Pattern
 #### Explanation: [Link](https://hackernoon.com/divide-and-conquer-binary-search-in-javascript-et233zgt)
