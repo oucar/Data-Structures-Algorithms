@@ -1,4 +1,4 @@
-// FREQUENCY PATTERN
+// FREQUENCY COUNTER PATTERN
 
 function anagram(str1, str2){
     // if string lengths are not the same
