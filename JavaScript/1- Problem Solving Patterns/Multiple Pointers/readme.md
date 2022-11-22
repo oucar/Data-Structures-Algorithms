@@ -1,5 +1,7 @@
 
 ## Multiple Pointers Pattern
+> Usually we're looking for a pair of something.
+> Usually must be sorted
 #### Explanation: [Link](https://medium.com/@kasiarosenb/algorithms-multiple-pointers-9843e1b5f1e1)
 
 > Examples:

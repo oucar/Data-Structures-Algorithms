@@ -30,11 +30,13 @@ function maxSubarraySum(arr, num) {
   tempSum = maxSum;
 
   // you already calculated the first n (num);
+  // then substract the first number, and add the next number
+  // window moved
   for(let i = num; i < arr.length; i++){
+    // num is always num (2 for the first case)
     tempSum = tempSum - arr[i-num] + arr[i];
     maxSum = Math.max(maxSum, tempSum);
   }
-
 
     return maxSum;
 }

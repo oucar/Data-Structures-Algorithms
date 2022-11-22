@@ -4,11 +4,12 @@
 * Great fit for if there's some kind of iteration
 * Good with array, strings, linked lists etc.
 * Min, max, longest, shortest, containes followings, etc.
+* You usually work with some sort of subset.
 
 > This pattern involves creating a window which can either be an array or number from one position to another. Depending on a certain condition, the window either increases or closes (and a new window is created.) Very useful for keeping track of a subset of data in array/string etc.
 > Examples:
 
-:star: Write a function called maxSubarraySum which accepts an array of integers and a number called n. The function should calculate the maximum sum of n sensecutive elements in the array. maxSubarraySum.js<br>
+:star: !!IMPORTANT: Write a function called maxSubarraySum which accepts an array of integers and a number called n. The function should calculate the maximum sum of n sensecutive elements in the array. maxSubarraySum.js<br>
 
 :star: Same as previos question, find the maximum sum of a contigious subarray of size 3. maxSubarray3.js
 
