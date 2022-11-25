@@ -12,4 +12,6 @@
 
 :star: Write a function called averagePair. Given a sorted array of integers and a target average, determine if there is a pair of values in the array where the average of the pair equals the target average. There may be more than one pair that matches the average target. averagePair.js<br>
 
+:star: Write a recursive function called reverse which accepts a string and returns a new string in reverse. reverse.js <br>
+
 
