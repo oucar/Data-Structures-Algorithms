@@ -1,4 +1,6 @@
 // DIVIDE AND CONQUER!
+// Worst and Average case --> O(log n)
+// Best Cae --> O(1)
 
 function binarySearch(arr, val) {
   let start = 0;
