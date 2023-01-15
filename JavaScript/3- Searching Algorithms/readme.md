@@ -1,1 +1,0 @@
-naiveStringSearch - do better! find another sollution
