@@ -2,39 +2,39 @@
 // Divide and conquer algorithm --> breaks down the big single problem into same but smaller sub-problems
 
 // function responsible for merging two sorted arrays
-function mergeArrays(arr1, arr2){
-    let result = [];
+function mergeArrays(arr1, arr2) {
+  let result = [];
 
-    // one pointer for each array
-    let i = 0;
-    let j = 0;
+  // one pointer for each array
+  let i = 0;
+  let j = 0;
 
-    while(i < arr1.length && j < arr2.length){
-        if(arr2[j] >= arr1[i]){
-            result.push(arr1[i]);
-            i++;
-        } else {
-            result.push(arr2[j]);
-            j++
-        }
+  while (i < arr1.length && j < arr2.length) {
+    if (arr2[j] >= arr1[i]) {
+      result.push(arr1[i]);
+      i++;
+    } else {
+      result.push(arr2[j]);
+      j++;
     }
+  }
 
-    // add the remaining elements
-    while (i < arr1.length){
-        result.push(arr1[i]);
-        i++;
-    } 
+  // add the remaining elements
+  while (i < arr1.length) {
+    result.push(arr1[i]);
+    i++;
+  }
 
-    while (j < arr2.length){
-        result.push(arr2[j]);
-        j++;
-    }
+  while (j < arr2.length) {
+    result.push(arr2[j]);
+    j++;
+  }
 
-    return result;
+  return result;
 }
 
 console.log(mergeArrays([3, 10, 54, 90], [5, 26, 30, 70]));
-
+console.log(mergeArrays([3, 5, 10, 20], [10, 11, 14]));
 // console.log(mergeSort([37, 45, 29, 8]));
 // console.log(
 //   mergeSort([
