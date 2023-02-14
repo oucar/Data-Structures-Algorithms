@@ -71,7 +71,7 @@ class SinglyLinkedList {
   unshift(val) {
     var newNode = new Node(val);
 
-    if(!this.head) {
+    if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
     } else {
@@ -81,6 +81,31 @@ class SinglyLinkedList {
 
     this.length++;
     return this;
+  }
+
+  // Returns a node from the given index
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+
+    var counter = 0;
+    var curr = this.head;
+
+    while (counter !== index) {
+      curr = curr.next;
+      counter++;
+    }
+
+    return curr;
+  }
+
+  // Sets the value of a given index
+  set(index, val) {
+    var foundNode = this.get(index);
+    if (foundNode) {
+      foundNode.val = val;
+      return true;
+    }
+
   }
 
 
@@ -96,6 +121,9 @@ console.log(linkedList.pop());
 
 console.log(linkedList.unshift("Unshift"));
 console.log(linkedList.shift());
+
+linkedList.set(2, "REPLACED");
+console.log(`Value in index 2 is: ${linkedList.get(2).val}`);
 
 
 console.log(` Head: ${linkedList.head.val}\n Tail: ${linkedList.tail.val}\n Length: ${linkedList.length}`);
