@@ -28,10 +28,40 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+
+  // Removes the tail element
+  pop(){
+
+    if(!this.head) return null;
+    
+    var curr = this.head;
+    var newTail = this.head;
+
+    while(curr.next !== null){
+      newTail = curr;
+      curr = curr.next;
+    }
+    
+    this.tail = newTail
+    this.length--;
+
+    if(this.length === 0){
+      this.head = null;
+      this.tail = null;
+    }
+
+    return curr;
+  }
+
+
 }
 
 var linkedList = new SinglyLinkedList();
-linkedList.push("Onur");
-linkedList.push("Ucar");
+console.log(linkedList.push("Onur"));
+console.log(linkedList.push("Ucar"));
+console.log(linkedList.push("Hello"));
+console.log(linkedList.push("!"));
+
+console.log(linkedList.pop());
 
 console.log(linkedList);
