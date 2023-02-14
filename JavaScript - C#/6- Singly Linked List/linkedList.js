@@ -30,27 +30,57 @@ class SinglyLinkedList {
   }
 
   // Removes the tail element
-  pop(){
+  pop() {
 
-    if(!this.head) return null;
-    
+    if (!this.head) return null;
+
     var curr = this.head;
     var newTail = this.head;
 
-    while(curr.next !== null){
+    while (curr.next) {
       newTail = curr;
       curr = curr.next;
     }
-    
+
     this.tail = newTail
+    this.tail.next = null;
     this.length--;
 
-    if(this.length === 0){
+    if (this.length === 0) {
       this.head = null;
       this.tail = null;
     }
 
     return curr;
+  }
+
+  // Removes an element from the beginning
+  shift() {
+
+    if (!this.head) return null;
+
+    var currHead = this.head;
+    this.head = currHead.next;
+    this.length--;
+
+    if (this.length === 0) this.tail = null;
+
+    return currHead;
+  }
+
+  unshift(val) {
+    var newNode = new Node(val);
+
+    if(!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+
+    this.length++;
+    return this;
   }
 
 
@@ -64,4 +94,10 @@ console.log(linkedList.push("!"));
 
 console.log(linkedList.pop());
 
-console.log(linkedList);
+console.log(linkedList.unshift("Unshift"));
+console.log(linkedList.shift());
+
+
+console.log(` Head: ${linkedList.head.val}\n Tail: ${linkedList.tail.val}\n Length: ${linkedList.length}`);
+
+
