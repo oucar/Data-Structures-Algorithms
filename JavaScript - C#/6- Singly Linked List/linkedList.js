@@ -31,7 +31,6 @@ class SinglyLinkedList {
 
   // Removes the tail element
   pop() {
-
     if (!this.head) return null;
 
     var curr = this.head;
@@ -42,7 +41,7 @@ class SinglyLinkedList {
       curr = curr.next;
     }
 
-    this.tail = newTail
+    this.tail = newTail;
     this.tail.next = null;
     this.length--;
 
@@ -56,7 +55,6 @@ class SinglyLinkedList {
 
   // Removes an element from the beginning
   shift() {
-
     if (!this.head) return null;
 
     var currHead = this.head;
@@ -105,27 +103,64 @@ class SinglyLinkedList {
       foundNode.val = val;
       return true;
     }
-
   }
 
+  // Inserts a value into a given index
+  insert(index, val) {
+    if (index < 0 || index > this.length) return null;
+    else if (index === this.length) this.push(val);
+    else if (index === 0) this.unshift(val);
+    else {
+      var prev = this.get(index - 1);
+      var newNode = new Node(val);
+  
+      newNode.next = prev.next;
+      prev.next = newNode;
+  
+      this.length++;
+      return this.get(index);
+    }
+  }
 
+  remove(index) {
+    
+  }
+
+  // Helper print function to visualize the Linked list
+  print(message) {
+    var curr = this.head;
+    while (curr) {
+      process.stdout.write(`${curr.val} --> `);
+      curr = curr.next;
+    }
+    console.log(`null \nCurrent state of the linked list after ${message}`);
+    console.log(`Length: ${this.length}\n`);
+
+  }
 }
 
 var linkedList = new SinglyLinkedList();
-console.log(linkedList.push("Onur"));
-console.log(linkedList.push("Ucar"));
-console.log(linkedList.push("Hello"));
-console.log(linkedList.push("!"));
+linkedList.push("Onur");
+linkedList.push("Ucar");
+linkedList.push("Hello");
+linkedList.push("!");
+linkedList.print("4 pushes");
 
-console.log(linkedList.pop());
+linkedList.pop();
+linkedList.print("pop");
 
-console.log(linkedList.unshift("Unshift"));
-console.log(linkedList.shift());
+linkedList.unshift("Unshift");
+linkedList.print("unshift");
+
+linkedList.shift();
+linkedList.print("shift");
 
 linkedList.set(2, "REPLACED");
-console.log(`Value in index 2 is: ${linkedList.get(2).val}`);
+linkedList.print("set at index 2");
 
+linkedList.insert(3, "World");
+linkedList.print("insert at index 3");
 
-console.log(` Head: ${linkedList.head.val}\n Tail: ${linkedList.tail.val}\n Length: ${linkedList.length}`);
-
-
+console.log(
+  `Head: ${linkedList.head.val}\nTail: ${linkedList.tail.val}\nLength: ${linkedList.length}`
+);
