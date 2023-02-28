@@ -113,17 +113,46 @@ class SinglyLinkedList {
     else {
       var prev = this.get(index - 1);
       var newNode = new Node(val);
-  
+
       newNode.next = prev.next;
       prev.next = newNode;
-  
+
       this.length++;
       return this.get(index);
     }
   }
 
   remove(index) {
-    
+    if (index < 0 || index >= this.length) return null;
+    if (index === 0) return this.shift();
+    if (index === this.length - 1) return this.pop();
+
+    var prev = this.get(index - 1);
+    var removed = prev.next;
+
+    prev.next = removed.next;
+    this.length--;
+
+    return removed;
+  }
+
+  reverse() {
+    // replace tail and head
+    var curr = this.head;
+    this.head = this.tail;
+    this.tail = curr;
+
+    var prev = null;
+    var next = null;
+
+    for(var i = 0; i < this.length; i++){
+      next = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = next;
+    }
+
+    return this;
   }
 
   // Helper print function to visualize the Linked list
@@ -135,7 +164,6 @@ class SinglyLinkedList {
     }
     console.log(`null \nCurrent state of the linked list after ${message}`);
     console.log(`Length: ${this.length}\n`);
-
   }
 }
 
@@ -160,6 +188,12 @@ linkedList.print("set at index 2");
 
 linkedList.insert(3, "World");
 linkedList.print("insert at index 3");
+
+linkedList.remove(1);
+linkedList.print("removing index 1");
+
+linkedList.reverse();
+linkedList.print("reversing the linked list");
 
 console.log(
   `Head: ${linkedList.head.val}\nTail: ${linkedList.tail.val}\nLength: ${linkedList.length}`
