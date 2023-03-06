@@ -69,9 +69,35 @@ namespace LinkedList___CS
             return this._tail;
         }
 
-        public Node pop()
+        /// <summary>
+        /// Removes an item from end of the linked list.
+        /// </summary>
+        /// <returns></returns>
+        public Node Pop()
         {
             if (isEmpty()) return null;
+
+            Node current = this._head;
+            Node newTail = this._head;
+
+            while (current.Next != null)
+            {
+                newTail = current;
+                current = current.Next;
+            }
+
+            this._tail = newTail;
+            this._tail.Next = null;
+            this._size--;
+
+            if(this._size == 0)
+            {
+                this._head = null;
+                this._tail = null;
+            }
+
+            return current;
+
         }
     }
 }
