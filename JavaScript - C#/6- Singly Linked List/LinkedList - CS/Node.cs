@@ -3,16 +3,16 @@ namespace LinkedList___CS
 {
 	public class Node
 	{
-        private object _data;
+        private int _data;
 		private Node _next;
 
-        public Node(object _data, Node _next)
+        public Node(int _data)
 		{
 			this._data = _data;
-			this._next = _next;
+			this._next = null;
 		}
 
-        public object Data { get; set; }
+        public int Data { get; set; }
 		public Node Next { get; set; }
 
     }
