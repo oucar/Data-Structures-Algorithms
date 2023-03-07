@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LinkedList___CS
 {
@@ -90,15 +91,57 @@ namespace LinkedList___CS
             this._tail.Next = null;
             this._size--;
 
-            if(this._size == 0)
+            if (this._size == 0)
             {
                 this._head = null;
                 this._tail = null;
             }
 
             return current;
-
         }
+
+        /// <summary>
+        /// Removes an element from the beginning
+        /// </summary>
+        /// <returns></returns>
+        public Node Shift()
+        {
+            if (isEmpty()) return null;
+
+            Node currentHead = this._head;
+            this._head = currentHead.Next;
+            this._size--;
+
+            if (isEmpty()) this._tail = null;
+
+            return currentHead;
+        }
+
+        /// <summary>
+        /// Adds an element to the beginning
+        /// </summary>
+        /// <param name="data">Value that we will be inserting</param>
+        /// <returns></returns>
+        public Node Unshift(int data)
+        {
+            Node newNode = new Node(data);
+
+            if (isEmpty())
+            {
+                this._head = newNode;
+                this._tail = newNode;
+            } else
+            {
+                newNode.Next = this._head;
+                this._head = newNode;
+            }
+
+            newNode.Data = data;
+            this._size++;
+            
+            return newNode;
+        }
+
     }
 }
 

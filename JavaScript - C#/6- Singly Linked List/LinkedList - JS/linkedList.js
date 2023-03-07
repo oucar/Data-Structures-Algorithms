@@ -66,6 +66,7 @@ class SinglyLinkedList {
     return currHead;
   }
 
+  // Adds an element to the beginning
   unshift(val) {
     var newNode = new Node(val);
 
