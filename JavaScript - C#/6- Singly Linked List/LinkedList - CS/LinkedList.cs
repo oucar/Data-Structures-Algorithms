@@ -142,6 +142,46 @@ namespace LinkedList___CS
             return newNode;
         }
 
+        /// <summary>
+        /// Returns a node from the given index
+        /// </summary>
+        /// <param name="index">Index that we will be returning</param>
+        /// <returns></returns>
+        public Node Get(int index)
+        {
+            if (index < 0 || index >= this._size) return null;
+
+            int counter = 0;
+            Node current = this._head;
+
+            while(counter != index)
+            {
+                current = current.Next;
+                counter++;
+            }
+
+            return current;
+        }
+
+        /// <summary>
+        /// Sets the value of a given index
+        /// </summary>
+        /// <param name="index">Index that we will be setting the value of</param>
+        /// <param name="value">Value that we will be setting for the corresponding index</param>
+        /// <returns>True if succesfully set the value, false otherwise</returns>
+        public bool Set(int index, int value) {
+
+            Node node = this.Get(index);
+
+            if (node != null)
+            {
+                node.Data = value;
+                return true;
+            }
+
+            return false;
+        }
+
     }
 }
 

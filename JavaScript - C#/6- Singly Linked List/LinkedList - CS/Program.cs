@@ -23,6 +23,11 @@
 
             list.Unshift(31);
 
+            var firstItem = list.Get(0);
+            Console.WriteLine($"Data of the first item is: {firstItem.Data}");
+            list.Set(0, 32);
+            Console.WriteLine($"Data of the first item after Set operation is: {firstItem.Data}");
+
             list.Print();
 
         }
