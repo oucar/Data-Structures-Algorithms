@@ -26,16 +26,79 @@ class Program
         return false;
     }
 
-    //Array Insert()
-    //{
+    static int[] Insert(int[] arr, int index, int value)
+    {
+        // Inserting to arr[i+1]
+        if (index == arr.Length + 1)
+        {
+            Console.WriteLine($"Inserting the new value {value} at the end...");
 
-    //}
+            int[] newArray = new int[arr.Length + 1];
+
+            for(int i = 0; i < arr.Length; i++)
+            {
+                newArray[i] = arr[i];
+            }
+
+            newArray[index - 1] = value;
+
+            return newArray;
+        }
+
+        else if (index < 0 || index > arr.Length)
+        {
+            Console.WriteLine($"Array Length is: {arr.Length}, index given is: {index}! Can't be inserted.");
+            return arr;
+        } 
+
+        else {
+            Console.WriteLine($"Inserting {value} at Index {index}...");
+
+            int[] newArray = new int[arr.Length + 1];
+
+                for(int i = 0; i <= arr.Length; i++)
+                {
+                    
+                    // all elements before stay as they are
+                    if ( i < index )
+                    {
+                        newArray[i] = arr[i];
+                    }
+
+                    // index to be inserted
+                    else if ( i == index )
+                    {
+                        newArray[i] = value;
+                    }
+
+                    // remaining elements, shifted by 1
+                    else
+                    {
+                        newArray[i] = arr[i - 1];
+                    }
+                }
+            
+            return newArray;
+
+        }
+    }
 
     //Array Delete()
     //{
 
     //}
 
+
+    // Helper Function
+    static void PrintArray(int[] arr)
+    {
+        for(int i = 0; i < arr.Length; i++)
+        {
+            Console.Write($"{arr[i]} ");
+        }
+        Console.WriteLine();
+
+    }
 
     static void Main(string[] args)
     {
@@ -56,6 +119,32 @@ class Program
         Console.WriteLine("Search {0}: {1}", indexToBeSearchedAndFound, foundResult);
         Console.WriteLine("Search {0}: {1}", indexToBeSearchedAndNotFound, notFoundResult);
 
+        // Insert Operation
+        var insertBefore = Insert(numbers, -1, 99);
+        PrintArray(insertBefore);
 
+        var insertWayAfter = Insert(numbers, 100, 99);
+        PrintArray(insertWayAfter);
+
+        var insertAtTheEnd = Insert(numbers, 6, 99);
+        PrintArray(insertAtTheEnd);
+
+        var insertAtTheBeginning = Insert(numbers, 0, 99);
+        PrintArray(insertAtTheBeginning);
+
+        var insertAt1 = Insert(numbers, 1, 99);
+        PrintArray(insertAt1);
+
+        var insertAt2 = Insert(numbers, 2, 99);
+        PrintArray(insertAt2);
+
+        var insertAt3 = Insert(numbers, 3, 99);
+        PrintArray(insertAt3);
+
+        var insertAt4 = Insert(numbers, 4, 99);
+        PrintArray(insertAt4);
+
+        var insertAt5 = Insert(numbers, 5, 99);
+        PrintArray(insertAt5);
     }
 }
