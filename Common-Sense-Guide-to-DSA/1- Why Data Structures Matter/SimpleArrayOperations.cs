@@ -83,10 +83,41 @@ class Program
         }
     }
 
-    //Array Delete()
-    //{
+    static int[] Delete(int[] arr, int index)
+    {
 
-    //}
+        if (index < 0 || index > arr.Length)
+        {
+            Console.WriteLine($"Array Length is: {arr.Length}, index given is: {index}! Can't be deleted.");
+            return arr;
+        }
+
+        else
+        {
+            Console.WriteLine($"Deleting from Index {index}...");
+
+            int[] newArray = new int[arr.Length - 1];
+
+            for (int i = 0; i < arr.Length-1; i++)
+            {
+
+                // all elements before stay as they are
+                if (i < index)
+                {
+                    newArray[i] = arr[i];
+                }
+
+                // index to be deleted and the rest
+                else if (i >= index)
+                {
+                    newArray[i] = arr[i+1];
+                }
+            }
+
+            return newArray;
+
+        }
+    }
 
 
     // Helper Function
@@ -146,5 +177,32 @@ class Program
 
         var insertAt5 = Insert(numbers, 5, 99);
         PrintArray(insertAt5);
+
+
+        // Delete Operation
+        var deleteBefore = Delete(numbers, -1);
+        PrintArray(deleteBefore);
+
+        var deleteAfter = Delete(numbers, 99);
+        PrintArray(deleteAfter);
+
+        var deleteAtTheBeginning = Delete(numbers, 0);
+        PrintArray(deleteAtTheBeginning);
+
+        var deleteAt1 = Delete(numbers, 1);
+        PrintArray(deleteAt1);
+
+        var deleteAt2 = Delete(numbers, 2);
+        PrintArray(deleteAt2);
+
+        var deleteAt3 = Delete(numbers, 3);
+        PrintArray(deleteAt3);
+
+        var deleteAt4 = Delete(numbers, 4);
+        PrintArray(deleteAt4);
+
+        var deleteAtTheEnd = Delete(numbers, 5);
+        PrintArray(deleteAtTheEnd);
+
     }
 }
