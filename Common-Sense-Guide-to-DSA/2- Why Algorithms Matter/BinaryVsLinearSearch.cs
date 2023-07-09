@@ -57,6 +57,5 @@ class Program
 
         LinearSearch(arr, valueToBeSearched);
         BinarySearch(arr, valueToBeSearched);
-
     }
 }
