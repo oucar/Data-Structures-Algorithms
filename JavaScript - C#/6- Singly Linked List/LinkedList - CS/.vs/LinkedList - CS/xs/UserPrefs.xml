@@ -1,4 +1,18 @@
 ﻿<Properties StartupConfiguration="{62B257B3-5725-4E6A-921E-C9AC1E3FFD2C}|Default">
-  <MonoDevelop.Ide.ItemProperties.LinkedList_220-_220CS FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="LinkedList - CS" expanded="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.LinkedList_220-_220CS FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

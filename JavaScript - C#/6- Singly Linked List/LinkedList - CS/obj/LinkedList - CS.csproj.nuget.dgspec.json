@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ucart\\OneDrive\\Documents\\GitHub\\Data-Structures-Algorithms\\JavaScript - C#\\6- Singly Linked List\\LinkedList - CS\\LinkedList - CS.csproj": {}
+    "/Users/onurucar/Desktop/Github/Data-Structures-Algorithms/JavaScript - C#/6- Singly Linked List/LinkedList - CS/LinkedList - CS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ucart\\OneDrive\\Documents\\GitHub\\Data-Structures-Algorithms\\JavaScript - C#\\6- Singly Linked List\\LinkedList - CS\\LinkedList - CS.csproj": {
+    "/Users/onurucar/Desktop/Github/Data-Structures-Algorithms/JavaScript - C#/6- Singly Linked List/LinkedList - CS/LinkedList - CS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ucart\\OneDrive\\Documents\\GitHub\\Data-Structures-Algorithms\\JavaScript - C#\\6- Singly Linked List\\LinkedList - CS\\LinkedList - CS.csproj",
+        "projectUniqueName": "/Users/onurucar/Desktop/Github/Data-Structures-Algorithms/JavaScript - C#/6- Singly Linked List/LinkedList - CS/LinkedList - CS.csproj",
         "projectName": "LinkedList - CS",
-        "projectPath": "C:\\Users\\ucart\\OneDrive\\Documents\\GitHub\\Data-Structures-Algorithms\\JavaScript - C#\\6- Singly Linked List\\LinkedList - CS\\LinkedList - CS.csproj",
-        "packagesPath": "C:\\Users\\ucart\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ucart\\OneDrive\\Documents\\GitHub\\Data-Structures-Algorithms\\JavaScript - C#\\6- Singly Linked List\\LinkedList - CS\\obj\\",
+        "projectPath": "/Users/onurucar/Desktop/Github/Data-Structures-Algorithms/JavaScript - C#/6- Singly Linked List/LinkedList - CS/LinkedList - CS.csproj",
+        "packagesPath": "/Users/onurucar/.nuget/packages/",
+        "outputPath": "/Users/onurucar/Desktop/Github/Data-Structures-Algorithms/JavaScript - C#/6- Singly Linked List/LinkedList - CS/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ucart\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/onurucar/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }
