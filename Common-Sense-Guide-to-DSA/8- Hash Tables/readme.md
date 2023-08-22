@@ -41,3 +41,14 @@ numbers[61];
 ---
 ### Array Subset Problem
 - Let's say we need to determine whether one array is a subset of another array. See ```ArraySubset.cs```
+
+
+
+--- 
+### Examples
+- Write a function that returns the intersection of two arrays. The intersetion is a third array that contains all values contained within the first two arrays. For example, the intersection of [1, 2, 3, 4, 5] and [0, 2, 4, 6, 8] is [2, 4]. Your function should have a complexity of O(N). [IntersectionOfArrays.cs]()
+- Write a function that accepts an array of strings and returns the first duplicate value it finds. For example, if the array is [a, b, c, d, c, e, f], the function should return "c", since it's duplicated withtin the array. [You can assume that there's one pair of duplicates within the array.] [FirstDuplicate.cs]()
+
+[Link]()
+- [Link]()
+- [Link]()

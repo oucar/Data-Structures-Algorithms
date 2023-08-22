@@ -10,6 +10,7 @@ class Program
         var hashTable = new Hashtable();
 
         // Determine which array is smaller
+        // Ternary can be used to simplify this
         if(arr1.Length > arr2.Length)
         {
             largerArray = arr1;
