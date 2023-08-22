@@ -2,6 +2,7 @@
 - Might be known as Hashes, Maps, Hash Maps, Dictionaries and Associative Arrays
 - Can lookup stuff pretty fast --> O(1), way better than binary search O(log N).
 - First item is called key, second item is called value (key value pairs)
+- **Iterating over Array: `foreach(var item in arr)`, Iterating over a hash table: `foreach(var item in hashTable.Keys)`**
 ---
 - A Hash Fucntion must convert the same string to the same number every single time it's applied. If the hash function can return inconsistent results for a string, it is not valid.
 - Fastest you can look up an element with an unordered array is 0(N), with an ordered array and binary search it's O(Log N), but with an hash map it's O (1),
@@ -48,7 +49,5 @@ numbers[61];
 ### Examples
 - Write a function that returns the intersection of two arrays. The intersetion is a third array that contains all values contained within the first two arrays. For example, the intersection of [1, 2, 3, 4, 5] and [0, 2, 4, 6, 8] is [2, 4]. Your function should have a complexity of O(N). [IntersectionOfArrays.cs]()
 - Write a function that accepts an array of strings and returns the first duplicate value it finds. For example, if the array is [a, b, c, d, c, e, f], the function should return "c", since it's duplicated withtin the array. [You can assume that there's one pair of duplicates within the array.] [FirstDuplicate.cs]()
-
-[Link]()
-- [Link]()
+- Write a function that accepts a string that contains all the letters of the alphabet except one and returns the missing letter. For example, the string "the quick brown box jumps over a lazy dog" contains all the letters of the alphabet except the letter, "f". The function should have a time complexity of O(N). [MissingLetter.cs]()
 - [Link]()
