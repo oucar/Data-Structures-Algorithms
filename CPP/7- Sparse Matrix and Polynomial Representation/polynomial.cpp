@@ -36,7 +36,7 @@ struct Poly* add(struct Poly *p1, struct Poly *p2)
 	while (i < p1->n && j < p2->n)
 	{
 		if (p1->terms[i].exp > p2->terms[j].exp) sum->terms[k++] = p1->terms[i++];
-		elseif(p1->terms[i].exp < p2->terms[j].exp) sum->terms[k++] = p2->terms[j++];
+		else if(p1->terms[i].exp < p2->terms[j].exp) sum->terms[k++] = p2->terms[j++];
 		else
 		{
 			sum->terms[k].exp = p1->terms[i].exp;
