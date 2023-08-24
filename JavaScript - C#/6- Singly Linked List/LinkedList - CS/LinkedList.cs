@@ -20,7 +20,7 @@ namespace LinkedList___CS
 
         public bool isEmpty()
         {
-            return this._head == null ? true : false;
+            return (this._head == null) ? true : false;
         }
 
         public int Count()
