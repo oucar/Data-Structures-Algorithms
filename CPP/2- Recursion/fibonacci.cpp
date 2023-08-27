@@ -45,13 +45,13 @@ int fibIterative(int n) {
 /* in fib(), you're calculating same values over and over again. So, declare and array and hold the values you calculated.*/
 int betterFib(int n) {
 
-	static int F[10]; //Or use a vector instead
+	static int F[10];
 	for (int i = 0; i < 10; i++) F[i] = -1;
 	
 	if (n <= 1) {
 		F[n] = n;
 		return n;
-	}//end if
+	}
 
 	else {
 
@@ -59,7 +59,7 @@ int betterFib(int n) {
 		if (F[n - 1] == -1) F[n - 1] = fib(n - 1);
 
 		return F[n - 2] + F[n - 1];
-	}//end else
+	}
 }
 
 

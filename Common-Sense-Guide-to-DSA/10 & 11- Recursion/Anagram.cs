@@ -1,1 +1,0 @@
-// Write a function that returns an array of all anagrams of a given string
