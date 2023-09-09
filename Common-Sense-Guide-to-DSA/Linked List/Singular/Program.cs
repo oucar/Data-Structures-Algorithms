@@ -34,6 +34,17 @@ class Program
 
         list.Traverse();
 
+        list.InsertAfterGiven(1, 400);
+
+        list.Traverse();
+
+        Console.WriteLine($"Next data of 400: {list.Get(2).Next.Data}");
+
+        list.DeleteFromIndex(2);
+        list.Traverse();
+
+
+
         var search1 = list.Search(41);
         var search2 = list.Search(300);
 
