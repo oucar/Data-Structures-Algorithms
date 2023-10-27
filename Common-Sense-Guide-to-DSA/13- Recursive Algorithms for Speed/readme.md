@@ -6,6 +6,7 @@
 
 
 - **Quick Sort**: is a combination of partitioning. and recursion. 
+- The worst case scneario for Quicksort is one in which the pivot always ends up on one side of the subarray instead of in the middle. This can happen where the array is in perfect ascending or descending order.
 
 ```
 quickSort(arr, beg, end)
