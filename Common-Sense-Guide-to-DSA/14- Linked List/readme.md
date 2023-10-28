@@ -1,6 +1,7 @@
 ### Linked List
 
 - A node in a linked list typically consists of two components called data and a pointer to the next node. Data holds the actual value or data associated with the node. The nxet pointer stores the memory address (reference) of the next node in the sequence.
+- Instead of being a contiguous memory, the data from linked lists can be scattered across different cells througout the computer's memory. Connected data that is dispersed throughout the memory are known as nodes, and they are connected to each other with pointers
 
 --- 
 ### Why Linked list?
@@ -26,8 +27,5 @@
 - **Insertion:** Adding a new node to a linked list involves adjusting the pointers of the existing nodes to maintain the proper sequence. Insertion can be performed at the beginning, end, or any position within the list
 - **Deletion:** Removing a node from a linked list requires adjusting the pointers of the neighboring nodes to bridge the gap left by the deleted node. Deletion can be performed at the beginning, end, or any position within the list.
 - **Searching:** Searching for a specific value in a linked list involves traversing the list from the head node until the value is found or the end of the list is reached.
-
-
-### Todo:
--- Add pushing after a given node index
--- Ad popping a given index
+---
+![](https://i.stack.imgur.com/d1jQc.png)
