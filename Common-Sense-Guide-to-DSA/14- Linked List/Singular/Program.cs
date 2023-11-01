@@ -50,11 +50,5 @@ class Program
 
         Console.WriteLine($"Search 41: {search1}");
         Console.WriteLine($"Search 300: {search2}");
-
-
-
-
-
-
     }
 }

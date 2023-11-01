@@ -1,21 +1,18 @@
 using System;
 namespace Playground
 {
-	public class Node
-	{
-		private int _data;
-		private Node _next;
+    public class Node
+    {
+        // constructor (given a data value)
+        public Node(int _data)
+        {
+            Data = _data;
+            Next = null;
+        }
 
-		// constructor (given a data value)
-		public Node(int _data)
-		{
-			this._data = _data;
-			this._next = null;
-		}
+        public int Data { get; set; }
 
-		public int Data { get; set; }
-
-		public Node Next { get; set; }
-	}
+        public Node Next { get; set; }
+    }
 }
 

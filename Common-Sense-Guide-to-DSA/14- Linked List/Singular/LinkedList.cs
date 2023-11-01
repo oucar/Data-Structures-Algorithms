@@ -1,5 +1,4 @@
 using System;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Playground
 {
@@ -86,7 +85,7 @@ namespace Playground
 
             this._size++;
         }
-       
+
 
 
         /// <summary>
@@ -197,9 +196,6 @@ namespace Playground
 
             return false;
         }
-
-
-
     }
 }
 
