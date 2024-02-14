@@ -11,16 +11,16 @@ class Program
     // source, destination and aux 
     static void towerOfHanoi(int number, char A, char B, char C)
     {
-        if (number == 0) return;
-
-        towerOfHanoi(number - 1, A, C, B);
-        Console.WriteLine($"Moving a disc from {A} to {B} using {C}");
-        towerOfHanoi(number - 1, B, A, C);
+        if (number > 0)
+        {
+            towerOfHanoi(number - 1, A, C, B);
+            Console.WriteLine($"Moving a disc from {A} to {C}");
+            towerOfHanoi(number - 1, B, A, C);
+        }
     }
-
 
     static void Main(string[] args)
     {
-        towerOfHanoi(3, 'A', 'C', 'B');
+        towerOfHanoi(3, 'A', 'B', 'C');
     }
 }
