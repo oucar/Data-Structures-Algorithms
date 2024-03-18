@@ -11,6 +11,7 @@
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 //   const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 //   const arr = [1, 2, 3, 4, 5];  -- 3
+// @@ TODO: Make sure you can do it a few more times
 function chunk(array, size) {
   var mainArray = [];
   var subArr = [];
