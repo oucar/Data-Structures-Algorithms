@@ -17,6 +17,18 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+// My solution
+function steps(n) {
+
+    let spaceAmount = 0;
+    let textToPrint = '';
+
+    for(let i = 1; i <= n; i ++){
+        spaceAmount = n - i;
+        textToPrint = "#".repeat(i) + ' '.repeat(spaceAmount);
+        console.log(textToPrint);
+    }
+
+}
 
 module.exports = steps;
