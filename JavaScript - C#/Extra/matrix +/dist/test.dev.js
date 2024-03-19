@@ -1,0 +1,30 @@
+"use strict";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var matrix = require('./index');
+
+test('matrix is a function', function () {
+  expect(_typeof(matrix)).toEqual('function');
+});
+test('matrix produces a 2x2 array', function () {
+  var m = matrix(2);
+  expect(m.length).toEqual(2);
+  expect(m[0]).toEqual([1, 2]);
+  expect(m[1]).toEqual([4, 3]);
+});
+test('matrix produces a 3x3 array', function () {
+  var m = matrix(3);
+  expect(m.length).toEqual(3);
+  expect(m[0]).toEqual([1, 2, 3]);
+  expect(m[1]).toEqual([8, 9, 4]);
+  expect(m[2]).toEqual([7, 6, 5]);
+});
+test('matrix produces a 4x4 array', function () {
+  var m = matrix(4);
+  expect(m.length).toEqual(4);
+  expect(m[0]).toEqual([1, 2, 3, 4]);
+  expect(m[1]).toEqual([12, 13, 14, 5]);
+  expect(m[2]).toEqual([11, 16, 15, 6]);
+  expect(m[3]).toEqual([10, 9, 8, 7]);
+});
