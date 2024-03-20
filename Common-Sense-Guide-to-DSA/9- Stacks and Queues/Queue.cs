@@ -6,7 +6,6 @@ using System.Collections.Generic;
 
 class Queue
 {
-
     static readonly int MAX = 10;
     private int _frontElement;
     private int _backElement;

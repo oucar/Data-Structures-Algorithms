@@ -6,7 +6,6 @@ using System.Collections.Generic;
 
 class Stack
 {
-
     static readonly int MAX = 10;
     private int _topElement;
     private int[] _stack = new int[MAX];
@@ -93,8 +92,6 @@ class Stack
 
 class Program
 {
-
-
     static void Main(string[] args)
     {
         Stack stack = new Stack();
