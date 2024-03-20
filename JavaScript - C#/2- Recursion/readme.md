@@ -9,8 +9,6 @@
 #### Helper Method Recursion
 - 2 functions, one actual function (outer) and one inner helper recursive function.
 
-
-
 #### Where things can go wrong:
 - You should always have a base case. 
 - Always return something and make sure that you're returning the thing you want to return.

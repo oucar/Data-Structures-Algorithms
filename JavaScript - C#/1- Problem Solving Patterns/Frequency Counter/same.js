@@ -1,5 +1,5 @@
 // FREQUENCY COUNTER PATTERN
-// QUICK RECAP ABOUT THE OBJECTS
+// QUICK RECAP ABOUT THE OBJECTS 
 function object(){
     let obj = {1: 1, 2: 2, 10: 1, 45: 10};
     // returns 10
@@ -8,6 +8,9 @@ function object(){
 
 object();
 
+// "Write a function same2(arr1, arr2) in JavaScript that takes in two arrays of integers, 
+// arr1 and arr2. Determine whether the second array arr2 contains the same elements as the 
+// first array arr1, but squared, with the same frequency. Return true if the condition is met, otherwise return false."
 // frequency pattern, refactored
 function same2(arr1, arr2){
     if(arr1.length !== arr2.length) return false;

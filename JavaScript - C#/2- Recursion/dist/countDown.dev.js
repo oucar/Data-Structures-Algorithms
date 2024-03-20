@@ -1,3 +1,5 @@
+"use strict";
+
 // Starting from num, count to 0
 function countDown(num) {
   // base case
@@ -5,6 +7,7 @@ function countDown(num) {
     console.log("All done!!");
     return;
   }
+
   console.log(num);
   num--;
   countDown(num);

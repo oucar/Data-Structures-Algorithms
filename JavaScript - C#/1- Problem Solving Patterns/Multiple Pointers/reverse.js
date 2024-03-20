@@ -1,3 +1,5 @@
+//  Write a recursive function called reverse which accepts a string and returns a new string in reverse.
+
 function reverse(str){
     let i = 0;
     let j = str.length - 1;

@@ -1,5 +1,7 @@
 // MULTIPLE POINTERS PATTERN
-
+// Write a function called sumZero which accepts a SORTED array of integers. The function should find the 
+// first pair where the sum is 0. Return an array that includes both values tham sum to zero or undefined 
+// if a pair does not exists.
 function sumZero(arr){
     let left = 0;
     let right = arr.length - 1;
