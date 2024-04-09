@@ -13,10 +13,10 @@ class SinglyLinkedList {
   }
 
   // Add a new node at the end of the linked list.
+  // O(1)
   push(val) {
     var node = new Node(val);
 
-    // No head --> head and tail is the new node
     if (!this.head) {
       this.head = node;
       this.tail = node;
@@ -30,6 +30,7 @@ class SinglyLinkedList {
   }
 
   // Removes the tail element
+  // O(n)
   pop() {
     if (!this.head) return null;
 
@@ -37,6 +38,8 @@ class SinglyLinkedList {
     var newTail = this.head;
 
     while (curr.next) {
+      // while my current has a next, new tail should be the one before that
+      // until you reach the end
       newTail = curr;
       curr = curr.next;
     }
@@ -54,6 +57,7 @@ class SinglyLinkedList {
   }
 
   // Removes an element from the beginning
+  // O(1)
   shift() {
     if (!this.head) return null;
 
@@ -67,6 +71,7 @@ class SinglyLinkedList {
   }
 
   // Adds an element to the beginning
+  // O(1)
   unshift(val) {
     var newNode = new Node(val);
 
@@ -83,6 +88,7 @@ class SinglyLinkedList {
   }
 
   // Returns a node from the given index
+  // O(n)
   get(index) {
     if (index < 0 || index >= this.length) return null;
 
@@ -98,6 +104,7 @@ class SinglyLinkedList {
   }
 
   // Sets the value of a given index
+  // O(n)
   set(index, val) {
     var foundNode = this.get(index);
     if (foundNode) {
@@ -107,6 +114,7 @@ class SinglyLinkedList {
   }
 
   // Inserts a value into a given index
+  // O(n)
   insert(index, val) {
     if (index < 0 || index > this.length) return null;
     else if (index === this.length) this.push(val);
@@ -123,6 +131,8 @@ class SinglyLinkedList {
     }
   }
 
+  // Removes a node from a given index
+  // O(n)
   remove(index) {
     if (index < 0 || index >= this.length) return null;
     if (index === 0) return this.shift();
@@ -137,8 +147,9 @@ class SinglyLinkedList {
     return removed;
   }
 
+  // Reverses the linked list
+  // O(n)
   reverse() {
-    // replace tail and head
     var curr = this.head;
     this.head = this.tail;
     this.tail = curr;
@@ -146,7 +157,7 @@ class SinglyLinkedList {
     var prev = null;
     var next = null;
 
-    for(var i = 0; i < this.length; i++){
+    for (var i = 0; i < this.length; i++) {
       next = curr.next;
       curr.next = prev;
       prev = curr;
@@ -157,6 +168,7 @@ class SinglyLinkedList {
   }
 
   // Helper print function to visualize the Linked list
+  // O(n)
   print(message) {
     var curr = this.head;
     while (curr) {
