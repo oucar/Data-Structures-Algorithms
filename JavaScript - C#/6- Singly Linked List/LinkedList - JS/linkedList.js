@@ -15,7 +15,7 @@ class SinglyLinkedList {
   // Add a new node at the end of the linked list.
   // O(1)
   push(val) {
-    var node = new Node(val);
+    let node = new Node(val);
 
     if (!this.head) {
       this.head = node;
@@ -34,12 +34,12 @@ class SinglyLinkedList {
   pop() {
     if (!this.head) return null;
 
-    var curr = this.head;
-    var newTail = this.head;
+    let curr = this.head;
+    let newTail = this.tail;
 
+    // while my current has a next, new tail should be the one before that
+    // until you reach the end
     while (curr.next) {
-      // while my current has a next, new tail should be the one before that
-      // until you reach the end
       newTail = curr;
       curr = curr.next;
     }
@@ -52,7 +52,6 @@ class SinglyLinkedList {
       this.head = null;
       this.tail = null;
     }
-
     return curr;
   }
 
@@ -61,7 +60,7 @@ class SinglyLinkedList {
   shift() {
     if (!this.head) return null;
 
-    var currHead = this.head;
+    let currHead = this.head;
     this.head = currHead.next;
     this.length--;
 
@@ -73,17 +72,18 @@ class SinglyLinkedList {
   // Adds an element to the beginning
   // O(1)
   unshift(val) {
-    var newNode = new Node(val);
+    var node = new Node(val);
 
     if (!this.head) {
-      this.head = newNode;
-      this.tail = newNode;
+      this.head = node;
+      this.tail = node;
     } else {
-      newNode.next = this.head;
-      this.head = newNode;
+      node.next = this.head;
+      this.head = node;
     }
 
     this.length++;
+
     return this;
   }
 
@@ -92,8 +92,8 @@ class SinglyLinkedList {
   get(index) {
     if (index < 0 || index >= this.length) return null;
 
-    var counter = 0;
-    var curr = this.head;
+    let counter = 0;
+    let curr = this.head;
 
     while (counter !== index) {
       curr = curr.next;
@@ -106,9 +106,10 @@ class SinglyLinkedList {
   // Sets the value of a given index
   // O(n)
   set(index, val) {
-    var foundNode = this.get(index);
-    if (foundNode) {
-      foundNode.val = val;
+    let node = this.get(index);
+    // if node is found
+    if (node) {
+      node.val = val;
       return true;
     }
   }
@@ -117,16 +118,17 @@ class SinglyLinkedList {
   // O(n)
   insert(index, val) {
     if (index < 0 || index > this.length) return null;
-    else if (index === this.length) this.push(val);
     else if (index === 0) this.unshift(val);
+    else if (index === this.length) this.push(val);
     else {
-      var prev = this.get(index - 1);
-      var newNode = new Node(val);
+      let prev = this.get(index - 1);
+      let newNode = new Node(val);
 
       newNode.next = prev.next;
       prev.next = newNode;
 
       this.length++;
+
       return this.get(index);
     }
   }
@@ -135,42 +137,41 @@ class SinglyLinkedList {
   // O(n)
   remove(index) {
     if (index < 0 || index >= this.length) return null;
-    if (index === 0) return this.shift();
-    if (index === this.length - 1) return this.pop();
+    else if (index === 0) this.shift();
+    else if (index === this.length - 1) this.pop();
 
-    var prev = this.get(index - 1);
-    var removed = prev.next;
+    let prev = this.get(index - 1);
+    let removedNode = prev.next;
 
-    prev.next = removed.next;
+    prev.next = removedNode.next;
     this.length--;
 
-    return removed;
+    return removedNode;
   }
 
-  // Reverses the linked list
+  // !!IMPORTANT!!
+  // Reversing the linked list.
   // O(n)
   reverse() {
-    var curr = this.head;
+    let curr = this.head;
     this.head = this.tail;
     this.tail = curr;
 
-    var prev = null;
-    var next = null;
+    let prev = null;
+    let next = null;
 
-    for (var i = 0; i < this.length; i++) {
+    for (let i = 0; i < this.length; i++) {
       next = curr.next;
       curr.next = prev;
       prev = curr;
       curr = next;
     }
-
-    return this;
   }
 
   // Helper print function to visualize the Linked list
   // O(n)
   print(message) {
-    var curr = this.head;
+    let curr = this.head;
     while (curr) {
       process.stdout.write(`${curr.val} --> `);
       curr = curr.next;
