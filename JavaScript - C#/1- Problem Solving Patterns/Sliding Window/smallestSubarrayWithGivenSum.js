@@ -1,5 +1,6 @@
 // With a given sum, find the length of the smallest subarray.
 // 4,2,2,7,8,1,2,8,10 -- k = 10 --> 1 (10)
+// Dynamic window size
 
 function smallestSubarrayWithGivenSum(arr, targetSum) {
   let minWindowSize = Number.POSITIVE_INFINITY;
