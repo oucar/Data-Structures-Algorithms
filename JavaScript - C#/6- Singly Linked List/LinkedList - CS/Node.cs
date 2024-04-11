@@ -1,20 +1,17 @@
 ﻿using System;
-namespace LinkedList___CS
+namespace Playground
 {
-	public class Node
-	{
-        private int _data;
-		private Node _next;
+    public class Node
+    {
+        internal int _Data { get; set; }
 
+        internal Node? _Next { get; set; }
+        
         public Node(int _data)
-		{
-			this._data = _data;
-			this._next = null;
-		}
-
-        public int Data { get; set; }
-		public Node Next { get; set; }
-
+        {
+            this._Data = _data;
+            this._Next = null;
+        }
     }
 }
 

@@ -1,186 +1,236 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace LinkedList___CS
+namespace Playground
 {
-    public class LinkedList
-    {
-        private Node _head;
-        private Node _tail;
-        private int _size;
+	public class LinkedList
+	{
+		private Node? _Head { get; set; }
 
-        public LinkedList()
-        {
-            this._head = null;
-            this._tail = null;
-            this._size = 0;
-        }
+		private Node? _Tail { get; set; }
 
-        public bool isEmpty()
-        {
-            return (this._head == null) ? true : false;
-        }
+		private int _Length { get; set; }
 
-        public int Count()
-        {
-            return this._size;
-        }
 
-        /// <summary>
-        /// Helper Function. Lets you print the linked list.
-        /// </summary>
-        public void Print()
-        {
-            Node current = this._head;
-            while (current != null)
-            {
-                Console.Write($"{current.Data} --> ");
-                current = current.Next;
+		public LinkedList()
+		{
+			_Head = null;
+			_Tail = null;
+			_Length = 0;
+		}
+
+		// Helper Function(s)
+		public bool IsEmpty()
+		{
+			return (_Head == null) ? true : false;
+		}
+
+		public void Print()
+		{
+			Node curr = _Head;
+
+			while (curr != null)
+			{
+				Console.Write($"{curr._Data} --> ");
+				curr = curr._Next;
+			}
+
+			Console.WriteLine("null");
+			Console.WriteLine($"Length: {_Length}\n");
+		}
+
+
+
+		// Push: Add a new node at the end of the linked list
+		// O(n)
+		public Node Push(int val)
+		{
+			Node node = new Node(val);
+
+			if (IsEmpty())
+			{
+				_Head = node;
+				_Tail = node;
+			} else
+			{
+				_Tail._Next = node;
+				_Tail = node;
+			}
+
+			_Length++;
+
+			return _Tail;
+		}
+
+		// Pop: Removes the tail element
+		// O(n)
+		public Node Pop()
+		{
+			if (IsEmpty()) return null;
+
+			Node current = _Head;
+			Node newTail = _Head;
+
+			while (current._Next != null)
+			{
+				newTail = current;
+				current = current._Next;
+			}
+
+			_Tail = newTail;
+			_Tail._Next = null;
+			_Length--;
+
+			if(_Length == 0)
+			{
+				_Tail = null;
+				_Head = null;
+			}
+
+			return newTail;
+
+		} 
+
+		// Shift: Removes an element from the beginning
+		// O(1)
+		public Node Shift()
+		{
+			if (IsEmpty()) return null;
+
+			Node currentHead = _Head;
+
+			// setting the new head
+			_Head = currentHead._Next;
+			_Length--;
+
+			if(_Length == 0)
+			{
+				_Tail = null;
+			}
+
+			return _Head;
+		}
+
+		// Unshift: Adds an element to the beginning
+		// O(1)
+		public Node Unshift(int val)
+		{
+			Node node = new Node(val);
+
+			if (IsEmpty())
+			{
+				_Head = node;
+				_Tail = node;
+			} else
+			{
+				node._Next = _Head;
+				_Head = node;
+			}
+
+			_Length++;
+
+			return _Head;
+		}
+
+        // Get: Returns a node from a given index
+		// O(n)
+		public Node Get(int index)
+		{
+			if (index < 0 || index >= _Length) return null;
+
+			int counter = 0;
+			Node current = _Head;
+
+			while (counter != index)
+			{
+				current = current._Next;
+				counter++;
+			}
+
+			return current;
+		}
+
+
+        // Set: Sets the value of a given index
+		// O(n)
+		public Node Set(int index, int val)
+		{
+			Node node = Get(index);
+
+			node._Data = val;
+
+			return node;
+		}
+
+
+		// Insert: Inserts a value into a given index
+		// O(n)
+		public Node Insert(int index, int val)
+		{
+			if (index < 0 || index > _Length) return null;
+
+			else if (index == 0) return Unshift(val);
+
+			else
+			{
+                Node newNode = new Node(val);
+
+                Node previous = Get(index - 1);
+
+                newNode._Next = previous._Next;
+
+                previous._Next = newNode;
+
+                _Length++;
+
+                return newNode;
             }
-            Console.WriteLine("null");
-            Console.WriteLine($"Size: {Count()}");
-        }
+		}
 
-        /// <summary>
-        /// Inserts a new node at the end of the linked list.
-        /// </summary>
-        /// <param name="data">Value that we will be inserting</param>
-        /// <returns></returns>
-        public Node Push(int data)
-        {
-            // if (index < 0 || index > this._size + 1) throw new IndexOutOfRangeException($"Index can't be smaller than 0 or larger than (this._size + 1). Given index: {index}");
 
-            Node node = new Node(data);
-            if (isEmpty())
-            {
-                this._head = node;
-                this._tail = node;
-            }
-            else
-            {
-                this._tail.Next = node;
-                this._tail = node;
-            }
+		// Remove: Removes a node from a given index
+		// O(n)
+		public Node Remove(int index)
+		{
+			if (index < 0 || index >= _Length) return null;
 
-            node.Data = data;
-            this._size++;
+			else if (index == 0) return Shift();
 
-            return this._tail;
-        }
+			else if (index == _Length - 1) return Pop();
 
-        /// <summary>
-        /// Removes an item from end of the linked list.
-        /// </summary>
-        /// <returns></returns>
-        public Node Pop()
-        {
-            if (isEmpty()) return null;
+			else
+			{
+				Node previous = Get(index - 1);
+				Node removedNode = previous._Next;
 
-            Node current = this._head;
-            Node newTail = this._head;
+				previous._Next = removedNode._Next;
+				removedNode._Next = null;
 
-            while (current.Next != null)
-            {
-                newTail = current;
-                current = current.Next;
-            }
+				this._Length--;
 
-            this._tail = newTail;
-            this._tail.Next = null;
-            this._size--;
+				return removedNode;
+			}
+		}
 
-            if (this._size == 0)
-            {
-                this._head = null;
-                this._tail = null;
-            }
 
-            return current;
-        }
+		// !!!
+		// Reverse
+		// O(n)
+		public void Reverse()
+		{
+			Node current = _Head;
+			_Head = _Tail;
+			_Tail = current;
 
-        /// <summary>
-        /// Removes an element from the beginning
-        /// </summary>
-        /// <returns></returns>
-        public Node Shift()
-        {
-            if (isEmpty()) return null;
+			Node prev = null;
+			Node next = null;
 
-            Node currentHead = this._head;
-            this._head = currentHead.Next;
-            this._size--;
-
-            if (isEmpty()) this._tail = null;
-
-            return currentHead;
-        }
-
-        /// <summary>
-        /// Adds an element to the beginning
-        /// </summary>
-        /// <param name="data">Value that we will be inserting</param>
-        /// <returns></returns>
-        public Node Unshift(int data)
-        {
-            Node newNode = new Node(data);
-
-            if (isEmpty())
-            {
-                this._head = newNode;
-                this._tail = newNode;
-            } else
-            {
-                newNode.Next = this._head;
-                this._head = newNode;
-            }
-
-            newNode.Data = data;
-            this._size++;
-            
-            return newNode;
-        }
-
-        /// <summary>
-        /// Returns a node from the given index
-        /// </summary>
-        /// <param name="index">Index that we will be returning</param>
-        /// <returns></returns>
-        public Node Get(int index)
-        {
-            if (index < 0 || index >= this._size) return null;
-
-            int counter = 0;
-            Node current = this._head;
-
-            while(counter != index)
-            {
-                current = current.Next;
-                counter++;
-            }
-
-            return current;
-        }
-
-        /// <summary>
-        /// Sets the value of a given index
-        /// </summary>
-        /// <param name="index">Index that we will be setting the value of</param>
-        /// <param name="value">Value that we will be setting for the corresponding index</param>
-        /// <returns>True if succesfully set the value, false otherwise</returns>
-        public bool Set(int index, int value) {
-
-            Node node = this.Get(index);
-
-            if (node != null)
-            {
-                node.Data = value;
-                return true;
-            }
-
-            return false;
-        }
+			for(int i = 0; i < _Length; i++)
+			{
+				next = current._Next;
+				current._Next = prev;
+				prev = current;
+				current = next;
+			}
+		}
 
     }
 }
