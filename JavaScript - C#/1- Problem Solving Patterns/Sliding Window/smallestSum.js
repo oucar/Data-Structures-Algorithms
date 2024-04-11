@@ -1,4 +1,5 @@
-// Find the smallest subarray with given sum. This time the window size is dynamic. We will try to find the smallest subarray for smallest sum >= 8.
+// Find the smallest subarray with given sum. 
+// This time the window size is dynamic. We will try to find the smallest subarray for smallest sum >= 8.
 function smallestSum(arr, targetSum){
     let currentWindowSum = 0;
     let windowStart = 0;
@@ -13,11 +14,8 @@ function smallestSum(arr, targetSum){
             windowStart++;
         }
     }
-
     return minWindowSize;
-
 }
-
 
 console.log(smallestSum([1,2,5,2,8,1,5,6], 6));
 console.log(smallestSum([4,2,2,7,8,1,2,8,10], 8));

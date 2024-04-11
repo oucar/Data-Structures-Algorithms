@@ -12,7 +12,7 @@ function smallestSubarrayWithGivenSum(arr, targetSum) {
     while (currentWindowSum >= targetSum) {
       minWindowSize = Math.min(minWindowSize, windowEnd - windowStart + 1);
       currentWindowSum -= arr[windowStart];
-      windowStart++;
+      windowStart++; 
     }
   }
 
