@@ -1,3 +1,5 @@
+// Write a function called maxSubarraySum which accepts an array of integers and a number called n. T
+// he function should calculate the maximum sum of n sensecutive elements in the array.
 function maxSubarraySumON2(arr, num) {
   if (num > arr.length) {
     return null;
