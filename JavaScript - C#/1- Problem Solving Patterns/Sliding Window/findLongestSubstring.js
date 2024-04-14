@@ -19,6 +19,24 @@ function findLongestSubstring(str) {
   return longestSize;
 }
 
+// Slighly different approach - better to understand
+var lengthOfLongestSubstring = function (s) {
+  let left = 0;
+  let right = 0;
+  let result = 0;
+  let seenIndex = {};
+
+  for (right; right < s.length; right++) {
+      while (s[right] in seenIndex) {
+          delete seenIndex[s[left]];
+          left++;
+      }
+      seenIndex[s[right]] = 1;
+      result = Math.max(result, right - left + 1);
+  }
+  return result;
+};
+
 console.log(findLongestSubstring("")); // 0
 console.log(findLongestSubstring("rithmschool")); // 7
 console.log(findLongestSubstring("thisisawesome")); // 6

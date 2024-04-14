@@ -112,6 +112,7 @@ class SinglyLinkedList {
       node.val = val;
       return true;
     }
+    return false;
   }
 
   // Inserts a value into a given index
