@@ -1,70 +1,64 @@
-﻿namespace Playground
+﻿using Playground;
+
+class Program
 {
-    class Program
+
+    static void Main(string[] args)
     {
+        DoublyLinkedList list = new DoublyLinkedList();
 
-        static void Main(string[] args)
-        {
+        // Test Push method
+        list.Push(1);
+        list.Push(2);
+        list.Push(3);
 
-            LinkedList list = new LinkedList();
+        // Test Print method
+        Console.WriteLine("Traversing the list:");
+        list.Print("After 3 pushes");
 
-            list.Push(10);
-            list.Push(20);
-            list.Push(30);
-            list.Print();
+        // Test Pop method
+        list.Pop();
+        Console.WriteLine("After popping an element:");
+        list.Print("After 1 pop");
 
-            list.Pop();
-            list.Pop();
-            list.Print();
+        // Test Shift method
+        var shiftedItem = list.Shift();
+        Console.WriteLine($"Shifted item: {shiftedItem.Data}");
+        Console.WriteLine("After shifting an element:");
+        list.Print("After 1 shift");
 
-            list.Pop();
+        // Test Unshift method
+        list.Unshift(10);
+        Console.WriteLine("After unshifting 10:");
+        list.Print("After unshifting 10");
 
-            list.Print();
+        // Test Insert method
+        list.Insert(1, 400);
+        Console.WriteLine("After inserting 400 after index 1:");
+        list.Print("After inserting 400 after index 1");
 
-            // Starting with an empty list
-            list.Push(1);
-            list.Push(2);
-            list.Push(3);
-            list.Shift();
-            list.Print();
+        // Test Get and Set methods
+        var firstItem = list.Get(0);
+        Console.WriteLine($"Data of first item: {firstItem.Data}");
+        list.Set(0, 41);
+        Console.WriteLine($"Data of the first item after Set: {firstItem.Data}");
 
-            list.Shift();
-            list.Shift();
-            list.Print();
+        // Test Remove method
+        Console.WriteLine("Deleting item at index 2:");
+        list.Remove(2);
+        list.Print("After deleting item at index 2");
 
-            // Shouldn't run since the LL is empty
-            list.Shift();
+        // Test Reverse method
+        list.Reverse();
+        Console.WriteLine("After reversing the list:");
+        list.Print("After reversing the list");
 
-            list.Unshift(31);
-            list.Print();
-            list.Unshift(30);
-            list.Print();
-
-            Node first = list.Get(0);
-            Node second = list.Get(1);
-            Console.WriteLine($"First: {first._Data}, Second: {second._Data}\n");
-            list.Set(0, 50);
-            list.Set(1, 51);
-            list.Print();
-
-            list.Insert(0, 1);
-            list.Insert(2, 15);
-            list.Print();
-            list.Insert(4, 400);
-            list.Print();
-
-            list.Remove(0);
-            list.Print();
-            list.Remove(3);
-            list.Print();
-
-            list.Push(100);
-            list.Push(123);
-
-            list.Print();
-            list.Reverse();
-            list.Print();
-        }
-
+        // Test Search method
+        var search1 = list.Get(0);
+        var search2 = list.Get(1);
+        var searchDNE = list.Get(99);
+        Console.WriteLine($"Get element 0 : {search1.Data}");
+        Console.WriteLine($"Get element 1: {search2.Data}");
+        Console.WriteLine($"Get element 2: {(searchDNE == null ? "NULL" : searchDNE.Data.ToString())}");
     }
 }

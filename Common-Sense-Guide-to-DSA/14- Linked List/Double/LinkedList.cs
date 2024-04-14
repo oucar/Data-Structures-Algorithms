@@ -1,229 +1,278 @@
-using System;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace Playground
+﻿namespace Playground
 {
-    public class LinkedList
+    /// <summary>
+    /// Represents a doubly linked list.
+    /// </summary>
+    public class DoublyLinkedList
     {
-        private Node _head;
-        private Node _tail;
-        private int _size;
+        private Node head;
+        private Node tail;
+        private int length;
 
-        public LinkedList()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DoublyLinkedList"/> class.
+        /// </summary>
+        public DoublyLinkedList()
         {
-            this._head = null;
-            this._tail = null;
-            this._size = 0;
-        }
-
-        public bool IsEmpty()
-        {
-            return (this._head == null) ? true : false;
-        }
-
-        public int GetSize()
-        {
-            return this._size;
+            head = null;
+            tail = null;
+            length = 0;
         }
 
         /// <summary>
-        /// Print the linked list from head to tail
+        /// Adds a new node with the specified value to the end of the doubly linked list.
         /// </summary>
-		public void Traverse()
+        /// <param name="val">The value to be added.</param>
+        public void Push(int val)
         {
-            // starting from the head of the linked list 
-            Node current = this._head;
-            while (current != null)
+            Node node = new Node(val);
+
+            if (head == null)
             {
-                Console.Write($"{current.Data} --> ");
-                current = current.Next;
-            }
-
-            Console.Write("null\n");
-        }
-
-        /// <summary>
-        /// Print the linked list from tail to head
-        /// </summary>
-        public void ReverseTraverse()
-        {
-            Node current = this._tail;
-
-            while (current != null)
-            {
-                Console.Write($"{current.Data} --> ");
-                current = current.Prev;
-            }
-
-            Console.Write("null\n");
-        }
-
-        /// <summary>
-        /// Inserts a new node at the end of the linked list.
-        /// </summary>
-        /// <param name="data">Value that we will be inserting</param>
-		public void Push(int data)
-        {
-            Node node = new Node(data);
-            node.Data = data;
-
-            if (IsEmpty())
-            {
-                this._head = node;
-                this._tail = node;
+                head = node;
+                tail = node;
             }
             else
             {
-                node.Prev = _tail;
-                this._tail.Next = node;
-                this._tail = node;
-
-
+                tail.Next = node;
+                node.Prev = tail;
+                tail = node;
             }
 
-            this._size++;
+            length++;
         }
 
-
         /// <summary>
-        /// Inserts a new node after a given position at the linked list.
+        /// Removes the last node from the doubly linked list and returns it.
         /// </summary>
-        /// <param name="index">Index that we will be inserting into</param>
-        /// <param name="data">Value that we will be inserting</param>
-        public void InsertAfterGiven(int index, int data)
+        /// <returns>The last node removed from the list.</returns>
+        public Node Pop()
         {
-            if (index < 0 || index >= this._size) return;
+            if (head == null)
+                return null;
 
-            Node node = new Node(data);
-            node.Data = data;
+            Node poppedNode = tail;
 
-            Node previousNode = Get(index);
-
-            node.Next = previousNode.Next;
-
-            previousNode.Next.Prev = node;
-
-            node.Prev = previousNode;
-
-            previousNode.Next = node;
-
-            this._size++;
-        }
-       
-
-
-        /// <summary>
-        /// Removes an item from end of the linked list.
-        /// </summary>
-        /// <returns></returns>
-        public void Pop()
-        {
-            if (IsEmpty()) return;
-
-            Node current = this._head;
-            Node newTail = this._head;
-
-            // keep going until the you reach the last element
-            while (current.Next != null)
+            if (head == tail)
             {
-                newTail = current;
-                current = current.Next;
+                head = null;
+                tail = null;
             }
-
-            this._tail.Prev = current;
-            this._tail = newTail;
-            this._tail.Next = null;
-            this._size--;
-
-            if (this._size == 0)
+            else
             {
-                this._head = null;
-                this._tail = null;
+                tail = poppedNode.Prev;
+                tail.Next = null;
+                poppedNode.Prev = null;
             }
+
+            length--;
+            return poppedNode;
         }
 
-
         /// <summary>
-        /// Delete a node at a given position
+        /// Removes the first node from the doubly linked list and returns it.
         /// </summary>
-        /// <param name="index">Index that we will removing a node from</param>
-        public void DeleteFromIndex(int index)
+        /// <returns>The first node removed from the list.</returns>
+        public Node Shift()
         {
-            if (index < 0 || index >= this._size) return;
+            if (head == null)
+                return null;
 
-            Node previousNode = Get(index - 1);
-            Node node = Get(index);
+            Node oldHead = head;
+            if (length == 1)
+            {
+                head = null;
+                tail = null;
+            }
+            else
+            {
+                head = oldHead.Next;
+                head.Prev = null;
+                oldHead.Next = null;
+            }
 
-
-            previousNode.Next = node.Next;
-            node.Next.Prev = previousNode;
-
-            node.Next = null;
-            node.Prev = null;
-
-            this._size--;
+            length--;
+            return oldHead;
         }
 
+        /// <summary>
+        /// Adds a new node with the specified value to the beginning of the doubly linked list.
+        /// </summary>
+        /// <param name="val">The value to be added.</param>
+        public void Unshift(int val)
+        {
+            Node node = new Node(val);
 
+            if (head == null)
+            {
+                head = node;
+                tail = node;
+            }
+            else
+            {
+                head.Prev = node;
+                node.Next = head;
+                head = node;
+            }
+
+            length++;
+        }
 
         /// <summary>
-        /// Returns a node from the given index
+        /// Returns the node at the specified index in the doubly linked list.
         /// </summary>
-        /// <param name="index">Index that we will be returning</param>
-        /// <returns></returns>
+        /// <param name="index">The zero-based index of the node to retrieve.</param>
+        /// <returns>The node at the specified index, or <c>null</c> if the index is out of range.</returns>
         public Node Get(int index)
         {
-            if (index < 0 || index >= this._size) return null;
+            if (index < 0 || index >= length)
+                return null;
 
-            int counter = 0;
-            Node current = this._head;
+            int count = 0;
+            Node current = head;
 
-            while (counter != index)
+            if (index <= length / 2)
             {
-                current = current.Next;
-                counter++;
+                count = 0;
+                current = head;
+                while (count != index)
+                {
+                    current = current.Next;
+                    count++;
+                }
             }
-
+            else
+            {
+                count = length - 1;
+                current = tail;
+                while (count != index)
+                {
+                    current = current.Prev;
+                    count--;
+                }
+            }
             return current;
         }
 
-
         /// <summary>
-        /// Sets the value of a given index
+        /// Sets the value of the node at the specified index in the doubly linked list.
         /// </summary>
-        /// <param name="index">Index that we will be setting the value of</param>
-        /// <param name="value">Value that we will be setting for the corresponding index</param>
-        /// <returns>True if succesfully set the value, false otherwise</returns>
-        public void Set(int index, int value)
+        /// <param name="index">The zero-based index of the node.</param>
+        /// <param name="val">The value to set.</param>
+        /// <returns><c>true</c> if the value is set successfully; otherwise, <c>false</c>.</returns>
+        public bool Set(int index, int val)
         {
-            Node node = this.Get(index);
-
+            Node node = Get(index);
             if (node != null)
             {
-                node.Data = value;
+                node.Data = val;
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Inserts a new node with the specified value at the specified index in the doubly linked list.
+        /// </summary>
+        /// <param name="index">The zero-based index at which the node should be inserted.</param>
+        /// <param name="val">The value to insert.</param>
+        /// <returns>The updated doubly linked list.</returns>
+        public DoublyLinkedList Insert(int index, int val)
+        {
+            if (index < 0 || index > length)
+                return null;
+            else if (index == 0)
+            {
+                Unshift(val);
+            }
+            else if (index == length)
+            {
+                Push(val);
+            }
+            else
+            {
+                Node prev = Get(index - 1);
+                Node newNode = new Node(val);
+
+                newNode.Next = prev.Next;
+                newNode.Prev = prev;
+                prev.Next = newNode;
+                newNode.Next.Prev = newNode;
+
+                length++;
+            }
+            return this;
+        }
+
+        /// <summary>
+        /// Removes the node at the specified index from the doubly linked list.
+        /// </summary>
+        /// <param name="index">The zero-based index of the node to remove.</param>
+        /// <returns>The removed node, or <c>null</c> if the index is out of range.</returns>
+        public Node Remove(int index)
+        {
+            if (index < 0 || index >= length)
+                return null;
+            else if (index == 0)
+            {
+                return Shift();
+            }
+            else if (index == length - 1)
+            {
+                return Pop();
+            }
+            else
+            {
+                Node removedNode = Get(index);
+                Node prev = removedNode.Prev;
+                Node next = removedNode.Next;
+
+                prev.Next = next;
+                next.Prev = prev;
+                removedNode.Next = null;
+                removedNode.Prev = null;
+
+                length--;
+                return removedNode;
             }
         }
 
         /// <summary>
-        /// Returns a node, given a value
+        /// Reverses the order of nodes in the doubly linked list.
         /// </summary>
-        /// <param name="value">Value that we will be searching</param>
-        /// <returns></returns>
-		public bool Search(int value)
+        public void Reverse()
         {
-            Node current = this._head;
-            while (current != null)
+            Node current = head;
+            head = tail;
+            tail = current;
+
+            Node next;
+            Node prev = null;
+
+            for (int i = 0; i < length; i++)
             {
-                if (current.Data == value)
-                {
-                    return true;
-                }
-
-                current = current.Next;
+                next = current.Next;
+                current.Next = prev;
+                current.Prev = next;
+                prev = current;
+                current = next;
             }
+        }
 
-            return false;
+        /// <summary>
+        /// Prints the current state of the doubly linked list.
+        /// </summary>
+        /// <param name="message">Additional message to display.</param>
+        public void Print(string message)
+        {
+            Node curr = head;
+            while (curr != null)
+            {
+                Console.Write($"{curr.Data} <--> ");
+                curr = curr.Next;
+            }
+            Console.WriteLine($"null \nCurrent state of the linked list after {message}");
+            Console.WriteLine($"Length: {length}\n");
         }
     }
 }
-

@@ -1,8 +1,15 @@
-using System;
+﻿using System;
 namespace Playground
 {
     public class Node
     {
+        public int Data { get; set; }
+
+        public Node? Next { get; set; }
+
+        public Node? Prev { get; set; }
+
+
         // constructor (given a data value)
         public Node(int _data)
         {
@@ -10,12 +17,6 @@ namespace Playground
             Next = null;
             Prev = null;
         }
-
-        public int Data { get; set; }
-
-        public Node Next { get; set; }
-
-        public Node Prev { get; set; }
     }
 }
 

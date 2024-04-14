@@ -1,63 +1,64 @@
-using Playground;
+﻿using Playground;
 
 class Program
 {
 
     static void Main(string[] args)
     {
-        LinkedList list = new LinkedList();
+        DoublyLinkedList list = new DoublyLinkedList();
 
-
+        // Test Push method
         list.Push(1);
         list.Push(2);
         list.Push(3);
 
-        list.Traverse();
+        // Test Print method
+        Console.WriteLine("Traversing the list:");
+        list.Print("After 3 pushes");
 
+        // Test Pop method
         list.Pop();
+        Console.WriteLine("After popping an element:");
+        list.Print("After 1 pop");
 
-        list.Traverse();
+        // Test Shift method
+        var shiftedItem = list.Shift();
+        Console.WriteLine($"Shifted item: {shiftedItem.Data}");
+        Console.WriteLine("After shifting an element:");
+        list.Print("After 1 shift");
 
+        // Test Unshift method
+        list.Unshift(10);
+        Console.WriteLine("After unshifting 10:");
+        list.Print("After unshifting 10");
 
-        for (int i = 1; i <= 3; i++)
-        {
-            list.Push(i * 10);
-        }
+        // Test Insert method
+        list.Insert(1, 400);
+        Console.WriteLine("After inserting 400 after index 1:");
+        list.Print("After inserting 400 after index 1");
 
-        list.Traverse();
-
-
+        // Test Get and Set methods
         var firstItem = list.Get(0);
         Console.WriteLine($"Data of first item: {firstItem.Data}");
-        Console.WriteLine($"Data of the next of first item: {firstItem.Next.Data}");
-
         list.Set(0, 41);
         Console.WriteLine($"Data of the first item after Set: {firstItem.Data}");
 
-        list.Traverse();
+        // Test Remove method
+        Console.WriteLine("Deleting item at index 2:");
+        list.Remove(2);
+        list.Print("After deleting item at index 2");
 
-        list.InsertAfterGiven(1, 400);
+        // Test Reverse method
+        list.Reverse();
+        Console.WriteLine("After reversing the list:");
+        list.Print("After reversing the list");
 
-        list.Traverse();
-
-        Console.WriteLine($"Next data of 400: {list.Get(2).Next.Data}");
-        Console.WriteLine($"Prev data of 400: {list.Get(2).Prev.Data}");
-
-        Console.WriteLine($"Deleting 400 now...");
-        list.DeleteFromIndex(2);
-
-        list.Traverse();
-
-        var search1 = list.Search(41);
-        var search2 = list.Search(300);
-
-        Console.WriteLine($"Search 41: {search1}");
-        Console.WriteLine($"Search 300: {search2}");
-
-        Console.WriteLine($"Regular Traverse: ");
-        list.Traverse();
-
-        Console.WriteLine($"Reverse Traverse: ");
-        list.ReverseTraverse();
+        // Test Search method
+        var search1 = list.Get(0);
+        var search2 = list.Get(1);
+        var searchDNE = list.Get(99);
+        Console.WriteLine($"Get element 0 : {search1.Data}");
+        Console.WriteLine($"Get element 1: {search2.Data}");
+        Console.WriteLine($"Get element 2: {(searchDNE == null ? "NULL" : searchDNE.Data.ToString())}");
     }
 }
