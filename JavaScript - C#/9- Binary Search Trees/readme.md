@@ -84,8 +84,17 @@
 
 ## When to use DFS or BFS?
 
--
-
+- If the tree is **very wide**, use **BFS**.
+- If fewer nodes are at each level, use **BFS**.
+- If the tree is **very deep and solutions are rare**, use **BFS**.
+- Finding the **shortest path**, use **BFS**.
+- If the tree is **very deep and solutions are frequent**, use **DFS**.
+- Determining **whether a path exists between two nodes**, use **DFS**.
+- **DFS - Inorder** --> Used commonly with binary search trees. 
+    - Notice we get all nodes in the tree in their **ascending** order.
+- **DFS - Preorder** --> Can be used to **export a tree structure** so that it is easily reconstructed or copied.
+- **DFS - Postorder** --> Can be used to **delete a tree**.
+    - Children are deleted before the parent node.
 ---
 
 ## Some examples of Trees:

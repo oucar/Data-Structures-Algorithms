@@ -10,6 +10,7 @@ class BinarySearchTree {
   constructor() {
     this.root = null;
   }
+
   insert(value) {
     var newNode = new Node(value);
     // if there is no root, the new node becomes the root
@@ -38,6 +39,49 @@ class BinarySearchTree {
         current = current.right;
       }
     }
+  }
+
+  remove(value) {
+    const removeNode = (node, value) => {
+      if (node === null) {
+        return null;
+      }
+
+      if (value < node.value) {
+        node.left = removeNode(node.left, value);
+        return node;
+      } else if (value > node.value) {
+        node.right = removeNode(node.right, value);
+        return node;
+      } else {
+        // If the node has no children
+        if (node.left === null && node.right === null) {
+          return null;
+        }
+
+        // If the node has no left child
+        if (node.left === null) {
+          return node.right;
+        }
+
+        // If the node has no right child
+        if (node.right === null) {
+          return node.left;
+        }
+
+        // If the node has both left and right children
+        let tempNode = node.right;
+        while (tempNode.left !== null) {
+          tempNode = tempNode.left;
+        }
+
+        node.value = tempNode.value;
+        node.right = removeNode(node.right, tempNode.value);
+        return node;
+      }
+    };
+
+    this.root = removeNode(this.root, value);
   }
 
   find(value) {
@@ -149,3 +193,7 @@ tree.insert(20);
 console.log(tree.BFS()); // [10, 6, 15, 3, 8, 20]
 console.log(tree.DFSPreOrder()); // [10, 6, 3, 8, 15, 20]
 console.log(tree.DFSPostOrder()); // [3, 8, 6, 20, 15, 10]
+console.log(tree.DFSInOrder()); // [3, 6, 8, 10, 15, 20]
+
+tree.remove(15);
+console.log(tree.DFSInOrder()); // [3, 6, 8, 10, 20]
