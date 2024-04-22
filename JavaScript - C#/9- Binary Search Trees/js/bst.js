@@ -62,6 +62,7 @@ class BinarySearchTree {
     return current;
   }
 
+  // Breadth First Search
   BFS() {
     var node = this.root;
     var data = [];
@@ -84,19 +85,67 @@ class BinarySearchTree {
 
     return data;
   }
+
+  // DFS - PreOrder
+  // Preorder Traversal --> Root, Left, Right
+  DFSPreOrder() {
+    var data = [];
+    var current = this.root;
+
+    function traverse(node) {
+      data.push(node.value);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    }
+
+    traverse(current);
+    return data;
+  }
+
+  // DFS - PostOrder
+  // Postorder Traversal --> Left, Right, Root
+  DFSPostOrder() {
+    var data = [];
+    var current = this.root;
+
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      data.push(node.value);
+    }
+
+    traverse(current);
+    return data;
+  }
+
+  // DFS - InOrder
+  // Inorder Traversal --> Left, Root, Right
+  DFSInOrder() {
+    var data = [];
+    var current = this.root;
+
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      data.push(node.value);
+      if (node.right) traverse(node.right);
+    }
+
+    traverse(current);
+    return data;
+  }
 }
 
 //       10
-//    5        13
-//  2   7    11   16
+//    6       15
+//  3   8         20
 var tree = new BinarySearchTree();
 tree.insert(10);
-tree.insert(5);
-tree.insert(13);
-tree.insert(11);
-tree.insert(2);
-tree.insert(16);
-tree.insert(7);
+tree.insert(6);
+tree.insert(15);
+tree.insert(3);
+tree.insert(8);
+tree.insert(20);
 
-
-console.log(tree.BFS()); // [10, 5, 13, 2, 7, 11, 16]
+console.log(tree.BFS()); // [10, 6, 15, 3, 8, 20]
+console.log(tree.DFSPreOrder()); // [10, 6, 3, 8, 15, 20]
+console.log(tree.DFSPostOrder()); // [3, 8, 6, 20, 15, 10]

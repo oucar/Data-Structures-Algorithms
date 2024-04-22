@@ -24,17 +24,54 @@
 ---
 
 ## Depth First Search
+
 - DFS is a traversal algorithm that explores as far as possible along each branch before backtracking.
 
 #### Inorder Traversal --> Ascending
 
+- Easier recursively.
+  - Traverse the left subtree.
+  - Visit the root.
+  - Traverse the right subtree.
+- Create a variable to store the values of nodes visited.
+- Store the root of the BST in a variable called `current`.
+- Write a helper function that takes a node as an argument.
+  - If the node has a left child, call the helper function with the left child as an argument.
+  - Push the value of the node to the variable that stores the values of nodes visited.
+  - If the node has a right child, call the helper function with the right child as an argument.
+
 #### Preorder Traversal --> Root, Left, Right
 
+- Easier recursively.
+  - Traverse the left subtree.
+  - Visit the root.
+  - Traverse the right subtree.
+- Create a variable to store the values of nodes visited.
+- Store the root of the BST in a variable called `current`.
+- Write a helper function that takes a node as an argument.
+  - Push the value of the node to the variable that stores the values of nodes visited.
+  - If the node has a left child, call the helper function with the left child as an argument.
+    - Push the value of the node to the variable that stores the values of nodes visited.
+  - If the node has a right child, call the helper function with the right child as an argument.
+    - Push the value of the node to the variable that stores the values of nodes visited.
+
 #### Postorder Traversal --> Left, Right, Root
+
+- Easier recursively.
+  - Traverse the left subtree.
+  - Traverse the right subtree.
+  - Visit the root.
+- Create a variable to store the values of nodes visited.
+- Store the root of the BST in a variable called `current`.
+- Write a helper function that takes a node as an argument.
+  - If the node has a left child, call the helper function with the left child as an argument.
+  - If the node has a right child, call the helper function with the right child as an argument.
+  - Push the value of the node to the variable that stores the values of nodes visited.
 
 ---
 
 ## Breadth First Search
+
 - BFS is a level-order traversal. It visits all the nodes on a level before moving to the next level.
 - Create a queue (FIFO) and add an array to store the values of nodes visited.
 - Start with the root node and add it to the queue.
@@ -42,6 +79,12 @@
 - If the node has a left child, add it to the queue.
 - If the node has a right child, add it to the queue.
 - Return the variable that stores the values of nodes visited.
+
+---
+
+## When to use DFS or BFS?
+
+-
 
 ---
 
