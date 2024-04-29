@@ -1,9 +1,8 @@
 class MaxBinaryHeap {
-
   constructor() {
     this.values = [];
   }
-  
+
   // Insertion
   insert(element) {
     this.values.push(element);
@@ -29,6 +28,7 @@ class MaxBinaryHeap {
     }
   }
 
+  // Extract Max: Removing the root element and re-arranging the heap
   extractMax() {
     const max = this.values[0];
     const end = this.values.pop();
@@ -39,6 +39,7 @@ class MaxBinaryHeap {
     return max;
   }
 
+  // Sink Down: Swapping the values to their correct position (parent < child)
   sinkDown() {
     let idx = 0;
     const length = this.values.length;
