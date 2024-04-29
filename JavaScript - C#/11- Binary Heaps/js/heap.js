@@ -1,17 +1,17 @@
 class MaxBinaryHeap {
   constructor() {
+    // Array to store elements of the heap
     this.values = [];
   }
 
-  // Insertion
+  // Insertion of a new element into the heap
   insert(element) {
     this.values.push(element);
-    this.bubbleUp();
+    this.bubbleUp(); // Reorder the heap after insertion
   }
 
-  // Bubble Up: Swapping the values to their correct position (parent > child)
+  // Reorder the heap by moving the inserted element to its correct position (parent > child)
   bubbleUp() {
-    // always inserting at the end when we insert a new element
     let idx = this.values.length - 1;
     const element = this.values[idx];
 
@@ -19,8 +19,8 @@ class MaxBinaryHeap {
       let parentIdx = Math.floor((idx - 1) / 2);
       let parent = this.values[parentIdx];
 
-      if (element <= parent) break;
-      // swapping the values
+      if (element <= parent) break; // Stop when the element is in its correct position
+      // Swap the element with its parent
       this.values[parentIdx] = element;
       this.values[idx] = parent;
 
@@ -28,18 +28,18 @@ class MaxBinaryHeap {
     }
   }
 
-  // Extract Max: Removing the root element and re-arranging the heap
+  // Extract the maximum element (root) from the heap
   extractMax() {
     const max = this.values[0];
-    const end = this.values.pop();
+    const end = this.values.pop(); // Remove the last element
     if (this.values.length > 0) {
-      this.values[0] = end;
-      this.sinkDown();
+      this.values[0] = end; // Move the last element to the root
+      this.sinkDown(); // Reorder the heap after removal
     }
     return max;
   }
 
-  // Sink Down: Swapping the values to their correct position (parent < child)
+  // Reorder the heap after removing the root element (parent < child)
   sinkDown() {
     let idx = 0;
     const length = this.values.length;
@@ -65,7 +65,8 @@ class MaxBinaryHeap {
           swap = rightChildIdx;
         }
       }
-      if (swap === null) break;
+      if (swap === null) break; // Stop when the element is in its correct position
+      // Swap the element with its child
       this.values[idx] = this.values[swap];
       this.values[swap] = element;
       idx = swap;
@@ -73,6 +74,7 @@ class MaxBinaryHeap {
   }
 }
 
+// Example usage:
 let heap = new MaxBinaryHeap();
 heap.insert(41);
 heap.insert(39);
