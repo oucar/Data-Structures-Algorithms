@@ -107,27 +107,24 @@ class BinarySearchTree {
   }
 
   // Breadth First Search
-  BFS() {
-    var node = this.root;
-    var data = [];
-    var queue = [];
+  // Implements a simple queue
+  BFS(root) {
+    if (root === null) return [];
 
-    // place the root node in the queue
-    queue.push(node);
+    const values = [];
+    const queue = [root];
 
-    // while there is something in the queue
-    while (queue.length) {
-      // FIFO - shift the first node in the queue
-      node = queue.shift();
-      // removed the node from the queue and push it to the data array
-      data.push(node.value);
+    // if there is a node in the queue
+    while (queue.length > 0) {
+      const node = queue.shift();
+      values.push(node.value);
 
-      // if there is a left or right node, push it to the queue
-      if (node.left) queue.push(node.left);
-      if (node.right) queue.push(node.right);
+      if (node.left !== null) queue.push(node.left);
+
+      if (node.right !== null) queue.push(node.right);
     }
 
-    return data;
+    return values;
   }
 
   // DFS - PreOrder
@@ -172,7 +169,7 @@ tree.insert(3);
 tree.insert(8);
 tree.insert(20);
 
-console.log(tree.BFS()); // [10, 6, 15, 3, 8, 20]
+console.log(tree.BFS(tree.root)); // [10, 6, 15, 3, 8, 20]
 console.log(tree.DFSPreOrder(tree.root)); // [10, 6, 3, 8, 15, 20]
 console.log(tree.DFSPostOrder(tree.root)); // [3, 8, 6, 20, 15, 10]
 console.log(tree.DFSInOrder(tree.root)); // [3, 6, 8, 10, 15, 20]
