@@ -27,7 +27,7 @@
 
 - DFS is a traversal algorithm that explores as far as possible along each branch before backtracking.
 
-#### Inorder Traversal --> Ascending
+#### Inorder Traversal --> Ascending --> Left, Root, Right
 
 - Easier recursively.
   - Traverse the left subtree.

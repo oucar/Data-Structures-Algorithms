@@ -132,50 +132,32 @@ class BinarySearchTree {
 
   // DFS - PreOrder
   // Preorder Traversal --> Root, Left, Right
-  DFSPreOrder() {
-    var data = [];
-    var current = this.root;
+  DFSPreOrder(root) {
+    if (root === null) return [];
 
-    function traverse(node) {
-      data.push(node.value);
-      if (node.left) traverse(node.left);
-      if (node.right) traverse(node.right);
-    }
-
-    traverse(current);
-    return data;
+    const leftValues = this.DFSPreOrder(root.left);
+    const rightValues = this.DFSPreOrder(root.right);
+    return [root.value, ...leftValues, ...rightValues];
   }
 
   // DFS - PostOrder
   // Postorder Traversal --> Left, Right, Root
-  DFSPostOrder() {
-    var data = [];
-    var current = this.root;
+  DFSPostOrder(root) {
+    if (root === null) return [];
 
-    function traverse(node) {
-      if (node.left) traverse(node.left);
-      if (node.right) traverse(node.right);
-      data.push(node.value);
-    }
-
-    traverse(current);
-    return data;
+    const leftValues = this.DFSPostOrder(root.left);
+    const rightValues = this.DFSPostOrder(root.right);
+    return [...leftValues, ...rightValues, root.value];
   }
 
   // DFS - InOrder
   // Inorder Traversal --> Left, Root, Right
-  DFSInOrder() {
-    var data = [];
-    var current = this.root;
+  DFSInOrder(root) {
+    if (root === null) return [];
 
-    function traverse(node) {
-      if (node.left) traverse(node.left);
-      data.push(node.value);
-      if (node.right) traverse(node.right);
-    }
-
-    traverse(current);
-    return data;
+    const leftValues = this.DFSInOrder(root.left);
+    const rightValues = this.DFSInOrder(root.right);
+    return [...leftValues, root.value, ...rightValues];
   }
 }
 
@@ -191,9 +173,9 @@ tree.insert(8);
 tree.insert(20);
 
 console.log(tree.BFS()); // [10, 6, 15, 3, 8, 20]
-console.log(tree.DFSPreOrder()); // [10, 6, 3, 8, 15, 20]
-console.log(tree.DFSPostOrder()); // [3, 8, 6, 20, 15, 10]
-console.log(tree.DFSInOrder()); // [3, 6, 8, 10, 15, 20]
+console.log(tree.DFSPreOrder(tree.root)); // [10, 6, 3, 8, 15, 20]
+console.log(tree.DFSPostOrder(tree.root)); // [3, 8, 6, 20, 15, 10]
+console.log(tree.DFSInOrder(tree.root)); // [3, 6, 8, 10, 15, 20]
 
 tree.remove(15);
-console.log(tree.DFSInOrder()); // [3, 6, 8, 10, 20]
+console.log(tree.DFSInOrder(tree.root)); // [3, 6, 8, 10, 20]
