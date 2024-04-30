@@ -15,12 +15,15 @@ class MaxBinaryHeap {
     let idx = this.values.length - 1;
     const element = this.values[idx];
 
+    // Bigger element is moved to the top
     while (idx > 0) {
       let parentIdx = Math.floor((idx - 1) / 2);
       let parent = this.values[parentIdx];
 
-      if (element <= parent) break; // Stop when the element is in its correct position
-      // Swap the element with its parent
+      // if parent is greater than the element, stop
+      if (element <= parent) break;
+
+      //otherwise swap the element with its parent
       this.values[parentIdx] = element;
       this.values[idx] = parent;
 
@@ -43,32 +46,35 @@ class MaxBinaryHeap {
   sinkDown() {
     let idx = 0;
     const length = this.values.length;
-    const element = this.values[0];
+    const extractedElement = this.values[0];
+
     while (true) {
       let leftChildIdx = 2 * idx + 1;
       let rightChildIdx = 2 * idx + 2;
-      let leftChild, rightChild;
       let swap = null;
 
-      if (leftChildIdx < length) {
-        leftChild = this.values[leftChildIdx];
-        if (leftChild > element) {
-          swap = leftChildIdx;
-        }
+      // Find the index of the child with the greater value
+      if (
+        leftChildIdx < length &&
+        this.values[leftChildIdx] > extractedElement
+      ) {
+        swap = leftChildIdx;
       }
-      if (rightChildIdx < length) {
-        rightChild = this.values[rightChildIdx];
-        if (
-          (swap === null && rightChild > element) ||
-          (swap !== null && rightChild > leftChild)
-        ) {
-          swap = rightChildIdx;
-        }
+      if (
+        rightChildIdx < length &&
+        (swap === null || this.values[rightChildIdx] > this.values[swap])
+      ) {
+        swap = rightChildIdx;
       }
-      if (swap === null) break; // Stop when the element is in its correct position
-      // Swap the element with its child
-      this.values[idx] = this.values[swap];
-      this.values[swap] = element;
+
+      // If no swap needed, stop
+      if (swap === null) break;
+
+      // Swap the element with its greater child
+      [this.values[idx], this.values[swap]] = [
+        this.values[swap],
+        extractedElement,
+      ];
       idx = swap;
     }
   }
@@ -76,10 +82,14 @@ class MaxBinaryHeap {
 
 // Example usage:
 let heap = new MaxBinaryHeap();
-heap.insert(41);
-heap.insert(39);
-heap.insert(33);
-heap.insert(18);
-heap.insert(27);
-heap.insert(12);
-heap.insert(55);
+console.log("Inserting elements:");
+[41, 39, 33, 18, 27, 12, 55].forEach((element) => {
+  heap.insert(element);
+  console.log(`Inserted ${element}, Heap:`, heap.values);
+});
+
+console.log("\nExtracting maximum element:");
+while (heap.values.length > 0) {
+  const max = heap.extractMax();
+  console.log(`Extracted ${max}, Heap:`, heap.values);
+}

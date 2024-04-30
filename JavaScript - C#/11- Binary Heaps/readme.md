@@ -1,7 +1,8 @@
 ### Binary Heap
 
 - Very similar to a binary search tree, but with some different rules!
-- In a MaxBinaryHeap, parent nodes are always larger than child nodes. In a MinBinaryHeap, parent nodes are always smaller than child nodes
+- In a MaxBinaryHeap, parent nodes are always larger than child nodes. In a MinBinaryHeap, parent nodes are always smaller than child nodes.
+- Should be a complete binary tree. (All levels are filled except possibly the last level, which is filled from left to right)
 
 #### Max Binary Heap
 
@@ -31,7 +32,7 @@
   - For any child node at index n...
     - Its parent is at index (n-1)/2 floored
 
-#### Priority Queue
+#### Priority Queue (is an ADT)
 
 - A data structure where each element has a priority. Elements with higher priorities are served before elements with lower priorities
 - In a binary heap, the root is the highest priority element
