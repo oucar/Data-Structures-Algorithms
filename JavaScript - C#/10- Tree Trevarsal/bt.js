@@ -41,49 +41,6 @@ class BinarySearchTree {
     }
   }
 
-  remove(value) {
-    const removeNode = (node, value) => {
-      if (node === null) {
-        return null;
-      }
-
-      if (value < node.value) {
-        node.left = removeNode(node.left, value);
-        return node;
-      } else if (value > node.value) {
-        node.right = removeNode(node.right, value);
-        return node;
-      } else {
-        // If the node has no children
-        if (node.left === null && node.right === null) {
-          return null;
-        }
-
-        // If the node has no left child
-        if (node.left === null) {
-          return node.right;
-        }
-
-        // If the node has no right child
-        if (node.right === null) {
-          return node.left;
-        }
-
-        // If the node has both left and right children
-        let tempNode = node.right;
-        while (tempNode.left !== null) {
-          tempNode = tempNode.left;
-        }
-
-        node.value = tempNode.value;
-        node.right = removeNode(node.right, tempNode.value);
-        return node;
-      }
-    };
-
-    this.root = removeNode(this.root, value);
-  }
-
   find(value) {
     // if there is no root, return false
     if (this.root === null) return false;
@@ -150,7 +107,6 @@ class BinarySearchTree {
       values.push(node.value);
 
       if (node.left !== null) queue.push(node.left);
-
       if (node.right !== null) queue.push(node.right);
     }
 
@@ -200,7 +156,13 @@ class BinarySearchTree {
   MaxRootToLeafSum(root) {
     if (root === null) return -Infinity;
     if (root.left === null && root.right === null) return root.value;
-    return root.value + Math.max(this.MaxRootToLeafSum(root.left), this.MaxRootToLeafSum(root.right));
+    return (
+      root.value +
+      Math.max(
+        this.MaxRootToLeafSum(root.left),
+        this.MaxRootToLeafSum(root.right)
+      )
+    );
   }
 }
 //       10
@@ -214,40 +176,38 @@ tree.insert(3);
 tree.insert(8);
 tree.insert(20);
 
-console.log(tree.BFS(tree.root)); // [10, 6, 15, 3, 8, 20]
-console.log(tree.DFSPreOrder(tree.root)); // [10, 6, 3, 8, 15, 20]
-console.log(tree.DFSPostOrder(tree.root)); // [3, 8, 6, 20, 15, 10]
-console.log(tree.DFSInOrder(tree.root)); // [3, 6, 8, 10, 15, 20]
+// Testing breadth-first search (BFS)
+console.log(tree.BFS(tree.root)); // Output: [10, 6, 15, 3, 8, 20] - Visits nodes level by level
 
-console.log("Is 15 in the tree: " + tree.TreeIncludes(tree.root, 15)); // true
-console.log(tree.TreeSum(tree.root)); // 62
-tree.remove(15);
+// Testing depth-first search pre-order (DFSPreOrder)
+console.log(tree.DFSPreOrder(tree.root)); // Output: [10, 6, 3, 8, 15, 20] - Visits root, left, right
 
-console.log(tree.DFSInOrder(tree.root)); // [3, 6, 8, 10, 20]
-console.log("Is 15 in the tree: " + tree.TreeIncludes(tree.root, 15)); // false
-console.log(tree.TreeSum(tree.root)); // 47
+// Testing depth-first search post-order (DFSPostOrder)
+console.log(tree.DFSPostOrder(tree.root)); // Output: [3, 8, 6, 20, 15, 10] - Visits left, right, root
 
-// Tests for MaxRootToLeafSum
-console.log("Max root to leaf sum:", tree.MaxRootToLeafSum(tree.root)); // Output: 30 (from root 10 -> right 20)
+// Testing depth-first search in-order (DFSInOrder)
+console.log(tree.DFSInOrder(tree.root)); // Output: [3, 6, 8, 10, 15, 20] - Visits left, root, right
 
-// Tests for TreeMinValue
+// Testing TreeIncludes method
+console.log("Is 15 in the tree: " + tree.TreeIncludes(tree.root, 15)); // Output: true
+
+// Testing TreeSum method
+console.log(tree.TreeSum(tree.root)); // Output: 62 - Sums all values in the tree
+
+// Additional Tests for MaxRootToLeafSum
+console.log("Max root to leaf sum:", tree.MaxRootToLeafSum(tree.root)); // Output: 45 (from root 10 -> right 15 -> right 20)
+
+// Additional Tests for TreeMinValue
 console.log("Minimum value in the tree:", tree.TreeMinValue(tree.root)); // Output: 3 (smallest value in the tree)
 
-// Remove the node with value 10 and test again
-tree.remove(10);
-console.log("After removing 10:");
-console.log(tree.BFS(tree.root));
-console.log("Max root to leaf sum:", tree.MaxRootToLeafSum(tree.root)); // Output: 23 (from root 6 -> left 3)
-console.log("Minimum value in the tree:", tree.TreeMinValue(tree.root)); // Output: 3 (smallest value in the tree, unchanged)
-
-// Add a new node with value 1 and test again
+// Adding a new node with value 1 and testing again
 tree.insert(1);
 console.log("After adding 1:");
-console.log("Max root to leaf sum:", tree.MaxRootToLeafSum(tree.root)); // Output: 24 (from root 6 -> left 3 -> left 1)
+console.log("Max root to leaf sum:", tree.MaxRootToLeafSum(tree.root)); // Output: 45 (from root 10 -> right 15 -> right 20)
 console.log("Minimum value in the tree:", tree.TreeMinValue(tree.root)); // Output: 1 (smallest value in the tree, updated)
 
-// Add another node with value 25 and test again
+// Adding another node with value 25 and testing again
 tree.insert(25);
 console.log("After adding 25:");
-console.log("Max root to leaf sum:", tree.MaxRootToLeafSum(tree.root)); // Output: 35 (from root 6 -> right 8 -> right 25)
+console.log("Max root to leaf sum:", tree.MaxRootToLeafSum(tree.root)); // Output: 70 (from root 10 -> right 15 -> right 20 -> right 25)
 console.log("Minimum value in the tree:", tree.TreeMinValue(tree.root)); // Output: 1 (smallest value in the tree, unchanged)
