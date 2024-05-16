@@ -4,21 +4,20 @@
 // O(N)
 function maxSubarraySum(arr, num) {
   let maxSum = -Infinity;
-  let tempSum = 0;
+  let currSum = 0;
+  let start = 0;
 
   if (arr.length < num) return null;
 
-  for (let i = 0; i < arr.length; i++) {
-    // add the first numbers
-    tempSum += arr[i];
+  for (let end = 0; end < arr.length; end++) {
+     // Add current element to the current sum
+    currSum += arr[end];
 
-    // if num is 3, you have 3 elements in the list.
-    if (i >= num - 1) {
-      maxSum = Math.max(tempSum, maxSum);
-      // slide the window! (substract 4, add 7, etc.)
-      // substract the furthest left value.
-      // 2 - (3-1) for the first window
-      tempSum -= arr[i - (num - 1)];
+    // If we have hit the window size
+    if (end - start + 1 === num) {
+      maxSum = Math.max(maxSum, currSum); 
+      currSum -= arr[start];
+      start++;
     }
   }
 
