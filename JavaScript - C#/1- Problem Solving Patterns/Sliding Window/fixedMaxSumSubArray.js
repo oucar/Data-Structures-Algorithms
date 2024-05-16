@@ -1,23 +1,22 @@
-// Find the max sum subarray of a fixed size k. This time the window size is fixed.
+// Function to find the maximum sum of a subarray with a fixed size `k` in a given array.
 // Sliding window pattern with a fixed window size.
 
 function maxSumSubArray(arr, k) {
-  let max = Number.NEGATIVE_INFINITY;
-  let sum = 0;
+  let maxSum = Number.NEGATIVE_INFINITY;
+  let currSum = 0;
+  let start = 0;
 
-  if (k > arr.length) return null;
+  for (let end = 0; end < arr.length; end++) {
+    currSum += arr[end];
 
-  for (let i = 0; i < arr.length; i++) {
-    sum += arr[i];
-
-    // if k is 3, k-1 is 2 meaning that window covers 2 elements
-    if (i >= k - 1) {
-      max = Math.max(max, sum);
-      sum -= arr[i - (k - 1)];
+    if (end >= k - 1) {
+      maxSum = Math.max(maxSum, currSum);
+      currSum -= arr[start];
+      start++;
     }
   }
 
-  return max;
+  return maxSum === Number.NEGATIVE_INFINITY ? null : maxSum;
 }
 
 console.log(maxSumSubArray([1, 2, 3, 4, 5, 6, 7, 8], 3)); // 21
