@@ -1,9 +1,7 @@
 // You are given an integer array nums consisting of n elements, and an integer k.
 
-// Find a contiguous subarray whose length is equal to k that has the maximum average value and return this value. 
+// Find a contiguous subarray whose length is equal to k that has the maximum average value and return this value.
 // Any answer with a calculation error less than 10-5 will be accepted.
-
- 
 
 // Example 1:
 
@@ -14,7 +12,6 @@
 
 // Input: nums = [5], k = 1
 // Output: 5.00000
- 
 
 // Constraints:
 
@@ -28,19 +25,25 @@
  * @return {number}
  */
 var findMaxAverage = function (nums, k) {
-    let maxAverage = Number.NEGATIVE_INFINITY;
-    let currSum = 0;
+  let maxAverage = -Infinity;
+  let currSum = 0;
+  let start = 0;
 
-    for (let i = 0; i < nums.length; i++) {
-        currSum += nums[i];
+  if (nums.length < k) return null;
 
-        if (i >= k - 1) {
-            maxAverage = Math.max(maxAverage, currSum / k);
-            currSum -= nums[i - (k - 1)];
-        }
+  for (let end = 0; end < nums.length; end++) {
+    // Add current element to the current sum
+    currSum += nums[end];
+
+    // If we have hit the window size
+    if (end - start + 1 === k) {
+      maxAverage = Math.max(maxAverage, currSum / k); // Update maxAverage if current average is greater
+      currSum -= nums[start]; // Subtract the element going out of the window
+      start++; // Slide the window to the right
     }
+  }
 
-    return maxAverage;
+  return maxAverage;
 };
 
 console.log(findMaxAverage([1, 12, -5, -6, 50, 3], 4)); // 12.75
