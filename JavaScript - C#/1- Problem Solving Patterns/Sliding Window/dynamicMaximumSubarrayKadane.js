@@ -18,17 +18,17 @@
 
 // AKA: Kadane's algorithm
 var maxSubArray = function (nums) {
-    let maxSum = nums[0];
-    let currentSum = maxSum;
+  let maxSum = nums[0];
+  let currentSum = maxSum;
 
-    // first one is already in currentSum
-    for (let i = 1; i < nums.length; i++) {
-        // which one is bigger - currentSum + current element or is current element negative maybe?
-        currentSum = Math.max(nums[i] + currentSum, nums[i]);
-        maxSum = Math.max(currentSum, maxSum);
-    }
+  // first one is already in currentSum
+  for (let i = 1; i < nums.length; i++) {
+    // which one is bigger - currentSum + current element or is current element negative maybe?
+    currentSum = Math.max(nums[i] + currentSum, nums[i]);
+    maxSum = Math.max(currentSum, maxSum);
+  }
 
-    return maxSum;
+  return maxSum;
 };
 
 console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])); // 6

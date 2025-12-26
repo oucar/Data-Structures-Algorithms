@@ -1,0 +1,11 @@
+{
+  "name": "data-structures-algorithms",
+  "private": true,
+  "devDependencies": {
+    "prettier": "^3.4.2"
+  },
+  "scripts": {
+    "format": "prettier --write --ignore-unknown .",
+    "format:check": "prettier --check --ignore-unknown ."
+  }
+}

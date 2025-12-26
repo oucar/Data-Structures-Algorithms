@@ -1,9 +1,9 @@
 ### Useful when comparing multiple arrays, strings, etc.
 
-
 ## Frequency Counter Pattern
+
 #### Explanation: [Link](https://www.freecodecamp.org/news/solve-technical-interview-questions-using-frequency-counter/)
-  
+
 > Examples:
 
 :star: Write a function called same, which accepts two arrays. The function should return true if every value in the array has its corresponding value squared in the second array. The fruequency of values must be the same. (same.js)<br>

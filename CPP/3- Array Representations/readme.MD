@@ -1,20 +1,19 @@
-
-
 ## Array
-* Collection of same typed elements.
-* Arrays are **vector** variables.
-* Size of an array can be decided in **runtime** in **C++**, but in **CLANG** it will be decided in **compile time.**
-* Size of an array **CANNOT BE INCREASED.** But, its elements can be copied to a new, larger sized array.
-* Memory for the array is **CONTIGUOUS**. For this reason, its size cannot be increased.
+
+- Collection of same typed elements.
+- Arrays are **vector** variables.
+- Size of an array can be decided in **runtime** in **C++**, but in **CLANG** it will be decided in **compile time.**
+- Size of an array **CANNOT BE INCREASED.** But, its elements can be copied to a new, larger sized array.
+- Memory for the array is **CONTIGUOUS**. For this reason, its size cannot be increased.
+
 ```cpp
 int *A[3]; // array of integer pointers
 ```
 
 ### 2D Array
 
-* Represent matrices.
-* Elements will be stored linearly.
-
+- Represent matrices.
+- Elements will be stored linearly.
 
 ```cpp
 
@@ -24,10 +23,10 @@ int arr[5];     // will be created in stack.
 int n;
 std::cin >> n; //This operation is also allowed in C++
 int A[n];
- ```
-
+```
 
 ---
+
 > Codes
 
 :star: [Declaration - Static, Dynamic](https://github.com/oucar/Data-Structures-Algorithms/blob/master/3-%20Array%20Representations/declaration.cpp)<br>

@@ -4,15 +4,13 @@
 const names = ["Onur", "Sophia", "Linus", "Torvalds"];
 
 const resSome = names.some((item) => {
-    return item.length > 6;
-})
+  return item.length > 6;
+});
 
 console.log(resSome);
 
-
 const everySome = names.every((item) => {
-    return item.length > 5;
-})
+  return item.length > 5;
+});
 
 console.log(everySome);
-

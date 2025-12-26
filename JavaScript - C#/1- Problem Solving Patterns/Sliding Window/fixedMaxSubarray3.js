@@ -10,12 +10,12 @@ function maxSubarraySum(arr, num) {
   if (arr.length < num) return null;
 
   for (let end = 0; end < arr.length; end++) {
-     // Add current element to the current sum
+    // Add current element to the current sum
     currSum += arr[end];
 
     // If we have hit the window size
     if (end - start + 1 === num) {
-      maxSum = Math.max(maxSum, currSum); 
+      maxSum = Math.max(maxSum, currSum);
       currSum -= arr[start];
       start++;
     }

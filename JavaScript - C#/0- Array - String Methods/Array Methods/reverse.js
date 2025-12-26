@@ -9,7 +9,6 @@ console.log(numbers, reversed);
 const reversed2 = [...numbers].reverse();
 console.log(numbers, reversed2);
 
-
-const str = 'onur';
-const res = str.split('').reverse().join('');
+const str = "onur";
+const res = str.split("").reverse().join("");
 console.log(res);

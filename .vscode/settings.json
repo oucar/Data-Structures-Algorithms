@@ -1,4 +1,19 @@
 {
-    "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
-    "compile-hero.disable-compile-files-on-did-save-code": false
+  "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
+  "compile-hero.disable-compile-files-on-did-save-code": false,
+
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

@@ -27,12 +27,12 @@ var lengthOfLongestSubstring = function (s) {
   let seenIndex = {};
 
   for (right; right < s.length; right++) {
-      while (s[right] in seenIndex) {
-          delete seenIndex[s[left]];
-          left++;
-      }
-      seenIndex[s[right]] = 1;
-      result = Math.max(result, right - left + 1);
+    while (s[right] in seenIndex) {
+      delete seenIndex[s[left]];
+      left++;
+    }
+    seenIndex[s[right]] = 1;
+    result = Math.max(result, right - left + 1);
   }
   return result;
 };

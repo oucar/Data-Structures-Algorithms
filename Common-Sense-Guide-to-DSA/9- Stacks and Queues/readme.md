@@ -1,4 +1,3 @@
-
 ### Stacks and Queues
 
 - Simply array with restrictions and these restrictions make them special.

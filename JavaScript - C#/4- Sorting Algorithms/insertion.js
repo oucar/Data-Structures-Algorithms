@@ -1,20 +1,20 @@
 // Builds up the sort by gradually creating a larger left half which is always sorted
 // Bubble, insertion and selection sort are all roughly equal.
 
-function insertionSort(arr){
-	var currentVal;
-    for(var i = 1; i < arr.length; i++){
-        currentVal = arr[i];
-        for(var j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
-            arr[j+1] = arr[j]
-        }
-        arr[j+1] = currentVal;
+function insertionSort(arr) {
+  var currentVal;
+  for (var i = 1; i < arr.length; i++) {
+    currentVal = arr[i];
+    for (var j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
+      arr[j + 1] = arr[j];
     }
+    arr[j + 1] = currentVal;
+  }
 
-    return arr;
+  return arr;
 }
 
-insertionSort([2,1,9,76,4])
+insertionSort([2, 1, 9, 76, 4]);
 
 console.log(insertionSort([37, 45, 29, 8]));
 console.log(
@@ -30,6 +30,6 @@ console.log(
     3156, 1921, 4919, 1784, 3129, 4764, 211, 4206, 4205, 2780, 535, 1191, 3968,
     4307, 3040, 3326, 4695, 1492, 1924, 4382, 3424, 151, 102, 2940, 1451, 1613,
     2052, 2649, 1384, 769, 2689, 701, 2472, 4938, 1478, 2634, 342, 2477, 4725,
-    3349, 1586, 2080, 3613, 2033, 361, 1369, 1341
-  ])
+    3349, 1586, 2080, 3613, 2033, 361, 1369, 1341,
+  ]),
 );

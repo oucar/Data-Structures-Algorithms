@@ -249,5 +249,5 @@ linkedList.reverse();
 linkedList.print("reversing the linked list");
 
 console.log(
-  `Head: ${linkedList.head.val}\nTail: ${linkedList.tail.val}\nLength: ${linkedList.length}`
+  `Head: ${linkedList.head.val}\nTail: ${linkedList.tail.val}\nLength: ${linkedList.length}`,
 );

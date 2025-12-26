@@ -160,7 +160,7 @@ class BinarySearchTree {
       root.value +
       Math.max(
         this.MaxRootToLeafSum(root.left),
-        this.MaxRootToLeafSum(root.right)
+        this.MaxRootToLeafSum(root.right),
       )
     );
   }

@@ -3,11 +3,11 @@ function productOfArray(arr) {
   let result = 1;
 
   function helper(helperInput) {
-    // base case 
+    // base case
     if (helperInput.length === 0) return 1;
 
     result = result * helperInput[0];
-    
+
     // remove the first index OVER HELPER INPUT and not the ARR!!
     helper(helperInput.slice(1));
   }

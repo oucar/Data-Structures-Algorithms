@@ -1,30 +1,25 @@
-function isUnique(str){
+function isUnique(str) {
+  let objCounter = {};
 
-    let objCounter = {};
+  // turn string into an array
+  arr = [...str];
 
-    // turn string into an array
-    arr = [...str];
+  // make everything lowercase
+  arr = arr.map((value) => value.toLowerCase());
 
-    // make everything lowercase
-    arr = arr.map( value => value.toLowerCase());
+  for (let val of arr) objCounter[val] = (objCounter[val] || 0) + 1;
 
-    for(let val of arr)
-        objCounter[val] = (objCounter[val] || 0) +1;
-    
+  for (let key in objCounter) {
+    if (objCounter[key] > 1) return false;
+  }
 
-    for(let key in objCounter){
-        if(objCounter[key] > 1) return false;
-    }
-
-    return true;
-
+  return true;
 }
 
-
-console.log(isUnique("abcdefgh"));              // true
-console.log(isUnique("abcdefghA"));             // false
-console.log(isUnique("onur"));                  // true
-console.log(isUnique("1234"));                  // true
-console.log(isUnique("1234 "));                 // true
-console.log(isUnique(" "));                     // true
-console.log(isUnique("ASDGLKASDg"));            // false
+console.log(isUnique("abcdefgh")); // true
+console.log(isUnique("abcdefghA")); // false
+console.log(isUnique("onur")); // true
+console.log(isUnique("1234")); // true
+console.log(isUnique("1234 ")); // true
+console.log(isUnique(" ")); // true
+console.log(isUnique("ASDGLKASDg")); // false

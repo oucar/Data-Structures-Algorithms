@@ -1,4 +1,3 @@
-
 :star: [Display C](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/displayC.c)<br>
 :star: [Display CPP](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/displayCPP.cpp)<br>
 :star: [Recursive Display](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/recursiveDisplayCPP.cpp)<br>
@@ -30,13 +29,9 @@
 :star: [Doubly Reverse](https://github.com/oucar/Data-Structures-Algorithms/blob/master/8-%20Linked%20List/doublyReverse.cpp)<br>
 
 ---
+
 :star: [Circular Doubly]()<br>
 :star: [Comparison of Linked List]()<br>
 :star: [Comparison of Array with Linked List]()<br>
 :star: [Finding theMiddle Element of a Linked List ~ **Challenge**]()<br>
 :star: [Finding Insersecting Point of Two Linked Lists ~ **Challenge**]()<br>
-
-
-
-
-

@@ -111,7 +111,7 @@ const array5 = [1, 2, 3, 4];
 const initialValue = 0;
 const sumWithInitial = array1.reduce(
   (previousValue, currentValue) => previousValue + currentValue,
-  initialValue
+  initialValue,
 );
 console.log(sumWithInitial);
 // expected output: 10
@@ -120,18 +120,17 @@ console.log(sumWithInitial);
 let initialValue2 = 0;
 let sum = [{ x: 1 }, { x: 2 }, { x: 3 }].reduce(function (
   previousValue,
-  currentValue
+  currentValue,
 ) {
   return previousValue + currentValue.x;
-},
-initialValue2);
+}, initialValue2);
 console.log(sum); // logs 6
 
 // ? example 3, sum all the values of an array
 // 0 is the initial value here
 let total = [0, 1, 2, 3].reduce(
   (previousValue, currentValue) => previousValue + currentValue,
-  0
+  0,
 );
 
 // ! CONCAT

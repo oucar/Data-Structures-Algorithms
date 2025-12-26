@@ -1,0 +1,4 @@
+# Ignore common noise
+**/node_modules/**
+**/dist/**
+**/build/**

@@ -1,11 +1,13 @@
 ### Recursive Algorithms for Speed
+
 - Bubble sort, selection sort and insertion sort are not heavily used in real life as they're not efficient enough.
 - Quicksort is the sorting algorithm that many programming languages use to sort an array. Quicksort uses partioning.
+
 ---
+
 - **Partioning**: To partition an array is to take a random value from the array - which is then called the pivot - and make sure that every number that is less than the pivot ends up to the left of the pivot, and that every number greater than the pivot ends up to the right of the pivot.
 
-
-- **Quick Sort**: is a combination of partitioning. and recursion. 
+- **Quick Sort**: is a combination of partitioning. and recursion.
 - The worst case scneario for Quicksort is one in which the pivot always ends up on one side of the subarray instead of in the middle. This can happen where the array is in perfect ascending or descending order.
 
 ```
