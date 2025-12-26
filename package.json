@@ -5,7 +5,11 @@
     "prettier": "^3.4.2"
   },
   "scripts": {
-    "format": "prettier --write --ignore-unknown .",
-    "format:check": "prettier --check --ignore-unknown ."
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",
+    "format:py": "python -m isort . && python -m black .",
+    "format:check:py": "python -m isort --check-only . && python -m black --check .",
+    "format:all": "npm run format && npm run format:py",
+    "format:check:all": "npm run format:check && npm run format:check:py"
   }
 }
